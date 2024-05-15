@@ -4,6 +4,7 @@ import './Navbar.css'
 import logo from '../assets/logo/logo.png'
 import { Button } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
 
     const [menu, setMenu] = useState("shop");
@@ -11,21 +12,27 @@ const Navbar = () => {
     return (
         <div className='navbar'>
             <div className='nav-logo'>
-                <img className='imgLogo' src={logo} alt="logo" />
+                <Link>
+                     <img className='imgLogo' src={logo} alt="logo" />
+                </Link>
                 <p>Motocycle</p>
             </div>
             <ul className="nav-menu">
-                <li onClick={() => {setMenu("shop")}}>Shop{menu==="shop"?<hr/>:<></>}</li>
-                <li onClick={() => {setMenu("sport")}}>Super Sport{menu==="sport"?<hr/>:<></>}</li>
-                <li onClick={() => {setMenu("naked")}}>Naked Bike{menu==="naked"?<hr/>:<></>}</li>
-                <li onClick={() => {setMenu("adventure")}}>Adventure{menu==="adventure"?<hr/>:<></>}</li>
-                <li onClick={() => {setMenu("classic")}}>Classic / Cafe Racer{menu==="classic"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu("shop")}}><Link style={{textDecoration: 'none'}} to='/'>Shop</Link>{menu==="shop"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu("sport")}}><Link style={{textDecoration: 'none'}} to='/sport-bike'>Sport Bike</Link>{menu==="sport"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu("naked")}}><Link style={{textDecoration: 'none'}} to='/naked-bike'>Naked Bike</Link>{menu==="naked"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu("adventure")}}><Link style={{textDecoration: 'none'}} to='/adventure'>Adventure</Link>{menu==="adventure"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu("classic")}}><Link style={{textDecoration: 'none'}} to='/classic'>Classic</Link>{menu==="classic"?<hr/>:<></>}</li>
             </ul>
             <div className="nav-login-cart">
+                <Link style={{textDecoration: 'none'}} to='/login'>
                 <Button type="primary">
                     Login
                 </Button>
-                <ShoppingCartOutlined style={{fontSize: '36px'}}/>
+                </Link>
+                <Link to='/cart'>
+                    <ShoppingCartOutlined style={{fontSize: '36px', color: 'black'}}/>
+                </Link>
                 <div className="nav-cart-count">
                     0
                 </div>
