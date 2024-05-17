@@ -8,8 +8,6 @@
     cursor: pointer;
 }
 .item_description{
-    display: block;
-    position: relative;
     width: auto;
     height: auto;
     padding: 18px;
