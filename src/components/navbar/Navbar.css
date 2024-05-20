@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
 }
 .imgLogo{
     width: 148px;
@@ -27,13 +28,14 @@
     font-size: 20px;
     font-weight: 500;
 }
-.nav-menu li{
+.nav-select-menu{
+    text-decoration: none;
+    font-size: 24px;
+    border: none;
+    font-weight: 600;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 3px;
-    cursor: pointer;
+    animation: 0.3s
 }
 .nav-menu hr{
     border: none;
