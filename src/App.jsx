@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/navbar/Navbarr'
 import { BrowserRouter, Routes, Route,   } from 'react-router-dom'
 import Shop from './pages/Shop'
+import Motor from './pages/Motor'
 import SportBike from './pages/SportBike'
 import NakedBike from './pages/NakedBike'
 import Adventure from './pages/AdventureBike'
@@ -24,10 +25,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Shop/>} />
-          <Route path='/sport-bike' element={< SportBike/>} />
-          <Route path='/naked-bike' element={< NakedBike/>} />
-          <Route path='/adventure' element={< Adventure/>} />
-          <Route path='/classic' element={< Classic/>} />
+          <Route path='/motor' element={< Motor/>} />
+          <Route path='/sport-bike' element={< Motor category="sport-bike"/> } />
+          <Route path='/naked-bike' element={< Motor category="naked-bike"/>} />
+          <Route path='/adventure' element={< Motor category="adventure"/>} />
+          <Route path='/classic' element={< Motor category="classic"/>} />
           <Route path='/contact' element={< Contact/>} />
           <Route path='product' element={<Product/>} >
              <Route path=':productId' element={<Product/>} />

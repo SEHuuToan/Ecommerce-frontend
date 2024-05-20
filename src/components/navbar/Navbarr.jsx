@@ -1,61 +1,70 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
 import { Button } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { ShoppingCartOutlined, CaretDownOutlined } from '@ant-design/icons';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
 
 
 const  items = [
     {
-        key: 'shop',
+        key: '/',
         label: (
-           <a> <Link style={{textDecoration: 'none'}} to='/'>Shop</Link></a>
+           <a style={{textDecoration: 'none'}} href='/'>Shop</a>
         )
     },
     {
-        label: 'Motor',
+        label: <a style={{textDecoration: 'none',}} href='/motor'>Motor</a>,
         key: 'motor',
         children: [
             {
-                label:  <a> <Link style={{textDecoration: 'none', fontWeight: 600}} to='/sport-bike'>Sport Bike</Link></a>,
+                label:  <a style={{textDecoration: 'none', fontWeight: 600}} href='/sport-bike'>Sport Bike</a>,
                 key: 'sportbike'
             },
             {
-                label: <a> <Link style={{textDecoration: 'none', fontWeight: 600}} to='/naked-bike'>Naked Bike</Link></a>,
+                label: <a style={{textDecoration: 'none', fontWeight: 600}} href='/naked-bike'>Naked Bike</a>,
                 key: 'nakedbike'
             },
             {
-                label: <a> <Link style={{textDecoration: 'none', fontWeight: 600}} to='/adventure'>Adventure</Link></a>,
+                label: <a style={{textDecoration: 'none', fontWeight: 600}} href='/adventure'>Adventure</a>,
                 key: 'adventure'
             },
             {
-                label: <a> <Link style={{textDecoration: 'none', fontWeight: 600}} to='/classic'>Classic</Link></a>,
+                label: <a style={{textDecoration: 'none', fontWeight: 600}} href='/classic'>Classic</a>,
                 key: 'classic'
             },
         ]
     },
     {
-        label: <a> <Link style={{textDecoration: 'none'}} to='/about'>About Us</Link></a>,
+        label: <a style={{textDecoration: 'none'}} href='/about'>About Us</a>,
         key: 'about',
     },
     {
-        label: <a> <Link style={{textDecoration: 'none'}} to='/contact'>Contact</Link></a>,
+        label: <a style={{textDecoration: 'none'}} href='/contact'>Contact</a>,
         key: 'contact',
     },
 
 ]
 
 const Navbar = () => {
+    const location = useLocation();
 
     const [menu, setMenu] = useState("shop");
-
+    
     const onClick = (e) => {
         setMenu(e.key);
       };
-    
+    useEffect(() => {
+        const currentPath = location.pathname;
+        if(currentPath === '/'){
+            setMenu(currentPath);
+            return;
+        }
+        const normalizePath = currentPath.slice(1).split('-').join('')
+        setMenu(normalizePath);
+    }, [])
     return (
         <div className='navbar'>
             <a className='nav-logo' href='/'>
@@ -69,14 +78,14 @@ const Navbar = () => {
                      className='nav-select-menu'
                />
             <div className="nav-login-cart">
-               <Link style={{textDecoration: 'none'}} to='/login'>
+               <a style={{textDecoration: 'none'}} href='/login'>
                <Button type="primary">
                     Login
                </Button>
-               </Link>
-               <Link to='/cart'>
+               </a>
+               <a href='/cart'>
                    <ShoppingCartOutlined style={{fontSize: '36px', color: 'black'}}/>
-               </Link>
+               </a>
                <div className="nav-cart-count">
                    0
                </div>
