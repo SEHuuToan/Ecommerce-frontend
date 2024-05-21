@@ -12,15 +12,15 @@ const InstagramIcon = () => (
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-logo">
+      <a className="footer-logo" href="/">
         <img src={Footer_logo} alt="footer_logo" />
         <p>MOTOCYCLE</p>
-      </div>
+      </a>
       <div className="footer-links">
-        <a href="">Shop</a>
-        <a href="">Motor</a>
-        <a href="">About Us</a>
-        <a href="">Contact</a>
+        <a href="/">Shop</a>
+        <a href="/">Motor</a>
+        <a href="/">About Us</a>
+        <a href="/">Contact</a>
       </div>
       <div className="footer-social-icon">
         <div className="footer-icon-container">

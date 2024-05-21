@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import './css/Motor.css'
+import { ShopContext } from "../context/ShopContext";
 
-const Motor = () => {
+const Motor = (props) => {
+    const {all_product} = useContext(ShopContext)
     return (
-        <div>
-             This is motocycle site
+        <div className="moto-category">
+          <img src={props.banner} alt="" />
         </div>
     );
 }
