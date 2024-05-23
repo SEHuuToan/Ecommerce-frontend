@@ -15,6 +15,7 @@ import Product from './pages/Product'
 import Cart from './pages/Cart'
 import LoginSignup from './pages/LoginSignup'
 import Footer from './components/footer/Footer'
+import banner_motor from './components/assets/banner/motor_banner.png'
 import banner_sport from './components/assets/banner/banner_sportbike.png'
 import banner_naked from './components/assets/banner/banner_nakedbike.png'
 import banner_adventure from './components/assets/banner/banner_adventure.png'
@@ -30,7 +31,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Shop/>} />
-          <Route path='/motor' element={< Motor banner={banner_classic}/>} />
+          <Route path='/motor' element={< Motor banner={banner_motor}/>} />
           <Route path='/sport-bike' element={< Motor banner={banner_sport} category="sport-bike"/> } />
           <Route path='/naked-bike' element={< Motor banner={banner_naked} category="naked-bike"/>} />
           <Route path='/adventure' element={< Motor banner={banner_adventure} category="adventure"/>} />
