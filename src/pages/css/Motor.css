@@ -20,10 +20,12 @@
     font-weight: 600;
 }
 .motorcategory-products {
-    margin: 20px 170px;
     display: grid;
+    justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 80px;
+    grid-gap: 80px;
+    margin: 0 170px;
+    padding: 30px 85px;
 }
 .motor-category-loadmore{
     display: flex;

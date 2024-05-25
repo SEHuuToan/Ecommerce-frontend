@@ -9,10 +9,13 @@
 }
 .popular-item{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 60%;
     margin-top: 50px;
     gap: 30px;
+    padding: 30px 0 30px 0;
 }
 .popular h1{
     counter-reset: #171717;

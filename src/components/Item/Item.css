@@ -7,12 +7,19 @@
     box-shadow: 1px 1px 5px #979595;
     cursor: pointer;
 }
+.item-link{
+    text-decoration: none;
+    color: inherit;
+}
+.item-link img{
+    max-width: 400px;
+    max-height: 380px;
+}
 .item_description{
     width: auto;
     height: auto;
     padding: 18px;
 }
-
 
 .item p{
     margin: 6px 0px;
@@ -41,11 +48,10 @@
     font-size: 30px;
     font-weight: 600;
 }
-.item img{
+.item-img{
     flex: 1;
     display: flex;
     align-items: center;
-    width: auto;
 }
 .item:hover{
     transform: scale(1.05);

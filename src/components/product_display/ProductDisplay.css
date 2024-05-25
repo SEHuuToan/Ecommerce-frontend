@@ -1,0 +1,36 @@
+.product-display{
+
+}
+
+.product-display-left{
+
+}
+
+.product-display-right{
+
+}
+
+.product-display-img{
+
+}
+
+.product-display-main-img{
+    width: 400px;
+}
+
+.product-display-img-list{
+  
+}
+.product-display-img-list img{
+    width: 400px;
+}
+
+
+
+
+
+.product-display-right-price{
+    color: #FED251;
+    font-size: 30px;
+    font-weight: 600;
+}
