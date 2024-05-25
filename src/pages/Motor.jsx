@@ -5,6 +5,8 @@ import Item from '../components/Item/Item'
 
 const Motor = (props) => {
   const { all_product } = useContext(ShopContext)
+
+  const fillterProducts = props.category === 'motor' ? all_product : all_product.filter(item => item.category === props.category);
   return (
     <div className="moto-category">
       <img className="motocategory-banner" src={props.banner} alt="motor_banner" />
@@ -17,7 +19,19 @@ const Motor = (props) => {
         </div>
       </div>
       <div className="motorcategory-products">
-        {all_product.map((item, i) => {
+        {fillterProducts.map((item, i) => (
+          <Item
+            key={i}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            odo={item.odo}
+            color={item.color}
+            model={item.model}
+            price={item.price}
+          />
+        ))}
+        {/* {all_product.map((item, i) => {
           if (props.category === item.category) {
             return <Item key={i}
                         id={item.id}
@@ -32,7 +46,7 @@ const Motor = (props) => {
           else{
             return null;
           }
-        })}
+        })} */}
       </div>
       <div className="motor-category-loadmore">
         Explore More
