@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './ProductDisplay.css'
-import { Image } from "antd";
+import { Image, Button } from "antd";
+import { RightOutlined, LeftOutlined } from '@ant-design/icons'
 
 const getCategoryDisplayName = (category) => {
     switch (category) {
@@ -24,22 +25,32 @@ const ProductDisplay = (props) => {
     const imageList = getImage(product.image)
     const displayName = getCategoryDisplayName(product.category);
     const [currentImage, setCurrentImage] = useState(imageList[0]);
+    const [startIndex, setStartIndex] = useState(0);
+    const onClickRight = () => {
+        if (startIndex + 4 < imageList.length) {
+            setStartIndex(startIndex + 1);
+        }
+    }
+    const onClickLeft = () => {
+        if (startIndex > 0) {
+            setStartIndex(startIndex - 1);
+        }
+    }
     return (
         <>
         <div className="product-display">
             <div className="product-display-left">
                 <div className="product-display-img-list">
-                    {imageList.map((image, index) => (
-                        <Image key={index} width={160} src={image} alt="img_list" 
-                        onClick={() => setCurrentImage(image)}
-                        />
-                    ))}
-                  
-             
-                
+                    <Button onClick={onClickLeft} type="text" icon={<LeftOutlined style={{ fontSize: '29px' }}/>} style={{ height: '89px' }}></Button>
+                        {imageList.slice(startIndex, startIndex + 4).map((image, index) => (
+                            <Image key={index} width={180} height={120} src={image} alt="img_list" 
+                            onClick={() => setCurrentImage(image)}
+                            />
+                        ))}
+                    <Button onClick={onClickRight} type="text" icon={<RightOutlined style={{ fontSize: '29px' }}/>} style={{ height: '89px' }}></Button>
                 </div>
                 <div className="product-display-img">
-                    <Image width={600} className="product-display-main-img" src={currentImage} alt="" />
+                    <Image  width={550} height={450} className="product-display-main-img" src={currentImage} alt="" />
                 </div>
             </div>
             <div className="product-display-right">
@@ -75,7 +86,7 @@ const ProductDisplay = (props) => {
                 </div>
             </div>
         </div>
-        <div className="contact-buy">Contact: 0377504378 FOR MORE INFORMATION OR BUY THIS MOTOCYCLE</div>
+        {/* <div className="contact-buy">Contact: 0377504378 FOR MORE INFORMATION OR BUY THIS MOTOCYCLE</div> */}
    </>
     );
 }

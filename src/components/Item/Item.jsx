@@ -5,7 +5,7 @@ const Item = (props) => {
     return(
         <Link to={`/product/${props.id}`} className="item-link">
             <div className="item" >
-                <img className="item-img" src={props.image} alt="motocycle_image" />
+                <img className="item-img" src={props.image[0]} alt="motocycle_image" />
                 <div className="item_description">
                     <div className="item_name">{props.name}</div>
                     <p>Odo: {props.odo} Km</p>

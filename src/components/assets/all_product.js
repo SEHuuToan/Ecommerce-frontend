@@ -8,6 +8,10 @@ import sport_07 from './sportbike/sport_07.jpg'
 import sport_08 from './sportbike/sport_08.jpg'
 import sport_09 from './sportbike/sport_09.jpg'
 import sport_10 from './sportbike/sport_10.jpg'
+import sport_11 from './sportbike/sport_11.jpg'
+import sport_12 from './sportbike/sport_12.jpg'
+import sport_13 from './sportbike/sport_13.jpg'
+import sport_14 from './sportbike/sport_14.jpg'
 // 
 import naked_01 from './nakedbike/naked_01.jpg'
 import naked_02 from './nakedbike/naked_02.jpg'
@@ -60,7 +64,7 @@ let all_product = [
         description: "alo",
         category: "sport-bike",
         image: [
-          sport_01, sport_02, sport_03, sport_04
+          sport_01, sport_02, sport_03, sport_11, sport_12, sport_13, sport_14
         ],
         price: 16990.0,
       },
@@ -75,7 +79,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_02,
+        image: [
+          sport_02, sport_03, sport_04, sport_05
+        ],
         price: 22590.0,
       },
       {
@@ -89,7 +95,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_03,
+        image: [
+          sport_03, sport_04, sport_05, sport_06
+        ],
         price: 2099.0,
       },
       {
@@ -103,7 +111,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_04,
+        image: [
+          sport_04, sport_05, sport_06, sport_07
+        ],
         price: 13690.0,
       },
       {
@@ -117,7 +127,9 @@ let all_product = [
         option: "Akramovic exhaust",
         description: "alo",
         category: "sport-bike",
-        image: sport_05,
+        image: [
+          sport_05, sport_06, sport_07, sport_08
+        ],
         price: 21900.0,
       },
       {
@@ -131,7 +143,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_06,
+        image: [
+          sport_06, sport_07, sport_08, sport_09
+        ],
         price: 7990.0,
       },
       {
@@ -145,7 +159,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_07,
+        image: [
+          sport_07, sport_08, sport_09, sport_10
+        ],
         price: 21990.0,
       },
       {
@@ -159,7 +175,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_08,
+        image: [
+          sport_08, sport_09, sport_10, sport_01
+        ],
         price: 9990.0,
       },
       {
@@ -173,7 +191,9 @@ let all_product = [
         option: "Akrapovic exhaust",
         description: "alo",
         category: "sport-bike",
-        image: sport_09,
+        image: [
+          sport_09, sport_10, sport_01, sport_02
+        ],
         price: 24599.0,
       },
       {
@@ -187,7 +207,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_10,
+        image: [
+          sport_10, sport_01, sport_02, sport_03
+        ],
         price: 14990.0,
       },
       {
@@ -201,7 +223,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_01,
+        image: [
+          naked_01, naked_02, naked_03, naked_04
+        ],
         price: 14800.0,
       },
       {
@@ -215,7 +239,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_02,
+        image: [
+          naked_02, naked_03, naked_04, naked_05
+        ],
         price: 12990.0,
       },
       {
@@ -229,7 +255,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_03,
+        image: [
+          naked_03, naked_04, naked_05, naked_06
+        ],
         price: 11800.0,
       },
       {
@@ -243,7 +271,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_04,
+        image: [
+          naked_04, naked_05, naked_06, naked_07
+        ],
         price: 8490.0,
       },
       {
@@ -257,7 +287,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_05,
+        image: [
+          naked_05, naked_06, naked_07, naked_08
+        ],
         price: 20300.0,
       },
       {
@@ -271,7 +303,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_06,
+        image: [
+          naked_06, naked_07, naked_08, naked_09
+        ],
         price: 15000.0,
       },
       {
@@ -285,7 +319,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_07,
+        image: [
+          naked_07, naked_08, naked_09, naked_10
+        ],
         price: 6990.0,
       },
       {
@@ -299,7 +335,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_08,
+        image: [
+          naked_08, naked_09, naked_10, naked_01
+        ],
         price: 31900.0,
       },
       {
@@ -313,7 +351,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_09,
+        image: [
+          naked_09, naked_10, naked_01, naked_02
+        ],
         price: 32900.0,
       },
       {
@@ -327,7 +367,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: naked_10,
+        image: [
+          naked_10, naked_01, naked_02, naked_03
+        ],
         price: 22900.0,
       },
       {
@@ -341,7 +383,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_01,
+        image: [
+          adv_01, adv_02
+        ],
         price: 17900.0,
       },
       {
@@ -355,7 +399,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_02,
+        image: [
+          adv_02, adv_02
+        ],
         price: 19900.0,
       },
       {
@@ -369,7 +415,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_03,
+        image: [
+          adv_03, adv_03
+        ],
         price: 13000.0,
       },
       {
@@ -383,7 +431,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_04,
+        image: [
+          adv_04
+        ],
         price: 25000.0,
       },
       {
@@ -397,7 +447,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_05,
+        image: [
+          adv_05
+        ],
         price: 6299.0,
       },
       {
@@ -411,7 +463,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_06,
+        image: [
+          adv_06
+        ],
         price: 24900.0,
       },
       {
@@ -425,7 +479,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_07,
+        image: [
+          adv_07
+        ],
         price: 10990.0,
       },
       {
@@ -439,7 +495,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_08,
+        image: [
+          adv_08
+        ],
         price: 10700.0,
       },
       {
@@ -453,7 +511,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_09,
+        image: [
+          adv_09
+        ],
         price: 7690.0,
       },
       {
@@ -467,7 +527,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_10,
+        image: [
+          adv_10
+        ],
         price: 4390.0,
       },
       {
@@ -481,7 +543,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: scooter_01,
+        image: [
+          scooter_01
+        ],
         price: 7600.0,
       },
       {
@@ -495,7 +559,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: scooter_02,
+        image: [
+          scooter_02
+        ],
         price: 6990.0,
       },
       {
@@ -509,7 +575,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: scooter_03,
+        image: [
+          scooter_03
+        ],
         price: 4990.0,
       },
       {
@@ -523,7 +591,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: scooter_04,
+        image: [
+          scooter_04
+        ],
         price: 5500.0,
       },
       {
@@ -537,7 +607,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: scooter_05,
+        image: [
+          scooter_05
+        ],
         price: 11000.0,
       },
       {
@@ -551,7 +623,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: scooter_06,
+        image: [
+          scooter_06
+        ],
         price: 4190.0,
       },
       {
@@ -565,7 +639,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "naked-bike",
-        image: scooter_07,
+        image: [
+          scooter_07
+        ],
         price: 12990.0,
       },
       {
@@ -579,7 +655,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "classic",
-        image: classic_01,
+        image: [
+          classic_01
+        ],
         price: 17990.0,
       },
       {
@@ -593,7 +671,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "classic",
-        image: classic_02,
+        image: [
+          classic_02
+        ],
         price: 13290.0,
       },
       {
@@ -607,7 +687,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "classic",
-        image: classic_03,
+        image: [
+          classic_03
+        ],
         price: 20990.0,
       },
       {
@@ -621,7 +703,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "classic",
-        image: classic_04,
+        image: [
+          classic_04
+        ],
         price: 6290.0,
       },
       {
@@ -635,7 +719,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "classic",
-        image: classic_05,
+        image: [
+          classic_05
+        ],
         price: 14990.0,
       },
       {
@@ -649,7 +735,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "classic",
-        image: classic_06,
+        image: [
+          classic_06
+        ],
         price: 11590.0,
       },
       {
@@ -663,7 +751,9 @@ let all_product = [
         option: "stock",
         description: "alo",
         category: "classic",
-        image: classic_07,
+        image: [
+          classic_07
+        ],
         price: 12990.0,
       },
 ]
