@@ -10,7 +10,7 @@ import Adventure from './pages/AdventureBike'
 import Classic from './pages/ClassicBike'
 import About from './pages/AboutUs'
 import Contact from './pages/Contact'
-import ShopCategory from './pages/ShopCategory'
+
 import Product from './pages/ProductDetails'
 import Cart from './pages/Cart'
 import Signup from './pages/Signup'

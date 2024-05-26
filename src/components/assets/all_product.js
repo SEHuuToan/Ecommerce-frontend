@@ -59,7 +59,9 @@ let all_product = [
         option: "full stock",
         description: "alo",
         category: "sport-bike",
-        image: sport_01,
+        image: [
+          sport_01, sport_02, sport_03, sport_04
+        ],
         price: 16990.0,
       },
       {

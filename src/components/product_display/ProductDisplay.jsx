@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import './ProductDisplay.css'
+import { Image } from "antd";
 
 const getCategoryDisplayName = (category) => {
     switch (category) {
@@ -15,20 +16,30 @@ const getCategoryDisplayName = (category) => {
             return category; // Trả về giá trị mặc định nếu không khớp với bất kỳ trường hợp nào
     }
 };
+const getImage = (image)=>{
+    return image;
+}
 const ProductDisplay = (props) => {
     const { product } = props;
+    const imageList = getImage(product.image)
     const displayName = getCategoryDisplayName(product.category);
+    const [currentImage, setCurrentImage] = useState(imageList[0]);
     return (
+        <>
         <div className="product-display">
             <div className="product-display-left">
                 <div className="product-display-img-list">
-                    <img src={product.image} alt="img_list" />
-                    <img src={product.image} alt="img_list" />
-                    <img src={product.image} alt="img_list" />
-                    <img src={product.image} alt="img_list" />
+                    {imageList.map((image, index) => (
+                        <Image key={index} width={160} src={image} alt="img_list" 
+                        onClick={() => setCurrentImage(image)}
+                        />
+                    ))}
+                  
+             
+                
                 </div>
                 <div className="product-display-img">
-                    <img className="product-display-main-img" src={product.image} alt="" />
+                    <Image width={600} className="product-display-main-img" src={currentImage} alt="" />
                 </div>
             </div>
             <div className="product-display-right">
@@ -38,7 +49,7 @@ const ProductDisplay = (props) => {
                         Capacity: {product.capacity}
                     </div>
                     <div>
-                        Odo: {product.odo}
+                        Odo: {product.odo} km
                     </div>
                     <div >
                         Color: {product.color}
@@ -63,8 +74,9 @@ const ProductDisplay = (props) => {
                     Price: {product.price} $
                 </div>
             </div>
-            <div className="contact-buy">Contact: 0377504378 FOR MORE INFORMATION OR BUY THIS MOTOCYCLE</div>
         </div>
+        <div className="contact-buy">Contact: 0377504378 FOR MORE INFORMATION OR BUY THIS MOTOCYCLE</div>
+   </>
     );
 }
 export default ProductDisplay
