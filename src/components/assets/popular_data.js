@@ -18,7 +18,9 @@ let popular_data_product = [
         option: "full stock",
         description: "alo",
         category: "Sport Bike",
-        image: sport_01,
+        image: [
+          sport_01,
+        ],
         price: 16990.0,
       },
       {
@@ -32,7 +34,9 @@ let popular_data_product = [
         option: "stock",
         description: "alo",
         category: "Sport Bike",
-        image: sport_02,
+        image: [
+          sport_02,
+        ],
         price: 22590.0,
       },
       {
@@ -46,7 +50,9 @@ let popular_data_product = [
         option: "stock",
         description: "alo",
         category: "Naked Bike",
-        image: naked_01,
+        image: [
+          naked_01,
+        ],
         price: 14800.0,
       },
       {
@@ -60,7 +66,9 @@ let popular_data_product = [
         option: "stock",
         description: "alo",
         category: "Naked Bike",
-        image: naked_05,
+        image: [
+          naked_05,
+        ],
         price: 20300.0,
       },
       {
@@ -74,7 +82,9 @@ let popular_data_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_01,
+        image: [
+          adv_01,
+        ],
         price: 17900.0,
       },
       {
@@ -88,7 +98,9 @@ let popular_data_product = [
         option: "stock",
         description: "alo",
         category: "adventure",
-        image: adv_02,
+        image: [
+          adv_02,
+        ],
         price: 19900.0,
       },
 ]

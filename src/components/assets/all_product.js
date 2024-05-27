@@ -60,8 +60,8 @@ let all_product = [
         color: "Yamaha Icon Blue",
         model: "2019",
         brand: "Yamaha",
-        option: "full stock",
-        description: "alo",
+        option: "Full system Akrapovic exhaust, Chụp chân kính tích hợp xi nhan NRC, Ống nước tản nhiệt Samco Sport, Set bảo vệ lốc máy GB Racing",
+        description: "Động cơ của xe là chiếc 998cc, 4 xi-lanh, công nghệ KRT, giúp sản sinh công suất lớn và tốc độ cao. Hệ thống làm mát chất lỏng giúp kiểm soát nhiệt độ hiệu quả, đảm bảo hiệu suất ổn định trên mọi đường đua. Hệ thống truyền động 6 số với quick shifter tạo nên sự mượt mà khi chuyển số và cung cấp trải nghiệm lái xe đầy thú vị.",
         category: "sport-bike",
         image: [
           sport_01, sport_02, sport_03, sport_11, sport_12, sport_13, sport_14
@@ -102,7 +102,7 @@ let all_product = [
       },
       {
         id: 4,
-        name: "Aprilia",
+        name: "Aprilia RS660",
         capacity: "660cc",
         odo: 3700,
         color: "Acid Gold",
