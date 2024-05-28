@@ -19,7 +19,7 @@ const Popular = () => {
                                  odo={item.odo}
                                  color={item.color}
                                  model={item.model}
-                                 price={item.price}
+                                 price={item.price.toLocaleString('en-US')}
                                  />
                 })}  
           

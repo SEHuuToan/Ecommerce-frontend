@@ -1,19 +1,20 @@
 .item{
     width: 400px;
+    height: 100%;
     flex: 1;
     display: flex;  
     flex-direction: column;
-    border: 1px solid #cdcccc;
-    box-shadow: 1px 1px 5px #979595;
+    color: #FFFFFF;
+    background-color: #212529;
     cursor: pointer;
 }
 .item-link{
     text-decoration: none;
     color: inherit;
 }
-.item-link img{
-    max-width: 400px;
-    max-height: 380px;
+.item img{
+    width: 400px;
+    height: 280px;
 }
 .item_description{
     width: auto;
@@ -21,19 +22,15 @@
     padding: 18px;
 }
 
-.item p{
-    margin: 6px 0px;
-
-}
 .item-price{
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 .item_name{
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     box-sizing: border-box;
     cursor: pointer;

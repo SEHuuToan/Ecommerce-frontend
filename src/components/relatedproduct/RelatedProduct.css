@@ -1,7 +1,26 @@
-
-
-
+.relatedproducts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    gap: 20px;
+}
+.relatedproducts h1{
+    display: flex;
+    justify-content: center;
+}
+.relatedproducts hr{
+    width: 10%;
+    border: none;
+    border-radius: 10px;
+    height: 3px;
+    background: #FED251;
+}
 
 .relatedproducts-item{
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 70%;
+    gap: 20px;
 }

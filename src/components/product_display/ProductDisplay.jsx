@@ -38,6 +38,10 @@ const ProductDisplay = (props) => {
     }
     const beforeReplaceStr = product.option;
     const afterReplaceStr = beforeReplaceStr.split(', ');
+    useEffect(() => {
+        setCurrentImage(imageList[0]);
+        setStartIndex(0);
+    }, [product]);
     return (
         <>
             <div className="product-display">

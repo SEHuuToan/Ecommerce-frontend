@@ -10,7 +10,7 @@ const Item = (props) => {
                     <div className="relateditem_name">{props.name}</div>
                     <div className="relateditem-price">
                         <div className="relateditem-price-bike">
-                        Price: {props.price} $
+                        Price: {props.price.toLocaleString('en-US')} $
                         </div>
                     </div>   
                 </div>
