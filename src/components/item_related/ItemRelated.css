@@ -1,0 +1,58 @@
+.relateditem{
+    width: 200px;
+    display: flex; 
+    flex-direction: column; 
+    border: 1px solid #cdcccc;
+    box-shadow: 1px 1px 5px #979595;
+    cursor: pointer;
+}
+.relateditem-link{
+    text-decoration: none;
+    color: inherit;
+}
+.relateditem-link img{
+    max-width: 150px;
+    max-height: 120px;
+}
+.relateditem_description{
+    width: auto;
+    height: auto;
+    padding: 18px;
+}
+
+.relateditem p{
+    margin: 6px 0px;
+
+}
+.relateditem-price{
+    display: flex;
+    gap: 20px;
+}
+.relateditem_name{
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 600;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.relateditem_name:hover{
+    color: #FED251;
+    transition: 0.3s;
+}
+
+.relateditem-price-bike{
+    color: #FED251;
+    font-size: 18px;
+    font-weight: 600;
+}
+.relateditem-img{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.relateditem:hover{
+    transform: scale(1.05);
+    transition: 0.6s;
+}
