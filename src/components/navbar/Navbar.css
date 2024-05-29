@@ -49,7 +49,7 @@
     align-items: center;
     gap: 45px;
 }
-.nav-login-cart button{
+/* .nav-login-cart button{
     display: flex;
     justify-content: center;
     width: 117px;
@@ -62,7 +62,7 @@
     font-weight: 500;
     background: white;
     cursor: pointer;
-}
+} */
 .nav-login-cart button:active{
     background: #f3f3f3;
 }

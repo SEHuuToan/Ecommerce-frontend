@@ -8,3 +8,10 @@
     margin: 15px 60px;
     text-transform: capitalize;
 }
+.breadcrum a{
+    text-decoration: none;
+    color: #515151;
+}
+.breadcrum a:hover{
+    color: #aeaeae;
+}

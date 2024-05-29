@@ -53,7 +53,13 @@ const Footer = () => {
       </div>
       <div className="copy-right">
         <hr />
-        <p>Copyright &copy; {(new Date().getFullYear())} | <a style={{marginLeft: '5px', textDecoration: 'none'}} href="https://www.facebook.com/kind.master.73/" target="_blank">Nguyen Huu Toan</a> </p>
+        <p>Copyright &copy; {(new Date().getFullYear())} |
+          <a style={{ marginLeft: '5px', textDecoration: 'none' }} href="https://www.facebook.com/kind.master.73/" target="_blank">
+            <Tooltip placement="top" title="https://www.facebook.com/kind.master.73/">
+              Nguyen Huu Toan
+            </Tooltip>
+          </a>
+        </p>
       </div>
     </div>
   );

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './RelatedProduct.css'
-import { ShopContext } from "../../context/ShopContext";
-import ItemRelated from "../item_related/ItemRelated";
+import  ItemRelated  from "../item_related/ItemRelated";
 import { Pagination } from 'antd';
-
 
 const RelatedProduct = ({ category, products, currentProductId }) => {
     // Lọc các sản phẩm co category lien quan
@@ -18,6 +16,10 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
     const paginatedProducts = relatedProducts.slice(startIndex, endIndex);
     useEffect(() => {
         setCurrentPage(1);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
     }, [currentProductId]);
     return (
         <div className="relatedproducts">
@@ -32,6 +34,7 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
                             name={item.name}
                             image={item.image}
                             price={item.price.toLocaleString('en-US')}
+                          
                         />
                     )
                 ) : (
@@ -44,7 +47,6 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
                 total={relatedProducts.length}
                 onChange={(page) => setCurrentPage(page)}
             />
-
         </div>
     );
 }

@@ -1,5 +1,5 @@
 .relateditem{
-    width: 390px;
+    width: 380px;
     height: 100%;
     display: flex; 
     flex-direction: column; 
@@ -13,8 +13,8 @@
 }
 .relateditem-link img{
     display: flex;
-    max-width: 390px;
-    max-height: 290px;
+    max-width: 380px;
+    max-height: 260px;
     gap: 2px;
 }
 .relateditem_description{

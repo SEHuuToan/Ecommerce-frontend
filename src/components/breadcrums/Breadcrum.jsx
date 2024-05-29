@@ -1,6 +1,6 @@
 import React from "react"
 import './Breadcrum.css'
-import {RightOutlined } from '@ant-design/icons'
+import { RightOutlined } from '@ant-design/icons'
 
 const getCategoryDisplayName = (category) => {
     switch (category) {
@@ -17,13 +17,17 @@ const getCategoryDisplayName = (category) => {
     }
 };
 const Breadcrums = (props) => {
-    const {product} = props;
+    const { product } = props;
     const displayName = getCategoryDisplayName(product.category);
-    return(
+    return (
         <div className="breadcrum">
-            Home <RightOutlined  style={{ fontSize: '13px', color: '#515151' }}/> Motor 
-                <RightOutlined  style={{ fontSize: '13px', color: '#515151' }}/> {displayName} 
-                <RightOutlined style={{ fontSize: '13px', color: '#515151' }}/> {product.name}
+            <a href="/">Home</a>
+                <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
+            <a href="/motor" >Motor</a>
+                <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
+            <a href={`/${product.category}`} >{displayName}</a> 
+                <RightOutlined style={{ fontSize: '13px', color: '#515151' }} /> 
+            <a href={`/product/${product.id}`}>{product.name}</a> 
         </div>
     );
 }

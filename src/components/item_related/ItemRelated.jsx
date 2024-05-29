@@ -1,7 +1,7 @@
 import React from "react";
 import './ItemRelated.css'
 import {Link} from "react-router-dom";
-const Item = (props) => {
+const ItemRelated = (props) => {
     return(
         <Link to={`/product/${props.id}`} className="relateditem-link">
             <div className="relateditem" >
@@ -19,4 +19,4 @@ const Item = (props) => {
     
     );
 }
-export default Item
+export default ItemRelated

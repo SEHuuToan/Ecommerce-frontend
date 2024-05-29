@@ -3,28 +3,23 @@ import React, { useEffect, useState } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
 import { Button } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
-
-
-
+import Search from '../search/Search';
 
 const Navbar = () => {
     const location = useLocation();
-
     const [menu, setMenu] = useState("shop");
-
     const items = [
         {
             key: '/',
             label: (
                 <a style={{ textDecoration: 'none' }} href='/'>Shop</a>
             )
-        }, 
+        },
         {
             label: <a style={{
-                color: ['motor', 'sportbike', 'nakedbike', 'adventure', 'classic'].includes(menu) ? '#1677ff' : '#171717' 
+                color: ['motor', 'sportbike', 'nakedbike', 'adventure', 'classic'].includes(menu) ? '#1677ff' : '#171717'
             }}
                 href='/motor'>Motor
             </a>,
@@ -71,6 +66,10 @@ const Navbar = () => {
         const normalizePath = currentPath.slice(1).split('-').join('')
         setMenu(normalizePath);
     }, [])
+    //Ham search
+    const onSearch = () => {
+        console.log('Click search button')
+    }
     return (
         <div className='navbar'>
             <a className='nav-logo' href='/'>
@@ -84,17 +83,14 @@ const Navbar = () => {
                 className='nav-select-menu'
             />
             <div className="nav-login-cart">
-                <a style={{ textDecoration: 'none' }} href='/login'>
+                <Search onSearch={onSearch} />
+                {/* <a style={{ textDecoration: 'none' }} href='/login'>
                     <Button type="primary">
                         Login
                     </Button>
-                </a>
-                <a href='/cart'>
-                    <ShoppingCartOutlined style={{ fontSize: '36px', color: 'black' }} />
-                </a>
-                <div className="nav-cart-count">
-                    0
-                </div>
+                </a> */}
+
+
             </div>
         </div>
 
