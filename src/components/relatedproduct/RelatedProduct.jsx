@@ -15,7 +15,7 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
     const endIndex = startIndex + itemsPerPage;
     const paginatedProducts = relatedProducts.slice(startIndex, endIndex);
     useEffect(() => {
-        setCurrentPage(1);
+        setCurrentPage(currentPage);
         window.scrollTo({
             top: 0,
             behavior: 'smooth'

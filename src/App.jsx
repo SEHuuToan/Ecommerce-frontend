@@ -21,7 +21,7 @@ import banner_sport from './components/assets/banner/banner_sportbike.png'
 import banner_naked from './components/assets/banner/banner_nakedbike.png'
 import banner_adventure from './components/assets/banner/banner_adventure.png'
 import banner_classic from './components/assets/banner/banner_classic.png'
-
+import ScrollToTop from './components/scrolltotop/ScrollToTop'
 
 
 function App() {
@@ -47,6 +47,7 @@ function App() {
           <Route path='/signup' element={<Signup/>} />
           
         </Routes>
+        <ScrollToTop />
         <Footer />
         </BrowserRouter>
         

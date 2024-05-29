@@ -1,7 +1,13 @@
-import React from "react";
+import React,{useEffect}from "react";
 import './ItemRelated.css'
 import {Link} from "react-router-dom";
 const ItemRelated = (props) => {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+    })
     return(
         <Link to={`/product/${props.id}`} className="relateditem-link">
             <div className="relateditem" >

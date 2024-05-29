@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './css/Motor.css'
 import { ShopContext } from "../context/ShopContext";
 import Item from '../components/Item/Item'
@@ -29,6 +29,13 @@ const Motor = (props) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedProducts = fillterProducts.slice(startIndex, endIndex);
+  useEffect(() => {
+    setCurrentPage(currentPage);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  })
   return (
     <div className="moto-category">
       <img className="motocategory-banner" src={props.banner} alt="motor_banner" />

@@ -41,6 +41,10 @@ const ProductDisplay = (props) => {
     useEffect(() => {
         setCurrentImage(imageList[0]);
         setStartIndex(0);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
     }, [product]);
     return (
         <>
@@ -93,7 +97,6 @@ const ProductDisplay = (props) => {
                     </div>
                 </div>
             </div>
-            {/* <div className="contact-buy">Contact: 0377504378 FOR MORE INFORMATION OR BUY THIS MOTOCYCLE</div> */}
         </>
     );
 }

@@ -44,25 +44,21 @@
     background: #FF4141;
 }
 
-.nav-login-cart{
+.nav-loginsearch{
     display: flex;
     align-items: center;
     gap: 45px;
 }
-/* .nav-login-cart button{
-    display: flex;
-    justify-content: center;
-    width: 117px;
-    height: 42px;
-    outline: none;
-    border: 1px solid #7a7a7a;
-    border-radius: 75px;
+.nav-loginsearch-login{
+    width: 150px;
+    border: 1px solid #cecece;
+    border-radius: 25px;
     color: #515151;
-    font-size: 20px;
+    font-size: 32px;
     font-weight: 500;
     background: white;
     cursor: pointer;
-} */
+}
 .nav-login-cart button:active{
     background: #f3f3f3;
 }

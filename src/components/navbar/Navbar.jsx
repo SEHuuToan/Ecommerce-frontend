@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
-import { Button } from 'antd';
+import { Button, Menu } from 'antd';
 import { useLocation } from 'react-router-dom';
-import { Menu } from 'antd';
+import { UserOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
 
 const Navbar = () => {
@@ -82,15 +82,9 @@ const Navbar = () => {
                 items={items}
                 className='nav-select-menu'
             />
-            <div className="nav-login-cart">
+            <div className="nav-loginsearch">
                 <Search onSearch={onSearch} />
-                {/* <a style={{ textDecoration: 'none' }} href='/login'>
-                    <Button type="primary">
-                        Login
-                    </Button>
-                </a> */}
-
-
+                <Button href='/login' size='large' className='nav-loginsearch-login' type='text' icon={<UserOutlined style={{fontSize: '28px'}}/>}></Button>
             </div>
         </div>
 
