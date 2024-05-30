@@ -4,10 +4,6 @@ import Navbar from './components/navbar/Navbar'
 import { BrowserRouter, Routes, Route,   } from 'react-router-dom'
 import Shop from './pages/Shop'
 import Motor from './pages/Motor'
-import SportBike from './pages/SportBike'
-import NakedBike from './pages/NakedBike'
-import Adventure from './pages/AdventureBike'
-import Classic from './pages/ClassicBike'
 import About from './pages/AboutUs'
 import Contact from './pages/Contact'
 
@@ -22,7 +18,6 @@ import banner_naked from './components/assets/banner/banner_nakedbike.png'
 import banner_adventure from './components/assets/banner/banner_adventure.png'
 import banner_classic from './components/assets/banner/banner_classic.png'
 import ScrollToTop from './components/scrolltotop/ScrollToTop'
-
 
 function App() {
   return (
