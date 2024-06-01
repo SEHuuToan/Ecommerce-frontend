@@ -39,18 +39,22 @@ const Motor = (props) => {
         <hr />
       </div>
       <div className="motorcategory-products" >
-        {paginatedProducts.map((item, i) => (
-          <Item
-            key={i}
-            id={item.id}
-            name={item.name}
-            image={item.image}
-            odo={item.odo}
-            color={item.color}
-            model={item.model}
-            price={item.price}
-          />
-        ))}
+        {paginatedProducts.length > 0 ? (
+             paginatedProducts.map((item, i) => 
+              <Item
+                key={i}
+                id={item.id}
+                name={item.name}
+                image={item.image}
+                odo={item.odo}
+                color={item.color}
+                model={item.model}
+                price={item.price}
+              />
+            )
+        ) : (
+            <p>No products found.</p>
+        )}
       </div>
       <div className="motorcategory-pagination">
         <PaginationComponent  

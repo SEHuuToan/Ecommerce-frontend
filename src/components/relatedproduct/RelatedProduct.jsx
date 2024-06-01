@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import './RelatedProduct.css'
-import  ItemRelated  from "../item_related/ItemRelated";
+import ItemRelated from "../item_related/ItemRelated";
 import PaginationComponent from "../pagination/PaginationComponent";
 
 const RelatedProduct = ({ category, products, currentProductId }) => {
@@ -29,20 +29,23 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
                             name={item.name}
                             image={item.image}
                             price={item.price.toLocaleString('en-US')}
-                          
+
                         />
                     )
                 ) : (
                     <p>No related products found.</p>
                 )}
             </div>
-            <PaginationComponent 
-                type="category" 
-                listItem={relatedProducts}
-                refName={relatedProductRef}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-            />
+            <div className="relatedproduct-pagination">
+                <PaginationComponent
+                    type="category"
+                    listItem={relatedProducts}
+                    refName={relatedProductRef}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+            </div>
+
         </div>
     );
 }
