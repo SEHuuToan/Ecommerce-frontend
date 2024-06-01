@@ -1,0 +1,25 @@
+.about-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-title hr{
+    width: 20%;
+    border: none;
+    border-radius: 10px;
+    height: 5px;
+    background: #FED444;
+}
+
+.about-banner{
+    width: 100%;
+    height: 469px;
+}
+.about-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}

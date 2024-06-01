@@ -8,3 +8,6 @@ body{
 code{
     font-family: 'Courier New', Courier, monospace;
 }
+html, body, :root{
+    scroll-behavior: smooth;
+}

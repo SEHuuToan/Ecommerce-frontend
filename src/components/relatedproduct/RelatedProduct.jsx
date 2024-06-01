@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import './RelatedProduct.css'
 import  ItemRelated  from "../item_related/ItemRelated";
-import { Pagination } from 'antd';
+import PaginationComponent from "../pagination/PaginationComponent";
 
 const RelatedProduct = ({ category, products, currentProductId }) => {
+    const relatedProductRef = useRef(null);
     // Lọc các sản phẩm co category lien quan
     const relatedProducts = products.filter(
         (item) => item.category === category && item.id !== currentProductId
@@ -14,16 +15,10 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const paginatedProducts = relatedProducts.slice(startIndex, endIndex);
-    useEffect(() => {
-        setCurrentPage(currentPage);
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-    }, [currentProductId]);
+
     return (
         <div className="relatedproducts">
-            <h1>Related Products</h1>
+            <h1 ref={relatedProductRef}>Related Products</h1>
             <hr />
             <div className="relatedproducts-item">
                 {paginatedProducts.length > 0 ? (
@@ -41,11 +36,12 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
                     <p>No related products found.</p>
                 )}
             </div>
-            <Pagination
-                current={currentPage}
-                pageSize={itemsPerPage}
-                total={relatedProducts.length}
-                onChange={(page) => setCurrentPage(page)}
+            <PaginationComponent 
+                type="category" 
+                listItem={relatedProducts}
+                refName={relatedProductRef}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
             />
         </div>
     );

@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import './css/Motor.css'
 import { ShopContext } from "../context/ShopContext";
 import Item from '../components/Item/Item'
-import { Pagination } from 'antd';
+import PaginationComponent from "../components/pagination/PaginationComponent";
 
 const getCategoryDisplayName = (category) => {
   switch (category) {
@@ -21,7 +21,8 @@ const getCategoryDisplayName = (category) => {
   }
 };
 const Motor = (props) => {
-  const { all_product } = useContext(ShopContext)
+  const motoCategoryProductRef = useRef(null);
+  const { all_product } = useContext(ShopContext);
   const fillterProducts = props.category === 'motor' ? all_product : all_product.filter(item => item.category === props.category);
   const displayName = getCategoryDisplayName(props.category);
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,21 +30,15 @@ const Motor = (props) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedProducts = fillterProducts.slice(startIndex, endIndex);
-  useEffect(() => {
-    setCurrentPage(currentPage);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  })
+  
   return (
     <div className="moto-category">
       <img className="motocategory-banner" src={props.banner} alt="motor_banner" />
       <div className="motocategory-category-title">
-        <h1>{displayName}</h1>
+        <h1 ref={motoCategoryProductRef}>{displayName}</h1>
         <hr />
       </div>
-      <div className="motorcategory-products">
+      <div className="motorcategory-products" >
         {paginatedProducts.map((item, i) => (
           <Item
             key={i}
@@ -58,12 +53,13 @@ const Motor = (props) => {
         ))}
       </div>
       <div className="motorcategory-pagination">
-        <Pagination
-          current={currentPage}
-          pageSize={itemsPerPage}
-          total={fillterProducts.length}
-          onChange={(page) => setCurrentPage(page)}
-        />
+        <PaginationComponent  
+            type="category" 
+            listItem={all_product} 
+            refName={motoCategoryProductRef}
+            currentPage = {currentPage}
+            setCurrentPage = {setCurrentPage}
+            />
       </div>
 
     </div>
