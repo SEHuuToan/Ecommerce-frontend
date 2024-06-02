@@ -1,25 +1,29 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-around;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
 }
-.nav-logo{
+
+.nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
 }
-.imgLogo{
+
+.imgLogo {
     width: 148px;
     height: 78px;
 }
-.nav-logo p{
+
+.nav-logo p {
     color: #171717;
     font-size: 28px;
     font-weight: 600;
 }
-.nav-menu{
+
+.nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
@@ -28,7 +32,8 @@
     font-size: 20px;
     font-weight: 500;
 }
-.nav-select-menu{
+
+.nav-select-menu {
     text-decoration: none;
     font-size: 24px;
     border: none;
@@ -36,20 +41,14 @@
     display: flex;
     align-items: center;
 }
-.nav-menu hr{
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background: #FF4141;
-}
 
-.nav-loginsearch{
+.nav-loginsearch {
     display: flex;
     align-items: center;
     gap: 45px;
 }
-.nav-loginsearch-login{
+
+.nav-loginsearch-login {
     width: 150px;
     border: 1px solid #cecece;
     border-radius: 25px;
@@ -59,10 +58,12 @@
     background: white;
     cursor: pointer;
 }
-.nav-login-cart button:active{
+
+.nav-login-cart button:active {
     background: #f3f3f3;
 }
-.nav-cart-count{
+
+.nav-cart-count {
     width: 20px;
     height: 20px;
     display: flex;
@@ -76,23 +77,52 @@
     color: white;
 }
 
-@media (max-width: 1024px) {
-    .nav-logo{
-        display: none;
-    }
-    .imgLogo{
-        display: none;
-    }
-    .nav-loginsearch{
-        display: none;
-    }
-    .nav-logo p{
-        display: none;
-    }
-    .nav-select-menu{
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-    }
+.nav-menu-responsive {
+    display: none;
 }
 
+.icon-search-responsive {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .imgLogo {
+        width: 108px;
+        height: 58px;
+    }
+
+    .nav-logo p {
+        display: none;
+    }
+
+    .nav-loginsearch {
+        display: none;
+    }
+
+    .nav-select-menu {
+        display: none;
+
+    }
+
+    .nav-menu-responsive {
+        display: contents;
+        width: 100%;
+    }
+
+    .icon-search-responsive {
+        display: contents;
+    }
+
+
+}

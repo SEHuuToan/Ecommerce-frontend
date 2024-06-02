@@ -6,7 +6,7 @@ import Offer from "../components/offer/Offer";
 const Shop = () => {
     return(
         <div>
-            {/* <Hero /> */}
+            <Hero />
             <Popular />
             <Offer />
         </div>

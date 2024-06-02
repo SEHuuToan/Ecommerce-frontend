@@ -55,3 +55,51 @@
     width: 842px;
     height: 613px;
 }
+
+@media (max-width: 1024px) {
+    .hero{
+        display: flex;
+        height: 70vh;
+    }
+    .hero-right{
+       display: none;
+       justify-content: flex-end;
+    }
+    .hero-left{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+        line-height: 1.1;
+   
+    }
+    .hero-left h2{
+        color: #090909;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .hero-left p{
+        color: #171717;
+        font-size: 28px;
+        font-weight: 700;
+    }
+    .hero-hand-icon{
+        display: flex;
+        gap: 20px;
+    }
+    .hero-hand-icon img{
+        width: 75px;
+    }
+    .hero-latest-btn{
+        display: flex;
+        width: 180px;
+        height: 55px;
+        border-radius: 30px;
+        background: #ff4141;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
