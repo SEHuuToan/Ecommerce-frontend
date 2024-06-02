@@ -76,3 +76,23 @@
     color: white;
 }
 
+@media (max-width: 1024px) {
+    .nav-logo{
+        display: none;
+    }
+    .imgLogo{
+        display: none;
+    }
+    .nav-loginsearch{
+        display: none;
+    }
+    .nav-logo p{
+        display: none;
+    }
+    .nav-select-menu{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
+

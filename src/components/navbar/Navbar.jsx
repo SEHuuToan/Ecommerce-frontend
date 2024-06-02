@@ -2,14 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
-import { Button, Menu } from 'antd';
+import { Button, Menu, Drawer } from 'antd';
 import { useLocation } from 'react-router-dom';
-import { UserOutlined } from '@ant-design/icons'
+import { UserOutlined, MenuOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
 
 const Navbar = () => {
     const location = useLocation();
     const [menu, setMenu] = useState("shop");
+    const [drawerVisible, setDrawerVisible] = useState(false);
     const items = [
         {
             key: '/',
@@ -70,6 +71,13 @@ const Navbar = () => {
     const onSearch = () => {
         console.log('Click search button')
     }
+    const showDrawer = () => {
+        setDrawerVisible(true);
+    };
+
+    const closeDrawer = () => {
+        setDrawerVisible(false);
+    };
     return (
         <div className='navbar'>
             <a className='nav-logo' href='/'>
@@ -84,7 +92,27 @@ const Navbar = () => {
             />
             <div className="nav-loginsearch">
                 <Search onSearch={onSearch} />
-                <Button href='/login' size='large' className='nav-loginsearch-login' type='text' icon={<UserOutlined style={{fontSize: '28px'}}/>}></Button>
+                <Button href='/login' size='large' className='nav-loginsearch-login' type='text' icon={<UserOutlined style={{ fontSize: '28px' }} />}></Button>
+            </div>
+            <div>
+                <Button
+                    className='menu-button'
+                    icon={<MenuOutlined />}
+                    onClick={showDrawer}
+                />
+                <Drawer
+                    title="Menu"
+                    placement="right"
+                    onClose={closeDrawer}
+                    visible={drawerVisible}
+                >
+                    <Menu
+                        onClick={onClick}
+                        selectedKeys={[menu]}
+                        mode="vertical"
+                        items={items}
+                    />
+                </Drawer>
             </div>
         </div>
 
