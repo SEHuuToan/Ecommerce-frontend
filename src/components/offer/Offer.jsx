@@ -7,12 +7,11 @@ const Offer = () => {
     return (
         <div className="offers">
             <div className="offer-left">
-                <h2>About Us</h2>
                 <h1>Royal Motocycle</h1>
                 <p>Với Slogan "Uy tín tạo nên thương hiệu ", cùng cái "Tâm" trong kinh doanh.
                     Khách hàng đến với chúng tôi sẽ nhận được những ưu đãi mới nhất, những sản phẩm chất lượng tốt nhất.
                 </p>
-                <div>
+                <div className="offer-left-button">
                     <Button href="/about" type="primary">
                         View More
                     </Button>

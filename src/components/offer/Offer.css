@@ -6,7 +6,6 @@
     margin: auto;
     padding: 0px 140px;
     margin-top: 50px;
-    margin-bottom: 150px;
     background: linear-gradient(to left, #a0a0a0, #cac9c9 10%, #eee 75%, #eeeded 95%);
 }
 .offer-left{
@@ -21,29 +20,15 @@
     font-size: 36px;
     font-weight: 600;
 }
-.offer-left h2{
-    color: #171717;
-    font-size: 26px;
-    font-weight: 600;
-}
+
 .offer-left p{
     color: #171717;
     font-size: 20px;
     font-weight: 600;
     font-family: 'Courier New', Courier, monospace;
 }
-.offer-left button{
-    width: 198px;
-    height: 60px;
-    border-radius: 30px;
-    background: #ff4141;
-    border: none;
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: 0.6s;
+.offer-left-button {
+    padding-top: 10px;
 }
 .offer-right{
     flex: 1;

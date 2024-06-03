@@ -1,33 +1,54 @@
-
-.motocategory-banner{
+.motocategory-banner {
     display: block;
     width: 100%;
     height: 469px;
 }
+
 .motorcategory-products {
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 80px;
-    margin: 0 170px;
     padding: 30px 85px;
 }
 
-.motocategory-category-title{
+.motocategory-category-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.motocategory-category-title hr{
+
+.motocategory-category-title hr {
     width: 20%;
     border: none;
     border-radius: 10px;
     height: 5px;
     background: #FED444;
 }
-.motorcategory-pagination{
+
+.motorcategory-pagination {
     display: flex;
     justify-content: center;
     padding-top: 30px;
+}
+
+@media (max-width: 1024px) {
+    .motocategory-banner {
+        display: block;
+        width: 101%;
+        height: 129px;
+    }
+    .motocategory-category-title h1{
+        padding-top: 15px;
+        font-size: 24px;
+    }
+    .motorcategory-products{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+        padding: 30px 85px;
+        margin: 0 125px;
+        grid-gap: 15px;
+    }
 }

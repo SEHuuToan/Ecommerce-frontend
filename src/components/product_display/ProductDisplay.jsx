@@ -53,14 +53,16 @@ const ProductDisplay = (props) => {
                     <div className="product-display-img-list">
                         <Button onClick={onClickLeft} type="text" icon={<LeftOutlined style={{ fontSize: '29px' }} />} style={{ height: '89px' }}></Button>
                         {imageList.slice(startIndex, startIndex + 4).map((image, index) => (
-                            <Image key={index} width={180} height={120} src={image} alt="img_list"
+                          <div key={index} className="img-list-switch">
+                              <Image width={180} height={120} src={image} alt="img_list"
                                 onClick={() => setCurrentImage(image)}
                             />
+                          </div>
                         ))}
                         <Button onClick={onClickRight} type="text" icon={<RightOutlined style={{ fontSize: '29px' }} />} style={{ height: '89px' }}></Button>
                     </div>
                     <div className="product-display-img">
-                        <Image width={550} height={450} src={currentImage} alt="" />
+                        <Image src={currentImage} alt="" />
                     </div>
                 </div>
                 <div className="product-display-right">

@@ -54,3 +54,36 @@
     transform: scale(1.05);
     transition: 0.6s;
 }
+@media (max-width: 1024px) {
+    .item{
+        width: 200px;
+        height: 100%;
+        flex: 1;
+        display: flex;  
+        flex-direction: column;
+        color: #FFFFFF;
+        background-color: #212529;
+    }
+    .item img{
+        width: 200px;
+        height: 140px;
+    }
+    .item:hover{
+        transform: none;
+        transition: none;
+    }
+    .item_description{
+        padding: 12px;
+    }
+    .item_description p{
+       font-size: 13px;
+    }
+    .item_name{
+        font-size: 16px;
+    }
+    .item-price-bike{
+        color: #FED251;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
