@@ -19,7 +19,7 @@
 
 .relatedproducts-item{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     width: 70%;
     gap: 20px;
@@ -28,4 +28,19 @@
     display: flex;
     justify-content: center;
     padding-top: 30px;
+}
+@media (max-width: 1024px) {
+    .relatedproducts{
+        margin: 1px 0px;
+    }
+
+    .relatedproducts-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        gap: 10px;
+        margin: 0px 5px;
+    }
+  
+
 }

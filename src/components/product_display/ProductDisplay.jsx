@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './ProductDisplay.css'
 import { Image, Button } from "antd";
 import { RightOutlined, LeftOutlined, LineOutlined, CaretDownOutlined } from '@ant-design/icons'
-
+import { useSwipeable } from 'react-swipeable';
 const getCategoryDisplayName = (category) => {
     switch (category) {
         case 'sport-bike':
@@ -46,23 +46,29 @@ const ProductDisplay = (props) => {
             behavior: 'smooth'
           });
     }, [product]);
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: onClickRight,
+        onSwipedRight: onClickLeft,
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    });
     return (
         <>
             <div className="product-display">
                 <div className="product-display-left">
-                    <div className="product-display-img-list">
+                    <div className="product-display-img-list" {...swipeHandlers}>
                         <Button onClick={onClickLeft} type="text" icon={<LeftOutlined style={{ fontSize: '29px' }} />} style={{ height: '89px' }}></Button>
-                        {imageList.slice(startIndex, startIndex + 4).map((image, index) => (
+                        {imageList.slice(startIndex, startIndex + 3).map((image, index) => (
                           <div key={index} className="img-list-switch">
-                              <Image width={180} height={120} src={image} alt="img_list"
+                              <Image width={'100%'} height={'100%'} src={image} alt="img_list"
                                 onClick={() => setCurrentImage(image)}
                             />
-                          </div>
+                          </div>    
                         ))}
                         <Button onClick={onClickRight} type="text" icon={<RightOutlined style={{ fontSize: '29px' }} />} style={{ height: '89px' }}></Button>
                     </div>
                     <div className="product-display-img">
-                        <Image src={currentImage} alt="" />
+                        <Image width={'100%'} height={'100%'} src={currentImage} alt="current-view-img" />
                     </div>
                 </div>
                 <div className="product-display-right">

@@ -1,37 +1,42 @@
-.relateditem{
+.relateditem {
     width: 380px;
     height: 100%;
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     background-color: #212529;
     color: #FFFFFF;
     cursor: pointer;
 }
-.relateditem-link{
+
+.relateditem-link {
     text-decoration: none;
     color: inherit;
 }
-.relateditem-link img{
+
+.relateditem-link img {
     display: flex;
     max-width: 380px;
     max-height: 260px;
     gap: 2px;
 }
-.relateditem_description{
-    width: auto;
-    height: auto;
-    padding: 18px;
+
+.relateditem_description {
+    height: 100%;
+    width: 100%;
+    padding: 18px 0px 18px 18px;
 }
 
-.relateditem p{
+.relateditem p {
     margin: 6px 0px;
 
 }
-.relateditem-price{
+
+.relateditem-price {
     display: flex;
     gap: 20px;
 }
-.relateditem_name{
+
+.relateditem_name {
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -41,23 +46,62 @@
     padding: 0px 10px 10px;
     cursor: pointer;
 }
-.relateditem_name:hover{
+
+.relateditem_name:hover {
     color: #FED251;
     transition: 0.3s;
 }
 
-.relateditem-price-bike{
+.relateditem-price-bike {
     color: #FED251;
     font-size: 20px;
     font-weight: 700;
-    padding-left: 10px;
+    padding: 0px 10px 10px 10px;
 }
-.relateditem-img{
+
+.relateditem-img {
     flex: 1;
     display: flex;
-    align-items: center;
+
 }
-.relateditem:hover{
+
+.relateditem:hover {
     transform: scale(1.05);
     transition: 0.6s;
+}
+
+@media (max-width: 1024px) {
+    .relateditem {
+        width: 200px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #212529;
+        color: #FFFFFF;
+    }
+
+    .relateditem img{
+
+        max-width: 200px;
+        max-height: 150px;
+    }
+ 
+    .relateditem_description {
+        padding: 0;
+    }
+
+    .relateditem_name {
+        white-space: wrap;
+        font-size: 14px;
+        font-weight: 700;
+        box-sizing: border-box;
+        padding: 2px 2px 10px 10px;
+    }
+
+    .relateditem-price-bike {
+        color: #FED251;
+        font-size: 15px;
+        font-weight: 700;
+        padding-left: 10px;
+    }
 }
