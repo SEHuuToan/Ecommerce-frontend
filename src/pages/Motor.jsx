@@ -59,7 +59,7 @@ const Motor = (props) => {
       <div className="motorcategory-pagination">
         <PaginationComponent  
             type="category" 
-            listItem={all_product} 
+            listItem={fillterProducts} 
             refName={motoCategoryProductRef}
             currentPage = {currentPage}
             setCurrentPage = {setCurrentPage}

@@ -42,11 +42,36 @@
     text-decoration: none;
     color: #3409df;
 }
-.contact-forn{
-    padding-top: 50px;
-}
+
 
 .contact-right img{
     width: 700px;
     height: 500px;
+}
+
+@media (max-width: 1024px) {
+    .contact-container{
+        padding-top: 10px;
+        display: grid;
+      justify-items: center;
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+    .contact-left{
+        max-width: 430px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    .contact-content{
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .contact-right img{
+        display: none;
+    }
+  
 }

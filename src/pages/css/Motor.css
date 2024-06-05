@@ -5,11 +5,12 @@
 }
 
 .motorcategory-products {
+    max-width: 1240px;
     display: grid;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 80px;
-    padding: 30px 85px;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+    gap: 20px;
+    margin: 40px auto;
 }
 
 .motocategory-category-title {
@@ -36,7 +37,7 @@
 @media (max-width: 1024px) {
     .motocategory-banner {
         display: block;
-        width: 101%;
+        width: 100%;
         height: 129px;
     }
     .motocategory-category-title h1{
@@ -44,11 +45,11 @@
         font-size: 24px;
     }
     .motorcategory-products{
+        max-width: 430px;
         display: grid;
         justify-content: center;
         grid-template-columns: 1fr 1fr;
-        padding: 30px 85px;
-        margin: 0 125px;
-        grid-gap: 15px;
+        margin: 30px auto;
+        gap: 15px;
     }
 }

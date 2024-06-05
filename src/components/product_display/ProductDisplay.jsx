@@ -41,10 +41,6 @@ const ProductDisplay = (props) => {
     useEffect(() => {
         setCurrentImage(imageList[0]);
         setStartIndex(0);
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
     }, [product]);
     const swipeHandlers = useSwipeable({
         onSwipedLeft: onClickRight,

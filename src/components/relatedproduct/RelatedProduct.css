@@ -18,11 +18,12 @@
 }
 
 .relatedproducts-item{
-    display: flex;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: center;
-    flex-wrap: wrap;
-    width: 70%;
     gap: 20px;
+    margin: 40px auto;
 }
 .relatedproduct-pagination{
     display: flex;
@@ -31,15 +32,16 @@
 }
 @media (max-width: 1024px) {
     .relatedproducts{
-        margin: 1px 0px;
+        margin: 0px auto;
     }
 
     .relatedproducts-item{
+        max-width: 430px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto auto;
         justify-content: center;
-        gap: 10px;
-        margin: 0px 5px;
+        margin: 0px auto;
+        gap: 15px;
     }
   
 

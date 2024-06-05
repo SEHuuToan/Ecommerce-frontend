@@ -23,7 +23,7 @@ const ScrollToTop = () => {
                         opacity: '0.6',
                         position: 'fixed',
                         bottom: '70px',
-                        right: '25px',
+                        right: '15px',
                         fontSize: '16px',
                         color: 'red',
                         cursor: 'pointer',

@@ -84,6 +84,7 @@
 @media (max-width: 1024px) {
     .footer {
         gap: 20px;
+        padding-top: 60px;
     }
     .footer-logo {
         display: flex;

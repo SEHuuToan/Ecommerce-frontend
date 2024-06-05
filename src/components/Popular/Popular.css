@@ -8,11 +8,12 @@
     justify-content: space-around;
 }
 .popular-item{
+    max-width: 1240px;
     display: grid;
     justify-content: center;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 80px;
-    padding: 30px 85px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 40px auto;
+    gap: 20px;
 }
 .popular h1{
     padding-top: 30px;
@@ -33,11 +34,11 @@
         font-weight: 600;
     }
     .popular-item{
+        max-width: 430px;
         display: grid;
         justify-content: center;
         grid-template-columns: 1fr 1fr;
-        padding: 30px 85px;
-        margin: 0 170px;
-        grid-gap: 15px;
+        margin: 0 auto;
+        gap: 15px;
     }
 }

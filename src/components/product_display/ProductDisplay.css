@@ -14,7 +14,6 @@
 }
 
 .product-display-img-list {
-    height: 150px;
     width: fit-content;
     display: flex;
     justify-content: center;
@@ -107,9 +106,8 @@
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
-        padding: 10px;
         gap: 5px;
-        margin-top: 10px;
+        margin-top: 20px auto;
     }
 
     .product-display-right {

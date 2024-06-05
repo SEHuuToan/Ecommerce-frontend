@@ -38,7 +38,7 @@ const RelatedProduct = ({ category, products, currentProductId }) => {
             </div>
             <div className="relatedproduct-pagination">
                 <PaginationComponent
-                    type="category"
+                    type="related"
                     listItem={relatedProducts}
                     refName={relatedProductRef}
                     currentPage={currentPage}
