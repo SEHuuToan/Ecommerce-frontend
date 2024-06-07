@@ -20,5 +20,13 @@
         margin: 5px 10px;
         text-transform: capitalize;
         font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .breadcrum span{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

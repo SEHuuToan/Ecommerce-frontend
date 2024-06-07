@@ -18,9 +18,9 @@ const Footer = () => {
       </a>
       <div className="footer-links">
         <a href="/">Shop</a>
-        <a href="/">Motor</a>
-        <a href="/">About Us</a>
-        <a href="/">Contact</a>
+        <a href="/motor">Motor</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
       </div>
       <div className="footer-social-icon">
         <div className="footer-icon-container">

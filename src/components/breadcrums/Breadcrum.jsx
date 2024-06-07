@@ -27,7 +27,7 @@ const Breadcrums = (props) => {
                 <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
             <a href={`/${product.category}`} >{displayName}</a> 
                 <RightOutlined style={{ fontSize: '13px', color: '#515151' }} /> 
-            <a href={`/product/${product.id}`}>{product.name}</a> 
+            <span className="breadcrum-product-name" href={`/product/${product.id}`}>{product.name}</span> 
         </div>
     );
 }
