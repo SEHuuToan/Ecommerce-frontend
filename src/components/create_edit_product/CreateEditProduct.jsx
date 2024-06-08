@@ -1,15 +1,21 @@
-import React from "react";
+
 import './CreateEditProduct.css'
 import {Modal} from 'antd'
 
-const CreateEditProduct = () => {
-
+const TYPE_TO_OPEN_MODAL = {
+    create: 'create',
+    edit: 'edit'
+}
+const CreateEditProduct = ({type, openModal, handleSubmit, handleCancel }) => {
+    const statusModal = TYPE_TO_OPEN_MODAL[type];
     return (
             <div className="create-container">
                 <Modal
-                    title="Vertically centered modal dialog"
                     centered
-         
+                    title={statusModal === 'create' ? 'Tạo Mới' : statusModal === 'update' ? 'Cập Nhật' : ''}
+                    open={openModal}
+                    onOk={handleSubmit} 
+                    onCancel={handleCancel}
                 >
                     <p>some contents...</p>
                     <p>some contents...</p>

@@ -32,6 +32,17 @@ const Motor = (props) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedProducts = fillterProducts.slice(startIndex, endIndex);
+  const showModal = () => {
+    setOpenModal(true);
+  }
+  const closeModal = () => {
+    //logic clear cac du lieu vua nhap vao sau khi nhan nut cancel
+    setOpenModal(false);
+  }
+  const submitModal = () => {
+    //logic clear cac du lieu vua nhap vao sau khi nhan nut cancel
+    setOpenModal(false);
+  }
 
   return (
     <div className="moto-category">
@@ -41,7 +52,7 @@ const Motor = (props) => {
         <hr />
       </div>
       <div className="modal-button">
-        <Button type="primary" onClick={() => setOpenModal(true)}>
+        <Button type="primary" onClick={showModal}>
           Create Product
         </Button>
       </div>
@@ -74,8 +85,10 @@ const Motor = (props) => {
       </div>
       <div className="modal-create-edit">
         <CreateEditProduct
-          onOk={() => setOpenModal(false)}
-          onCancel={() => setOpenModal(false)}
+         statusModal={'create'}
+         openModal={openModal}
+         handleSubmit={() => submitModal}
+         handleCancel={() => closeModal}
         />
       </div>
     </div>
