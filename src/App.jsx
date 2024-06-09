@@ -18,8 +18,10 @@ import banner_naked from './components/assets/banner/banner_nakedbike.png'
 import banner_adventure from './components/assets/banner/banner_adventure.png'
 import banner_classic from './components/assets/banner/banner_classic.png'
 import ScrollToTop from './components/scrolltotop/ScrollToTop'
+import {Cloudinary} from "@cloudinary/url-gen";
 
 function App() {
+  const cld = new Cloudinary({cloud: {cloudName: 'dzljqpjhk'}});
   return (
     <>
       <div >

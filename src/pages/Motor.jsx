@@ -22,7 +22,6 @@ const getCategoryDisplayName = (category) => {
   }
 };
 const Motor = (props) => {
-  const [openModal, setOpenModal] = useState('false');
   const motoCategoryProductRef = useRef(null);
   const { all_product } = useContext(ShopContext);
   const fillterProducts = props.category === 'motor' ? all_product : all_product.filter(item => item.category === props.category);
@@ -32,6 +31,8 @@ const Motor = (props) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedProducts = fillterProducts.slice(startIndex, endIndex);
+  const [openModal, setOpenModal] = useState(false);
+
   const showModal = () => {
     setOpenModal(true);
   }
@@ -85,10 +86,10 @@ const Motor = (props) => {
       </div>
       <div className="modal-create-edit">
         <CreateEditProduct
-         statusModal={'create'}
+         status="create"
          openModal={openModal}
-         handleSubmit={() => submitModal}
-         handleCancel={() => closeModal}
+         handleSubmit={submitModal}
+         handleCancel={closeModal}
         />
       </div>
     </div>
