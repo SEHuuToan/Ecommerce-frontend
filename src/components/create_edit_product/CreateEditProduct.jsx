@@ -53,6 +53,7 @@ const CreateEditProduct = ({ status, openModal, handleSubmit, handleCancel }) =>
             message.error('Image must smaller than 5MB!');
         }
         return isJpgOrPng && isLt5M;
+        console.log('file', file);
     };
     return (
         <div className="create-container">
