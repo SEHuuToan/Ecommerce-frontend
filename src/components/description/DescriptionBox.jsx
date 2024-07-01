@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import './DescriptionBox.css'
 
 
-const Description = (props) => {
-    const { product } = props;
+const Description = ({product}) => {
+    if (!product) {
+        return null; // Trả về null hoặc một loader nếu product chưa được tải
+    }
     const [activeTab, setActiveTab] = useState('description');
     return (
         <div className="descriptionbox">

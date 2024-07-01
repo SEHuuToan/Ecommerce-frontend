@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import './ItemRelated.css'
 import { Link } from "react-router-dom";
 const ItemRelated = (props) => {
+    const { id, name, image, odo, price } = props;
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -9,14 +10,15 @@ const ItemRelated = (props) => {
         });
     })
     return (
-        <Link to={`/product/${props.id}`} className="relateditem-link">
+        <Link to={`/products/${id}`} className="relateditem-link">
             <div className="relateditem" >
-                <img className="relateditem-img" src={props.image[0]} alt="motocycle_image" />
+                <img className="relateditem-img" src={image[0]} alt="motocycle_image" />
                 <div className="relateditem_description">
-                    <div className="relateditem_name">{props.name}</div>
+                    <div className="relateditem_name">{name}</div>
+                    <div className="relateditem_odo">Odo: {odo} Km</div>
                     <div className="relateditem-price">
                         <div className="relateditem-price-bike">
-                            Price: {props.price.toLocaleString('en-US')} $
+                            Price: {price.toLocaleString('en-US')} $
                         </div>
                     </div>
                 </div>

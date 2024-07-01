@@ -16,9 +16,11 @@ const getCategoryDisplayName = (category) => {
             return category; // Trả về giá trị mặc định nếu không khớp với bất kỳ trường hợp nào
     }
 };
-const Breadcrums = (props) => {
-    const { product } = props;
-    const displayName = getCategoryDisplayName(product.category);
+const Breadcrums = ({product}) => {
+    if (!product) {
+        return null; // Trả về null hoặc một loader nếu product chưa được tải
+    }
+     const displayName = getCategoryDisplayName(product.category);
     return (
         <div className="breadcrum">
             <a href="/">Home</a>

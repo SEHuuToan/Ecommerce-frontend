@@ -6,9 +6,7 @@ import Shop from './pages/Shop'
 import Motor from './pages/Motor'
 import About from './pages/AboutUs'
 import Contact from './pages/Contact'
-
 import Product from './pages/ProductDetails'
-import Cart from './pages/Cart'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Footer from './components/footer/Footer'
@@ -18,10 +16,10 @@ import banner_naked from './components/assets/banner/banner_nakedbike.png'
 import banner_adventure from './components/assets/banner/banner_adventure.png'
 import banner_classic from './components/assets/banner/banner_classic.png'
 import ScrollToTop from './components/scrolltotop/ScrollToTop'
-import {Cloudinary} from "@cloudinary/url-gen";
+
 
 function App() {
-  const cld = new Cloudinary({cloud: {cloudName: 'dzljqpjhk'}});
+  
   return (
     <>
       <div >
@@ -36,10 +34,10 @@ function App() {
           <Route path='/classic' element={< Motor banner={banner_classic} category="classic"/>} />
           <Route path='/about' element={< About/>} />
           <Route path='/contact' element={< Contact/>} />
-          <Route path='product' element={<Product/>} >
+          {/* <Route path='product' element={<Product/>} >
              <Route path=':productId' element={<Product/>} />
-          </Route>   
-          <Route path='/cart' element={<Cart/>} />
+          </Route>  */}
+          <Route path="/products/:id" element={<Product/>} />  
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
           

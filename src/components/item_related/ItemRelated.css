@@ -46,6 +46,15 @@
     padding: 0px 10px 10px;
     cursor: pointer;
 }
+.relateditem_odo {
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 0px 10px 2px;
+}
 
 .relateditem_name:hover {
     color: #FED251;

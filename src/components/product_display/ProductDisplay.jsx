@@ -18,10 +18,12 @@ const getCategoryDisplayName = (category) => {
     }
 };
 const getImage = (image) => {
-    return image;
-}
-const ProductDisplay = (props) => {
-    const { product } = props;
+    return image || [];
+};
+const ProductDisplay = ({product}) => {
+    if (!product) {
+        return null; // Trả về null hoặc một loader nếu product chưa được tải
+    }
     const imageList = getImage(product.image)
     const displayName = getCategoryDisplayName(product.category);
     const [currentImage, setCurrentImage] = useState(imageList[0]);
@@ -36,18 +38,19 @@ const ProductDisplay = (props) => {
             setStartIndex(startIndex - 1);
         }
     }
-    const beforeReplaceStr = product.option;
-    const afterReplaceStr = beforeReplaceStr.split(', ');
     useEffect(() => {
-        setCurrentImage(imageList[0]);
+        if (imageList.length > 0) {
+            setCurrentImage(imageList[0]);
+        }
         setStartIndex(0);
-    }, [product]);
+    }, [imageList]);
     const swipeHandlers = useSwipeable({
         onSwipedLeft: onClickRight,
         onSwipedRight: onClickLeft,
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
+    const options = product.option ? product.option.split(', ') : [];
     return (
         <>
             <div className="product-display">
@@ -72,9 +75,9 @@ const ProductDisplay = (props) => {
                         <h1>{product.name}</h1>
                     </div>
                     <div className="product-display-right-detail">
-                        <span>
+                        {/* <span>
                             Capacity: {product.capacity}
-                        </span>
+                        </span> */}
                         <span>
                             Odo: {product.odo} km
                         </span>
@@ -88,16 +91,16 @@ const ProductDisplay = (props) => {
                             Brand: {product.brand}
                         </span>
                         <span >
-                            Type: {displayName}
+                            Category: {displayName}
                         </span>
                         <span >
-                            Option<CaretDownOutlined />   {afterReplaceStr.map((option, index) => (
+                            Option<CaretDownOutlined />   {options.map((option, index) => (
                                 <div style={{ paddingTop: '8px' }} key={index}><LineOutlined style={{ color: 'black', width: '10px' }} /> {option}</div>
                             ))}
                         </span>
                     </div>
                     <div className="product-display-right-price">
-                         Price:  {product.price.toLocaleString('en-US')} $
+                         Price:  {product.price} $
                     </div>
                 </div>
             </div>
