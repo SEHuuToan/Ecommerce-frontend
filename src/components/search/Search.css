@@ -5,7 +5,7 @@
   }
   
   .search-input {
-    width: 200px;
+    width: 300px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
@@ -16,14 +16,5 @@
   .search-input:focus {
     border-color: #888;
   }
-  .search-button{
-    border: none;
-    border-radius: 0px;
-    height: 40px;
-    font-size: 18px;
-  }
 
-  .search-button:hover {
-    background-color: #0056b3;
-  }
   

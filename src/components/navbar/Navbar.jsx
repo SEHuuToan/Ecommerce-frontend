@@ -1,18 +1,18 @@
 
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
 import { Button, Menu, Drawer, Modal, Input, message } from 'antd';
 import { useLocation } from 'react-router-dom';
 import { UserOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
+import useSearchStore from '../../store/searchStore';
 
 const Navbar = () => {
     const location = useLocation();
     const [menu, setMenu] = useState("shop");
     const [drawerMenuVisible, setDrawerMenuVisible] = useState(false);
-    const [searchMenuVisible, setSearchMenuVisible] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
+    const { searchResults } = useSearchStore();
     const items = [
         {
             key: '/',
@@ -70,15 +70,7 @@ const Navbar = () => {
         setMenu(normalizePath);
     }, [])
     //Ham search
-    const onSearch = () => {
-        console.log('Click search button')
-        if (!searchQuery.trim()) {
-            message.error('Can\'t find any result if you don\'t type anything');
-            return;
-        }
-        //Đảm bảo logic sau khi search sẽ điều hướng router về 1 trang gọi là Search Result
-        //Nơi sẽ hiển thị các item dựa theo kết quả được trả về (giống filter của Sport, Naked, Adventure, Classic)
-    }
+
 
     const showDrawer = () => {
         setDrawerMenuVisible(true);
@@ -86,13 +78,6 @@ const Navbar = () => {
 
     const closeDrawer = () => {
         setDrawerMenuVisible(false);
-    };
-    const openSearchMenu = () => {
-        setSearchMenuVisible(true);
-    };
-
-    const closeSearchMenu = () => {
-        setSearchMenuVisible(false);
     };
     return (
         <div className='navbar'>
@@ -140,7 +125,7 @@ const Navbar = () => {
 
 
 
-            <div className="icon-search-responsive">
+            {/* <div className="icon-search-responsive">
                 <Button
                     size='large'
                     className='search-button-responsive'
@@ -163,7 +148,7 @@ const Navbar = () => {
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                 </Modal>
-            </div>
+            </div> */}
         </div>
 
     );
