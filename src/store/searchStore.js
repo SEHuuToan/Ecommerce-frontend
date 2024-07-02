@@ -1,8 +1,10 @@
 import create from 'zustand';
 
-const useSearchStore = create((set) => ({
+const useSearchProductStore = create((set) => ({
   searchResults: [],
+  query: '',
   setSearchResults: (results) => set({ searchResults: results }),
+  setQuery: (query) => set({query}),
 }));
 
-export default useSearchStore;
+export default useSearchProductStore;

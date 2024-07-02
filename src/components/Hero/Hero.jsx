@@ -5,6 +5,7 @@ import hero_img from '../assets/other_img/hero_image.png'
 import { Button } from "antd";
 
 const Hero = () => {
+ 
     return(
         <div className="hero">
             <div className="hero-left">
@@ -20,8 +21,8 @@ const Hero = () => {
                 <p>for everyone</p>
               </div>
               <div>
-                <Button type="primary" className="hero-latest-btn">
-                    Latest Collection
+                <Button type="primary" className="hero-latest-btn" href="/motor" >
+                     Collection
                 </Button>
               </div>
             </div>

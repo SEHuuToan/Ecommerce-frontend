@@ -1,19 +1,24 @@
 
-import  { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
-import { Button, Menu, Drawer, Modal, Input, message } from 'antd';
-import { useLocation } from 'react-router-dom';
-import { UserOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons'
+import { Button, Menu, Drawer, Dropdown, Space } from 'antd';
+import { Router, useLocation } from 'react-router-dom';
+import { MenuOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
-import useSearchStore from '../../store/searchStore';
+import { axiosGet } from "../../utils/axiosUtils";
+import debounce from 'lodash.debounce';
+import useSearchProductStore from "../../store/searchStore";
 
 const Navbar = () => {
     const location = useLocation();
+    const [open, setOpen] = useState(false);
     const [menu, setMenu] = useState("shop");
     const [drawerMenuVisible, setDrawerMenuVisible] = useState(false);
-    const { searchResults } = useSearchStore();
-    const items = [
+    const query = useSearchProductStore((state) => state.query);
+    const setSearchResults = useSearchProductStore((state) => state.setSearchResults);
+    const searchResults = useSearchProductStore((state) => state.searchResults);
+    const navItems = [
         {
             key: '/',
             label: (
@@ -54,9 +59,52 @@ const Navbar = () => {
             label: <a style={{ textDecoration: 'none' }} href='/contact'>Contact</a>,
             key: 'contact',
         },
-
     ]
 
+    const items = searchResults.map((result) => ({
+        label: (
+            <a style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px' }} >
+                <img src={result.image} style={{ width: '120px', height: '120px' }} />
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{ fontSize: '16px', fontWeight: '700' }}>
+                        {result.name}
+                    </span>
+                    <span style={{ fontSize: '18px', color: '#EF4444' }}>
+                        Price: {result.price.toLocaleString('en-US')} $
+                    </span>
+                </div>
+            </a>
+        ),
+        key: result._id,
+    }));
+
+    const handleSearch = useCallback(debounce(async () => {
+        if (query) {
+            try {
+                const res = await axiosGet(`search/${query}`);
+                setSearchResults(res.data);
+                console.log('product search: ', res.data);
+            } catch (error) {
+                console.error('Error searching:', error);
+            }
+        } else {
+            setSearchResults([]);
+        }
+    }, 500), [query, setSearchResults])
+
+    useEffect(() => {
+        handleSearch(query);
+    }, [query, handleSearch]);
+
+    const handleMenuClick = (e) => {
+        const productId = e.key
+        window.location.href = `/products/${productId}`
+    };
+    const handleOpenChange = (nextOpen, info) => {
+        if (info.source === 'trigger' || nextOpen) {
+            setOpen(nextOpen);
+        }
+    };
     const onClick = (e) => {
         setMenu(e.key);
     };
@@ -69,13 +117,9 @@ const Navbar = () => {
         const normalizePath = currentPath.slice(1).split('-').join('')
         setMenu(normalizePath);
     }, [])
-    //Ham search
-
-
     const showDrawer = () => {
         setDrawerMenuVisible(true);
     };
-
     const closeDrawer = () => {
         setDrawerMenuVisible(false);
     };
@@ -102,7 +146,7 @@ const Navbar = () => {
                         onClick={onClick}
                         selectedKeys={[menu]}
                         mode="inline"
-                        items={items}
+                        items={navItems}
                         defaultOpenKeys={['motor']} // Mở tất cả submenus
                     />
                 </Drawer>
@@ -115,43 +159,26 @@ const Navbar = () => {
             <Menu onClick={onClick}
                 selectedKeys={[menu]}
                 mode="horizontal"
-                items={items}
+                items={navItems}
                 className='nav-select-menu'
             />
             <div className="nav-loginsearch">
-                <Search onSearch={onSearch} />
-                <Button href='/login' size='large' className='nav-loginsearch-login' type='text' icon={<UserOutlined style={{ fontSize: '28px' }} />}></Button>
-            </div>
-
-
-
-            {/* <div className="icon-search-responsive">
-                <Button
-                    size='large'
-                    className='search-button-responsive'
-                    icon={<SearchOutlined style={{ fontSize: '20px' }} />}
-                    onClick={openSearchMenu}
-                />
-                <Modal
-                    title="Input to search"
-                    visible={searchMenuVisible}
-                    onOk={setSearchMenuVisible}
-                    onCancel={closeSearchMenu}
-                    footer={[
-                        <Button key="search" type="primary" onClick={onSearch}>
-                            Search
-                        </Button>,
-                    ]}
+                <Dropdown
+                    menu={{
+                        items,
+                        onClick: handleMenuClick,
+                    }}
+                    onOpenChange={handleOpenChange}
+                    open={open}
                 >
-                    <Input
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                </Modal>
-            </div> */}
+                    <a onClick={(e) => e.preventDefault()}>
+                        <Space>
+                            <Search />
+                        </Space>
+                    </a>
+                </Dropdown>
+            </div>
         </div>
-
     );
-
 }
 export default Navbar
