@@ -1,11 +1,9 @@
-import { useContext, useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import './css/Motor.css'
-import { ShopContext } from "../context/ShopContext";
 import Item from '../components/Item/Item'
 import PaginationComponent from "../components/pagination/PaginationComponent";
-import { Button } from 'antd';
 import useProductStore from "../store/productStore";
-
+import 'animate.css'
 const getCategoryDisplayName = (category) => {
   switch (category) {
     case 'motor':
@@ -45,8 +43,8 @@ const Motor = (props) => {
     <div className="moto-category">
       <img className="motocategory-banner" src={props.banner} alt="motor_banner" />
       <div className="motocategory-category-title">
-        <h1 ref={motoCategoryProductRef}>{displayName}</h1>
-        <hr />
+        <h1 ref={motoCategoryProductRef} className="animate__animated animate__fadeInLeft">{displayName}</h1>
+        <hr className="animate__animated animate__slideInRight"/>
       </div>
       <div className="motorcategory-products" >
         {paginatedProducts.length > 0 ? (

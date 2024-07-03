@@ -1,9 +1,7 @@
-import React from "react";
 import './Hero.css'
 import hand_icon from '../assets/other_img/hand_icon.png'
 import hero_img from '../assets/other_img/hero_image.png'
 import { Button } from "antd";
-
 const Hero = () => {
  
     return(

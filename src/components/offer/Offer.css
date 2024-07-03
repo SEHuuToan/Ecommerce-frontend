@@ -41,6 +41,11 @@
     width: 90%;
     height: 90%;
 } 
+.btn-view-more:hover, .btn-view-more:focus, .btn-view-more:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 
 @media  (max-width: 1024px){
     .offers{

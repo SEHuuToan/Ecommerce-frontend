@@ -12,7 +12,7 @@ const Offer = () => {
                     Khách hàng đến với chúng tôi sẽ nhận được những ưu đãi mới nhất, những sản phẩm chất lượng tốt nhất.
                 </p>
                 <div className="offer-left-button">
-                    <Button href="/about" type="primary">
+                    <Button href="/about" type="primary" className="btn-view-more">
                         View More
                     </Button>
                 </div>

@@ -1,14 +1,14 @@
-
 import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
 import { Button, Menu, Drawer, Dropdown, Space } from 'antd';
-import { Router, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
 import { axiosGet } from "../../utils/axiosUtils";
 import debounce from 'lodash.debounce';
 import useSearchProductStore from "../../store/searchStore";
+
 
 const Navbar = () => {
     const location = useLocation();

@@ -1,28 +1,13 @@
-import { useCallback } from "react";
+import React from "react";
 import './Search.css'
 import useSearchProductStore from "../../store/searchStore";
 
 
-const Search = ({ onSearch }) => {
+const Search = () => {
     const setQuery = useSearchProductStore((state) => state.setQuery);
     const query = useSearchProductStore((state) => state.query);
-    const setSearchResults = useSearchProductStore((state) => state.setSearchResults);
 
 
-    // const handleSearch = useCallback(debounce(async () => {
-    //     if(query){
-    //         try {
-    //             const res = await axiosGet(`search/${query}`);
-    //             setSearchResults(res.data);
-    //             console.log('product search: ', res.data);
-    //         } catch (error) {
-    //             console.error('Error searching:', error);
-    //         }
-    //     }else{
-    //         setSearchResults([]);
-    //     }
-    // }, 500), [query, setSearchResults])
- 
     const handleChange = (e) => {
         const value = e.target.value;
         setQuery(value);
