@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
 import { Button, Menu, Drawer, Dropdown, Space } from 'antd';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
 import { axiosGet } from "../../utils/axiosUtils";
@@ -22,46 +22,47 @@ const Navbar = () => {
         {
             key: '/',
             label: (
-                <a style={{ textDecoration: 'none' }} href='/'>Shop</a>
+                <Link style={{ textDecoration: 'none' }} to='/'>Shop</Link>
             )
         },
         {
-            label: <a style={{
+            label: <Link style={{
                 color: ['motor', 'sportbike', 'nakedbike', 'adventure', 'classic'].includes(menu) ? '#1677ff' : '#171717'
             }}
-                href='/motor'>Motor
-            </a>,
+                to='/motor'>Motor
+            </Link>,
             key: 'motor',
+            onTitleClick: (e) => {console.log(e);setMenu(e.key)},
             children: [
                 {
-                    label: <a style={{ textDecoration: 'none', fontWeight: 600 }} href='/sport-bike'>Sport Bike</a>,
+                    label: <Link style={{ textDecoration: 'none', fontWeight: 600 }} to='/sport-bike'>Sport Bike</Link>,
                     key: 'sportbike'
                 },
                 {
-                    label: <a style={{ textDecoration: 'none', fontWeight: 600 }} href='/naked-bike'>Naked Bike</a>,
+                    label: <Link style={{ textDecoration: 'none', fontWeight: 600 }} to='/naked-bike'>Naked Bike</Link>,
                     key: 'nakedbike'
                 },
                 {
-                    label: <a style={{ textDecoration: 'none', fontWeight: 600 }} href='/adventure'>Adventure</a>,
+                    label: <Link style={{ textDecoration: 'none', fontWeight: 600 }} to='/adventure'>Adventure</Link>,
                     key: 'adventure'
                 },
                 {
-                    label: <a style={{ textDecoration: 'none', fontWeight: 600 }} href='/classic'>Classic</a>,
+                    label: <Link style={{ textDecoration: 'none', fontWeight: 600 }} to='/classic'>Classic</Link>,
                     key: 'classic'
                 },
             ]
         },
         {
-            label: <a style={{ textDecoration: 'none' }} href='/about'>About Us</a>,
+            label: <Link style={{ textDecoration: 'none' }} to='/about'>About Us</Link>,
             key: 'about',
         },
         {
-            label: <a style={{ textDecoration: 'none' }} href='/contact'>Contact</a>,
+            label: <Link style={{ textDecoration: 'none' }} to='/contact'>Contact</Link>,
             key: 'contact',
         },
     ]
 
-    const items = searchResults.map((result) => ({
+    const itemSearchNav = searchResults.map((result) => ({
         label: (
             <a style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px' }} >
                 <img src={result.image} style={{ width: '120px', height: '120px' }} />
@@ -106,6 +107,7 @@ const Navbar = () => {
         }
     };
     const onClick = (e) => {
+        console.log("e navbar", e);
         setMenu(e.key);
     };
     useEffect(() => {
@@ -152,10 +154,10 @@ const Navbar = () => {
                 </Drawer>
             </div>
 
-            <a className='nav-logo' href='/'>
+            <Link className='nav-logo' to='/'>
                 <img className='imgLogo' src={logo} alt="logo" />
                 <p>Motocycle</p>
-            </a>
+            </Link>
             <Menu onClick={onClick}
                 selectedKeys={[menu]}
                 mode="horizontal"
@@ -165,7 +167,7 @@ const Navbar = () => {
             <div className="nav-loginsearch">
                 <Dropdown
                     menu={{
-                        items,
+                        items: itemSearchNav,
                         onClick: handleMenuClick,
                     }}
                     onOpenChange={handleOpenChange}
