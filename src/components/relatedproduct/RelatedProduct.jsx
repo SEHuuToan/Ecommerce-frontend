@@ -38,7 +38,6 @@ const RelatedProduct = ({ category, product, currentProductId }) => {
                             image={item.image}
                             odo={item.odo}
                             price={item.price.toLocaleString('en-US')}
-
                         />
                     )
                 ) : (

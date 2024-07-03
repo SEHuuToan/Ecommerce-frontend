@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import './css/Contact.css';
 import contact_banner from '../components/assets/other_img/contact_banner.jpg'
 import { Button, Form, Input } from 'antd'

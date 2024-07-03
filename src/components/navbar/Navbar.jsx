@@ -64,7 +64,7 @@ const Navbar = () => {
 
     const itemSearchNav = searchResults.map((result) => ({
         label: (
-            <a style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px' }} >
+            <Link to={`/products/${result._id}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px' }} >
                 <img src={result.image} style={{ width: '120px', height: '120px' }} />
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <span style={{ fontSize: '16px', fontWeight: '700' }}>
@@ -74,7 +74,7 @@ const Navbar = () => {
                         Price: {result.price.toLocaleString('en-US')} $
                     </span>
                 </div>
-            </a>
+            </Link>
         ),
         key: result._id,
     }));
@@ -97,10 +97,7 @@ const Navbar = () => {
         handleSearch(query);
     }, [query, handleSearch]);
 
-    const handleMenuClick = (e) => {
-        const productId = e.key
-        window.location.href = `/products/${productId}`
-    };
+   
     const handleOpenChange = (nextOpen, info) => {
         if (info.source === 'trigger' || nextOpen) {
             setOpen(nextOpen);
@@ -142,7 +139,7 @@ const Navbar = () => {
                     title="Menu"
                     placement="left"
                     onClose={closeDrawer}
-                    visible={drawerMenuVisible}
+                    open={drawerMenuVisible}
                 >
                     <Menu
                         onClick={onClick}
@@ -168,7 +165,6 @@ const Navbar = () => {
                 <Dropdown
                     menu={{
                         items: itemSearchNav,
-                        onClick: handleMenuClick,
                     }}
                     onOpenChange={handleOpenChange}
                     open={open}
