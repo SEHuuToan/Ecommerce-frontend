@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import './ProductDisplay.css'
 import { Image, Button } from "antd";
 import { RightOutlined, LeftOutlined, LineOutlined, CaretDownOutlined } from '@ant-design/icons'
@@ -18,38 +18,37 @@ const getCategoryDisplayName = (category) => {
     }
 };
 const getImage = (image) => {
-    return image || [];
+    return image.map(img => img.url);
 };
 const ProductDisplay = ({product}) => {
-    if (!product) {
-        return null; // Trả về null hoặc một loader nếu product chưa được tải
-    }
     const imageList = getImage(product.image)
     const displayName = getCategoryDisplayName(product.category);
-    const [currentImage, setCurrentImage] = useState(imageList[0]);
-    const [startIndex, setStartIndex] = useState(0);
+    let [currentImage, setCurrentImage] = useState(imageList[0]);
+    let [startIndex, setStartIndex] = useState(0);
     const onClickRight = () => {
-        if (startIndex + 4 < imageList.length) {
+        if (startIndex + 3 < imageList.length) {
             setStartIndex(startIndex + 1);
         }
+        console.log("Cộng", startIndex)
     }
     const onClickLeft = () => {
         if (startIndex > 0) {
             setStartIndex(startIndex - 1);
         }
+        console.log("Trừ", startIndex)
     }
-    useEffect(() => {
-        if (imageList.length > 0) {
-            setCurrentImage(imageList[0]);
-        }
-        setStartIndex(0);
-    }, [imageList]);
     const swipeHandlers = useSwipeable({
         onSwipedLeft: onClickRight,
         onSwipedRight: onClickLeft,
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
+    useEffect(() => {
+        if (imageList.length > 0) {
+            setCurrentImage(imageList[0]);
+        }
+        setStartIndex(0);
+    }, [imageList]);
     const options = product.option ? product.option.split(', ') : [];
     return (
         <>

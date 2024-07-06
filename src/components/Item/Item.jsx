@@ -3,10 +3,12 @@ import './Item.css'
 import {Link} from "react-router-dom";
 const Item = (props) => {
     const { id, name, image, odo, color, model, price } = props;
+   // Extract the URL of the first image in the array
+   const imageUrl = image && image.length > 0 ? image[0].url : '';
     return(
         <Link to={`/products/${id}`} className="item-link">
             <div className="item" >
-                <img src={image[0]} alt="motocycle_image" />
+            {imageUrl && <img src={imageUrl} alt={`${name} image`} />}
                 <div className="item_description">
                     <div className="item_name">{name}</div>
                     <p>Odo: {odo} Km</p>
