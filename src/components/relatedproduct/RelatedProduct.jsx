@@ -6,24 +6,26 @@ import { axiosGet } from "../../utils/axiosUtils";
 
 const RelatedProduct = ({ category, product, currentProductId }) => {
     const [relatedProduct, setRelatedProduct] = useState([]);
-    const getRelatedProductByCategory = async () => {
-        const res = await axiosGet(`${category}`);
-        setRelatedProduct(res.data);
-        console.log(res.data)
-    }
-    const relatedProductRef = useRef(null);
-    // Loai bo san pham dang duoc chon ra khoi ds related product
-    const relatedProducts = relatedProduct.filter(item => item._id !== currentProductId);
-
-    // Tính toán số trang và các sản phẩm hiển thị dựa trên trang hiện tại
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const paginatedProducts = relatedProducts.slice(startIndex, endIndex);
+    const getRelatedProductByCategory = async () => {
+        try {
+            const res = await axiosGet(`${category}`);
+            // Loai bo san pham dang duoc chon ra khoi ds related product
+            const filteredProducts = res.data.filter(item => item._id !== currentProductId);
+            setRelatedProduct(filteredProducts);
+        } catch (error) {
+            console.error("Failed to fetch related products:", error);
+        }
+    }
+    const relatedProductRef = useRef(null);
     useEffect(() => {
         getRelatedProductByCategory();
-    }, []);
+    }, [category, currentProductId]);
+    // Tính toán số trang và các sản phẩm hiển thị dựa trên trang hiện tại
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedProducts = relatedProduct.slice(startIndex, endIndex);
     return (
         <div className="relatedproducts">
             <h1 ref={relatedProductRef}>Related Product</h1>
@@ -47,7 +49,7 @@ const RelatedProduct = ({ category, product, currentProductId }) => {
             <div className="relatedproduct-pagination">
                 <PaginationComponent
                     type="related"
-                    listItem={relatedProducts}
+                    listItem={relatedProduct}
                     refName={relatedProductRef}
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}

@@ -6,7 +6,7 @@ const TYPE_TO_ITEM_MAP = {
     related: 6
 }
 const PaginationComponent = ({type, listItem, refName, currentPage, setCurrentPage}) => {
-    const itemsPerPage = TYPE_TO_ITEM_MAP[type];
+    let itemsPerPage = TYPE_TO_ITEM_MAP[type];
     const handlePagination = (page) => {
         setCurrentPage(page)
         refName.current?.scrollIntoView({behavior: 'smooth'})
@@ -25,7 +25,9 @@ const PaginationComponent = ({type, listItem, refName, currentPage, setCurrentPa
 PaginationComponent.propTypes =  {
     type: PropTypes.string.isRequired,
     listItem: PropTypes.array.isRequired,
-    refName: PropTypes.element.isRequired,
+    refName: PropTypes.shape({
+        current: PropTypes.any
+    }).isRequired,
     currentPage: PropTypes.number.isRequired,
     setCurrentPage: PropTypes.func.isRequired,
 }

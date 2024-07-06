@@ -21,21 +21,28 @@ const getImage = (image) => {
     return image.map(img => img.url);
 };
 const ProductDisplay = ({product}) => {
-    const imageList = getImage(product.image)
-    const displayName = getCategoryDisplayName(product.category);
-    let [currentImage, setCurrentImage] = useState(imageList[0]);
+    let [imageList, setImageList] = useState([]);
+    let [currentImage, setCurrentImage] = useState(null);
     let [startIndex, setStartIndex] = useState(0);
+    const displayName = getCategoryDisplayName(product.category);
+    useEffect(() => {
+        if (product.image && product.image.length > 0) {
+            const images = getImage(product.image);
+            setImageList(images);
+            setCurrentImage(images[0]);
+            setStartIndex(0);
+        }
+    }, [product]);
+
     const onClickRight = () => {
         if (startIndex + 3 < imageList.length) {
             setStartIndex(startIndex + 1);
         }
-        console.log("Cộng", startIndex)
     }
     const onClickLeft = () => {
         if (startIndex > 0) {
             setStartIndex(startIndex - 1);
         }
-        console.log("Trừ", startIndex)
     }
     const swipeHandlers = useSwipeable({
         onSwipedLeft: onClickRight,
@@ -43,12 +50,7 @@ const ProductDisplay = ({product}) => {
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
-    useEffect(() => {
-        if (imageList.length > 0) {
-            setCurrentImage(imageList[0]);
-        }
-        setStartIndex(0);
-    }, [imageList]);
+ 
     const options = product.option ? product.option.split(', ') : [];
     return (
         <>
@@ -66,7 +68,7 @@ const ProductDisplay = ({product}) => {
                         <Button onClick={onClickRight} type="text" icon={<RightOutlined style={{ fontSize: '29px' }} />} style={{ height: '89px' }}></Button>
                     </div>
                     <div className="product-display-img">
-                        <Image width={'100%'} height={'100%'} src={currentImage} alt="current-view-img" />
+                        {currentImage && <Image width={'100%'} height={'100%'} src={currentImage} alt="current-view-img" />}
                     </div>
                 </div>
                 <div className="product-display-right">

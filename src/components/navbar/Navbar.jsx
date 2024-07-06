@@ -62,22 +62,25 @@ const Navbar = () => {
         },
     ]
 
-    const itemSearchNav = searchResults.map((result) => ({
-        label: (
-            <Link to={`/products/${result._id}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px' }} >
-                <img src={result.image} style={{ width: '120px', height: '120px' }} />
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '16px', fontWeight: '700' }}>
-                        {result.name}
-                    </span>
-                    <span style={{ fontSize: '18px', color: '#EF4444' }}>
-                        Price: {result.price.toLocaleString('en-US')} $
-                    </span>
-                </div>
-            </Link>
-        ),
-        key: result._id,
-    }));
+    const itemSearchNav = searchResults.map((result) => {
+        const imageUrl = result.image.length > 0 ? result.image[0].url : '';
+        return{
+            label: (
+                <Link to={`/products/${result._id}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px' }} >
+                    <img src={imageUrl} style={{ width: '120px', height: '120px' }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ fontSize: '16px', fontWeight: '700' }}>
+                            {result.name}
+                        </span>
+                        <span style={{ fontSize: '18px', color: '#EF4444' }}>
+                            Price: {result.price.toLocaleString('en-US')} $
+                        </span>
+                    </div>
+                </Link>
+            ),
+            key: result._id,
+        }
+    });
 
     const handleSearch = useCallback(debounce(async () => {
         if (query) {
@@ -91,7 +94,7 @@ const Navbar = () => {
         } else {
             setSearchResults([]);
         }
-    }, 500), [query, setSearchResults])
+    }, 800), [query, setSearchResults])
 
     useEffect(() => {
         handleSearch(query);
@@ -104,7 +107,7 @@ const Navbar = () => {
         }
     };
     const onClick = (e) => {
-        console.log("e navbar", e);
+        // console.log("e navbar", e);
         setMenu(e.key);
     };
     useEffect(() => {

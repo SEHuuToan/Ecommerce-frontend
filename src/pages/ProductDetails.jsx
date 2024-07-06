@@ -8,17 +8,24 @@ import { axiosGet } from "../utils/axiosUtils";
 const Product = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
     const getProductById = async () => {
         try {
             const res = await axiosGet(`${id}`); 
             setProduct(res.data);
+            setLoading(false); // Dừng trạng thái loading khi dữ liệu được tải xong
         } catch (error) {
             console.error('Error when loading 1 product', error);
+            setLoading(false); // Dừng trạng thái loading khi gặp lỗi
         }
     }
     useEffect(() => {
         getProductById();
     }, [id]);
+    
+    if (loading) {
+        return <div>Loading...</div>; // Hiển thị trạng thái loading khi đang tải sản phẩm
+    }
     if (!product) {
         return console.log('Can\'t found product!')
     }
