@@ -5,7 +5,7 @@ import ProductDisplay from "../components/product_display/ProductDisplay";
 import DescriptionBox from "../components/description/DescriptionBox";
 import RelatedProduct from "../components/relatedproduct/RelatedProduct";
 import { axiosGet } from "../utils/axiosUtils";
-import { Spin } from "antd";
+import { Spin, Skeleton } from "antd";
 import LoadingPage from '../components/loading/LoadingPage';
 import LoadingSpin from '../components/loading/LoadingSpin';
 
@@ -26,13 +26,14 @@ const Product = () => {
     useEffect(() => {
         setTimeout(() => {
             getProductById();
-        }, 500)
+            setLoading(false); 
+        }, 650)
     }, [id]);
     if (loading) {
         return <>
-            <Spin fullscreen />
-            <span>Loadingggggggggggg</span>
-          
+            <LoadingPage />
+            
+            
         </>
     }
     if (!product) {
@@ -44,11 +45,8 @@ const Product = () => {
     }
     return (
         <>
-
             <Breadcrum product={product} />
-            <LoadingSpin loading={loading}>
-                <ProductDisplay product={product} />
-            </LoadingSpin>
+            <ProductDisplay product={product} />
             <DescriptionBox product={product} />
             <RelatedProduct
                 category={product.category}

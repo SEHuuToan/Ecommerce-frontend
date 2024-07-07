@@ -32,7 +32,7 @@ const Navbar = () => {
                 to='/motor'>Motor
             </Link>,
             key: 'motor',
-            onTitleClick: (e) => {console.log(e);setMenu(e.key)},
+            onTitleClick: (e) => { setDrawerMenuVisible(false); setMenu(e.key) },
             children: [
                 {
                     label: <Link style={{ textDecoration: 'none', fontWeight: 600 }} to='/sport-bike' className='animate__animated animate__fadeIn'>Sport Bike</Link>,
@@ -109,6 +109,7 @@ const Navbar = () => {
     const onClick = (e) => {
         // console.log("e navbar", e);
         setMenu(e.key);
+        setDrawerMenuVisible(false);
     };
     useEffect(() => {
         const currentPath = location.pathname;
@@ -141,8 +142,8 @@ const Navbar = () => {
                     }}
                     title="Menu"
                     placement="left"
-                    onClose={closeDrawer}
                     open={drawerMenuVisible}
+                    onClose={closeDrawer}
                 >
                     <Menu
                         onClick={onClick}
@@ -150,6 +151,7 @@ const Navbar = () => {
                         mode="inline"
                         items={navItems}
                         defaultOpenKeys={['motor']} // Mở tất cả submenus
+                        
                     />
                 </Drawer>
             </div>
