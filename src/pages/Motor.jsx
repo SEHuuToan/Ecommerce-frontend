@@ -41,7 +41,7 @@ const Motor = (props) => {
   }, [fetchProducts]);
   return (
     <div className="moto-category">
-      <img className="motocategory-banner" src={props.banner} alt="motor_banner" />
+      <img className="motocategory-banner animate__animated animate__fadeIn" src={props.banner} alt="motor_banner" />
       <div className="motocategory-category-title">
         <h1 ref={motoCategoryProductRef} className="animate__animated animate__fadeInLeft">{displayName}</h1>
         <hr className="animate__animated animate__slideInRight"/>

@@ -27,7 +27,7 @@ const onFinish = (values) => {
 const Contact = () => {
   return (
     <div className="contact-category">
-      <img className="contact-banner" src={contact_banner} alt="contact_banner" />
+      <img className="contact-banner animate__animated animate__fadeInRight" src={contact_banner} alt="contact_banner" />
       <div className="contact-title">
         <h1 className="animate__animated animate__fadeInLeft">Contact</h1>
         <hr className="animate__animated animate__slideInRight"/>

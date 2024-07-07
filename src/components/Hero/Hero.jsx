@@ -6,7 +6,7 @@ const Hero = () => {
  
     return(
         <div className="hero">
-            <div className="hero-left">
+            <div className="hero-left animate__animated animate__zoomIn">
                 <h2>
                     NEW USED MOTOCYCLE ARRIVALS ONLY
                 </h2>
@@ -25,7 +25,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="hero-right">
+            <div className="hero-right animate__animated animate__zoomIn">
                 <img src={hero_img} alt="hero" />
             </div>
         </div>
