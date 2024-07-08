@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+// import HOST from '../main';
 const HOST = 'http://localhost:4000/api/products/'
 
 const axiosGet = async (url) => {

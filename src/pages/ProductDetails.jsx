@@ -32,8 +32,6 @@ const Product = () => {
     if (loading) {
         return <>
             <LoadingPage />
-            
-            
         </>
     }
     if (!product) {
