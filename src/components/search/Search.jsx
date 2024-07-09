@@ -1,3 +1,4 @@
+import {memo} from "react";
 import './Search.css'
 import useSearchProductStore from "../../store/searchStore";
 
@@ -23,4 +24,4 @@ const Search = () => {
         </>
     );
 }
-export default Search;
+export default memo(Search);

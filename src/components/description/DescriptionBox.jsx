@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, memo} from "react";
 import './DescriptionBox.css'
 import PropTypes from 'prop-types';
 
@@ -78,4 +78,4 @@ Description.propTypes = {
         
     })
 }
-export default Description
+export default memo(Description)

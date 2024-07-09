@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import './ItemRelated.css'
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -38,4 +38,4 @@ ItemRelated.propTypes = {
     odo: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
 }
-export default ItemRelated
+export default memo(ItemRelated)

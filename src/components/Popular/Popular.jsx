@@ -7,9 +7,7 @@ const Popular = () => {
     const getLatestProduct = async() => {
         try {
             const res = await axiosGet('latest-product');
-            setLatestProduct(res.data)
-    console.log('Error when get latest product', res.data);
-           
+            setLatestProduct(res.data)   
         } catch (error) {
             console.log('Error when get latest product')
         }

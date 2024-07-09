@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './Breadcrum.css'
 import { RightOutlined } from '@ant-design/icons'
 import PropTypes from 'prop-types';
@@ -55,4 +56,4 @@ Breadcrums.propTypes = {
 
     })
 }
-export default Breadcrums
+export default memo(Breadcrums)
