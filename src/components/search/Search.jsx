@@ -1,4 +1,3 @@
-import React from "react";
 import './Search.css'
 import useSearchProductStore from "../../store/searchStore";
 

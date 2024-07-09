@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import './Popular.css'
 import Item from '../Item/Item'
 import { axiosGet } from "../../utils/axiosUtils";

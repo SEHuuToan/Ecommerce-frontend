@@ -1,14 +1,15 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import './RelatedProduct.css'
 import ItemRelated from "../item_related/ItemRelated";
 import PaginationComponent from "../pagination/PaginationComponent";
 import { axiosGet } from "../../utils/axiosUtils";
+import PropTypes from 'prop-types';
 
-const RelatedProduct = ({ category, product, currentProductId }) => {
+const RelatedProduct = ({ category, currentProductId }) => {
     const [relatedProduct, setRelatedProduct] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
-    const getRelatedProductByCategory = async () => {
+    const getRelatedProductByCategory = useCallback( async () => {
         try {
             const res = await axiosGet(`${category}`);
             // Loai bo san pham dang duoc chon ra khoi ds related product
@@ -17,11 +18,11 @@ const RelatedProduct = ({ category, product, currentProductId }) => {
         } catch (error) {
             console.error("Failed to fetch related products:", error);
         }
-    }
+    }, [category, currentProductId]);
     const relatedProductRef = useRef(null);
     useEffect(() => {
         getRelatedProductByCategory();
-    }, [category, currentProductId]);
+    }, [getRelatedProductByCategory]);
     // Tính toán số trang và các sản phẩm hiển thị dựa trên trang hiện tại
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -58,5 +59,9 @@ const RelatedProduct = ({ category, product, currentProductId }) => {
 
         </div>
     );
+}
+RelatedProduct.propTypes = {
+    category: PropTypes.string.isRequired,
+    currentProductId: PropTypes.string.isRequired,
 }
 export default RelatedProduct

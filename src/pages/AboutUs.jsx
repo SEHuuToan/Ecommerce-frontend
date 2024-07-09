@@ -1,4 +1,3 @@
-import React from "react";
 import contact_banner from '../components/assets/other_img/contact_banner.jpg'
 import './css/About.css'
 import 'animate.css'

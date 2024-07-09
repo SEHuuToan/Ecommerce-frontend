@@ -1,4 +1,3 @@
-import React from "react";
 import './Footer.css';
 import Footer_logo from '../assets/logo/logo.png';
 import { FacebookOutlined, XOutlined, YoutubeOutlined, TikTokOutlined } from '@ant-design/icons';

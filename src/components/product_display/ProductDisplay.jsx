@@ -3,6 +3,8 @@ import './ProductDisplay.css'
 import { Image, Button } from "antd";
 import { RightOutlined, LeftOutlined, LineOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { useSwipeable } from 'react-swipeable';
+import PropTypes from 'prop-types';
+
 const getCategoryDisplayName = (category) => {
     switch (category) {
         case 'sport-bike':
@@ -107,5 +109,8 @@ const ProductDisplay = ({product}) => {
             </div>
         </>
     );
+}
+ProductDisplay.propTypes = {
+    product: PropTypes.object.isRequired,
 }
 export default ProductDisplay

@@ -82,19 +82,19 @@ const Navbar = () => {
         }
     });
 
-    const handleSearch = useCallback(debounce(async () => {
+    const handleSearch = useCallback(
+        debounce(async () => {
         if (query) {
             try {
                 const res = await axiosGet(`search/${query}`);
                 setSearchResults(res.data);
-                console.log('product search: ', res.data);
             } catch (error) {
                 console.error('Error searching:', error);
             }
         } else {
             setSearchResults([]);
         }
-    }, 800), [query, setSearchResults])
+    }, 800), [query, setSearchResults]);
 
     useEffect(() => {
         handleSearch(query);
@@ -119,7 +119,7 @@ const Navbar = () => {
         }
         const normalizePath = currentPath.slice(1).split('-').join('')
         setMenu(normalizePath);
-    }, [])
+    }, [location.pathname])
     const showDrawer = () => {
         setDrawerMenuVisible(true);
     };

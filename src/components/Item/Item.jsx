@@ -1,6 +1,7 @@
-import React from "react";
 import './Item.css'
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
+
 const Item = (props) => {
     const { id, name, image, odo, color, model, price } = props;
    // Extract the URL of the first image in the array
@@ -23,5 +24,19 @@ const Item = (props) => {
         </div>
         </Link>
     );
+}
+Item.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.arrayOf(
+        PropTypes.shape({
+            public_id: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired
+        })
+    ),
+    odo: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
 }
 export default Item

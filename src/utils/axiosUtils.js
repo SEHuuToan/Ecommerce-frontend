@@ -1,9 +1,9 @@
 import axios from 'axios';
-// import HOST from '../main';
-const HOST = 'http://localhost:4000/api/products/'
+// const HOST = 'http://192.168.2.224:4000/'
+const HOST = import.meta.env.VITE_BASE_URL_LOCAL;
 
 const axiosGet = async (url) => {
-    const res = await axios.get(HOST + url)
+    const res = await axios.get(`${HOST}api/products/${url}`)
     return res;
 }
 const axiosGetWithParams = async (url, params) => {

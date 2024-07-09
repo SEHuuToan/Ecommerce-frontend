@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import './DescriptionBox.css'
+import PropTypes from 'prop-types';
 
 
 const Description = ({product}) => {
+    const [activeTab, setActiveTab] = useState('description');
     if (!product) {
         return null; // Trả về null hoặc một loader nếu product chưa được tải
     }
-    const [activeTab, setActiveTab] = useState('description');
     return (
         <div className="descriptionbox">
             <div className="descriptionbox-navigator">
@@ -33,7 +34,7 @@ const Description = ({product}) => {
                             • Hỗ trợ bảo hành trong suốt quá trình sử dụng xe
                         </span>
                         <span>
-                            • "Giữ hộ” Motor | OTO với lãi suất SIÊU ƯU ĐÃI
+                            • &quot;Giữ hộ&quot; Motor | OTO với lãi suất SIÊU ƯU ĐÃI
                         </span>
                         <span>
                             • Nói không với xe đâm đụng tai nạn
@@ -55,5 +56,26 @@ const Description = ({product}) => {
             </div>
         </div>
     );
+}
+Description.propTypes = {
+    product: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        odo: PropTypes.string.isRequired,
+        color: PropTypes.string.isRequired,
+        model: PropTypes.string.isRequired,
+        brand: PropTypes.string.isRequired,
+        option: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+        image: PropTypes.arrayOf(
+            PropTypes.shape({
+                public_id: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired
+            })
+        ),
+        price: PropTypes.number.isRequired,
+        
+    })
 }
 export default Description
