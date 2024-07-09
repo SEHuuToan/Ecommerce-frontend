@@ -3,20 +3,20 @@ import './RelatedProduct.css'
 import ItemRelated from "../item_related/ItemRelated";
 import PaginationComponent from "../pagination/PaginationComponent";
 import { axiosGet } from "../../utils/axiosUtils";
+import { Empty } from 'antd'
 import PropTypes from 'prop-types';
 
 const RelatedProduct = ({ category, currentProductId }) => {
     const [relatedProduct, setRelatedProduct] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
-    const getRelatedProductByCategory = useCallback( async () => {
+    const getRelatedProductByCategory = useCallback(async () => {
         try {
             const res = await axiosGet(`${category}`);
             // Loai bo san pham dang duoc chon ra khoi ds related product
             const filteredProducts = res.data.filter(item => item._id !== currentProductId);
             setRelatedProduct(filteredProducts);
         } catch (error) {
-            console.error("Failed to fetch related products:", error);
         }
     }, [category, currentProductId]);
     const relatedProductRef = useRef(null);
@@ -40,13 +40,16 @@ const RelatedProduct = ({ category, currentProductId }) => {
                             name={item.name}
                             image={item.image}
                             odo={item.odo}
-                            price={item.price.toLocaleString('en-US')}
+                            price={item.price}
                         />
                     )
                 ) : (
-                    <p>No related product found.</p>
+                    <div className="relatedproducts-item-nodata">
+                        <Empty description={false} />
+                    </div>
                 )}
             </div>
+
             <div className="relatedproduct-pagination">
                 <PaginationComponent
                     type="related"

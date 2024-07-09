@@ -33,9 +33,10 @@ const Motor = (props) => {
   const { products, fetchProducts } = useProductStore((state) => ({
     products: state.products,
     fetchProducts: state.fetchProducts,
-  }));  
+  }));
   const fillterProducts = props.category === 'motor' ? products : products.filter(item => item.category === props.category);
   const paginatedProducts = fillterProducts.slice(startIndex, endIndex);
+  console.log('paginatedProducts', paginatedProducts)
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
@@ -44,7 +45,7 @@ const Motor = (props) => {
       <img className="motocategory-banner animate__animated animate__fadeIn" src={props.banner} alt="motor_banner" />
       <div className="motocategory-category-title">
         <h1 ref={motoCategoryProductRef} className="animate__animated animate__fadeInLeft">{displayName}</h1>
-        <hr className="animate__animated animate__slideInRight"/>
+        <hr className="animate__animated animate__slideInRight" />
       </div>
       <div className="motorcategory-products" >
         {paginatedProducts.length > 0 ? (

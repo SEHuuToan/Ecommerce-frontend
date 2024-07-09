@@ -15,7 +15,6 @@ const Product = () => {
         try {
             const res = await axiosGet(`${id}`);
             setProduct(res.data);
-            console.log('setproduct', res.data)
             setLoading(false); // Dừng trạng thái loading khi dữ liệu được tải xong
         } catch (error) {
             console.error('Error when loading 1 product', error);
@@ -34,7 +33,7 @@ const Product = () => {
         </>
     }
     if (!product) {
-        return console.log('Can\'t found product!')
+        return;
     }
     // Kiểm tra nếu product đã có giá trị trước khi truy cập vào thuộc tính category
     if (!product.category) {

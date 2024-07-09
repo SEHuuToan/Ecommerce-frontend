@@ -8,6 +8,8 @@ const Popular = () => {
         try {
             const res = await axiosGet('latest-product');
             setLatestProduct(res.data)
+    console.log('Error when get latest product', res.data);
+           
         } catch (error) {
             console.log('Error when get latest product')
         }
@@ -15,7 +17,6 @@ const Popular = () => {
     useEffect(() => {
         getLatestProduct();
     }, []);
-
     return(
         <div className="popular">
             <h1>
@@ -30,7 +31,7 @@ const Popular = () => {
                                  odo={item.odo}
                                  color={item.color}
                                  model={item.model}
-                                 price={item.price.toLocaleString('en-US')}
+                                 price={item.price}
                                  />
                 })}  
             </div>

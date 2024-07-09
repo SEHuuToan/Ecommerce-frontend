@@ -29,14 +29,13 @@ const Breadcrums = ({ product }) => {
             <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
             <a href={`/${product.category}`} >{displayName}</a>
             <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
-            <span className="breadcrum-product-name" href={`/product/${product.id}`}>{product.name}</span>
+            <span className="breadcrum-product-name">{product.name}</span>
         </div>
     );
 }
 Breadcrums.propTypes = {
 
     product: PropTypes.shape({
-        id: PropTypes.string.isRequired,
         _id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         odo: PropTypes.string.isRequired,

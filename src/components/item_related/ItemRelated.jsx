@@ -34,12 +34,7 @@ const ItemRelated = (props) => {
 ItemRelated.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    image: PropTypes.arrayOf(
-        PropTypes.shape({
-            public_id: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired
-        })
-    ),
+    image: PropTypes.string.isRequired,
     odo: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
 }

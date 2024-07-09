@@ -30,6 +30,13 @@
     justify-content: center;
     padding-top: 30px;
 }
+.relatedproducts-item-nodata{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 35px;
+}
 @media (max-width: 1024px) {
     .relatedproducts{
         margin: 0px auto;
