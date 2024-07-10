@@ -63,24 +63,6 @@ const Navbar = () => {
             key: 'contact',
         },
     ]
-
-    // const itemSearchNav = searchResults.map((result) => {
-    //     const imageUrl = result.image.length > 0 ? result.image[0].url : '';
-    //     return (
-    //         <Link to={`/products/${result._id}`} className="search-item-link" key={result._id}>
-    //             <img src={imageUrl} className='search-item-img' alt={result.name} />
-    //             <div className='search-item-details'>
-    //                 <span style={{ fontSize: '16px', fontWeight: '700' }} className='search-item-name'>
-    //                     {result.name}
-    //                 </span>
-    //                 <span style={{ fontSize: '18px', color: '#EF4444' }} className='search-item-price'>
-    //                     Price: {result.price.toLocaleString('en-US')} $
-    //                 </span>
-    //             </div>
-    //         </Link>
-    //     )
-    // });
-
     const handleSearch = useCallback(
         debounce(async () => {
             if (query) {
