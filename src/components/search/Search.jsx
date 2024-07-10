@@ -1,7 +1,6 @@
 import {memo} from "react";
 import './Search.css'
 import useSearchProductStore from "../../store/searchStore";
-
 const Search = () => {
     const setQuery = useSearchProductStore((state) => state.setQuery);
     const query = useSearchProductStore((state) => state.query);

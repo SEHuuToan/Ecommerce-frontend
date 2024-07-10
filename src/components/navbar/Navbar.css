@@ -48,16 +48,6 @@
     gap: 45px;
 }
 
-.nav-loginsearch-login {
-    width: 150px;
-    border: 1px solid #cecece;
-    border-radius: 25px;
-    color: #515151;
-    font-size: 32px;
-    font-weight: 500;
-    background: white;
-    cursor: pointer;
-}
 
 .nav-login-cart button:active {
     background: #f3f3f3;
@@ -84,6 +74,35 @@
 .icon-search-responsive {
     display: none;
 }
+
+/* CSS ket qua tra ve cua ham search */
+.search-item-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-item-img {
+    width: 120px;
+    height: 120px;
+}
+
+.search-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-item-name {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.search-item-price {
+    font-size: 18px;
+    color: #EF4444;
+}
+
 
 @media (max-width: 1024px) {
     .navbar {
@@ -121,8 +140,44 @@
     }
 
     .icon-search-responsive {
-        display: contents;
+        display: flex;
     }
 
+    /* CSS ket qua tra ve cua ham search */
+    .search-item-result {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .search-item-link {
+        height: 120px;
+        width: 280px;
+    }
+
+    .search-item-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .search-item-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search-item-name {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .search-item-price {
+        font-size: 18px;
+        color: #EF4444;
+    }
+
+    .menu-search-responsive-item {
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
 }

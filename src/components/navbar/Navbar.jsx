@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
-import { Button, Menu, Drawer, Dropdown, Space } from 'antd';
+import { Button, Menu, Drawer, Dropdown, Space, Popover } from 'antd';
 import { useLocation, Link } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
@@ -15,6 +15,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [menu, setMenu] = useState("shop");
     const [drawerMenuVisible, setDrawerMenuVisible] = useState(false);
+    const [openPopover, setOpenPopover] = useState(false);
     const query = useSearchProductStore((state) => state.query);
     const setSearchResults = useSearchProductStore((state) => state.setSearchResults);
     const searchResults = useSearchProductStore((state) => state.searchResults);
@@ -64,19 +65,21 @@ const Navbar = () => {
 
     const itemSearchNav = searchResults.map((result) => {
         const imageUrl = result.image.length > 0 ? result.image[0].url : '';
-        return{
+        return {
             label: (
-                <Link to={`/products/${result._id}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px' }} >
-                    <img src={imageUrl} style={{ width: '120px', height: '120px' }} />
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <span style={{ fontSize: '16px', fontWeight: '700' }}>
+
+                <Link to={`/products/${result._id}`} className="search-item-link">
+                    <img src={imageUrl} className='search-item-img' />
+                    <div className='search-item-details'>
+                        <span style={{ fontSize: '16px', fontWeight: '700' }} className='search-item-name'>
                             {result.name}
                         </span>
-                        <span style={{ fontSize: '18px', color: '#EF4444' }}>
+                        <span style={{ fontSize: '18px', color: '#EF4444' }} className='search-item-price'>
                             Price: {result.price.toLocaleString('en-US')} $
                         </span>
                     </div>
                 </Link>
+
             ),
             key: result._id,
         }
@@ -84,23 +87,23 @@ const Navbar = () => {
 
     const handleSearch = useCallback(
         debounce(async () => {
-        if (query) {
-            try {
-                const res = await axiosGet(`search/${query}`);
-                setSearchResults(res.data);
-            } catch (error) {
-                console.error('Error searching:', error);
+            if (query) {
+                try {
+                    const res = await axiosGet(`search/${query}`);
+                    setSearchResults(res.data);
+                } catch (error) {
+                    console.error('Error searching:', error);
+                }
+            } else {
+                setSearchResults([]);
             }
-        } else {
-            setSearchResults([]);
-        }
-    }, 800), [query, setSearchResults]);
+        }, 800), [query, setSearchResults]);
 
     useEffect(() => {
         handleSearch(query);
     }, [query, handleSearch]);
 
-   
+
     const handleOpenChange = (nextOpen, info) => {
         if (info.source === 'trigger' || nextOpen) {
             setOpen(nextOpen);
@@ -126,6 +129,22 @@ const Navbar = () => {
     const closeDrawer = () => {
         setDrawerMenuVisible(false);
     };
+    const handleOpenPopover = () => {
+        setOpenPopover(true);
+    }
+    const popoverSearchContent = () => {
+        return (
+            <>
+                <div className='search-item-result'>
+                    <Search />
+                    {searchResults.length > 0 && (
+                        <Menu items={itemSearchNav} className='menu-search-responsive-item' />
+                    )}
+                </div>
+            </>
+        )
+    }
+
     return (
         <div className='navbar'>
 
@@ -151,7 +170,6 @@ const Navbar = () => {
                         mode="inline"
                         items={navItems}
                         defaultOpenKeys={['motor']} // Mở tất cả submenus
-                        
                     />
                 </Drawer>
             </div>
@@ -180,6 +198,16 @@ const Navbar = () => {
                         </Space>
                     </a>
                 </Dropdown>
+            </div>
+            <div className='icon-search-responsive'>
+                <Popover
+                    content={popoverSearchContent}
+                    trigger="click"
+                    open={openPopover}
+                    onOpenChange={handleOpenPopover}
+                >
+                    <Button type="primary">Click me</Button>
+                </Popover>
             </div>
         </div>
     );
