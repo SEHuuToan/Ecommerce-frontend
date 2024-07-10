@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
-import { Button, Menu, Drawer, Dropdown, Space, Popover } from 'antd';
+import { Button, Menu, Drawer, Dropdown, Space, Popover, Empty } from 'antd';
 import { useLocation, Link } from 'react-router-dom';
-import { MenuOutlined } from '@ant-design/icons'
+import { MenuOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
 import { axiosGet } from "../../utils/axiosUtils";
 import debounce from 'lodash.debounce';
@@ -12,13 +12,14 @@ import 'animate.css'
 
 const Navbar = () => {
     const location = useLocation();
-    const [open, setOpen] = useState(false);
     const [menu, setMenu] = useState("shop");
     const [drawerMenuVisible, setDrawerMenuVisible] = useState(false);
     const [openPopover, setOpenPopover] = useState(false);
+    const [openIconBtn, setOpenIconBtn] = useState(false);
     const query = useSearchProductStore((state) => state.query);
     const setSearchResults = useSearchProductStore((state) => state.setSearchResults);
     const searchResults = useSearchProductStore((state) => state.searchResults);
+    const clearQuery = useSearchProductStore(state => state.clearQuery);
     const navItems = [
         {
             key: '/',
@@ -63,27 +64,22 @@ const Navbar = () => {
         },
     ]
 
-    const itemSearchNav = searchResults.map((result) => {
-        const imageUrl = result.image.length > 0 ? result.image[0].url : '';
-        return {
-            label: (
-
-                <Link to={`/products/${result._id}`} className="search-item-link">
-                    <img src={imageUrl} className='search-item-img' />
-                    <div className='search-item-details'>
-                        <span style={{ fontSize: '16px', fontWeight: '700' }} className='search-item-name'>
-                            {result.name}
-                        </span>
-                        <span style={{ fontSize: '18px', color: '#EF4444' }} className='search-item-price'>
-                            Price: {result.price.toLocaleString('en-US')} $
-                        </span>
-                    </div>
-                </Link>
-
-            ),
-            key: result._id,
-        }
-    });
+    // const itemSearchNav = searchResults.map((result) => {
+    //     const imageUrl = result.image.length > 0 ? result.image[0].url : '';
+    //     return (
+    //         <Link to={`/products/${result._id}`} className="search-item-link" key={result._id}>
+    //             <img src={imageUrl} className='search-item-img' alt={result.name} />
+    //             <div className='search-item-details'>
+    //                 <span style={{ fontSize: '16px', fontWeight: '700' }} className='search-item-name'>
+    //                     {result.name}
+    //                 </span>
+    //                 <span style={{ fontSize: '18px', color: '#EF4444' }} className='search-item-price'>
+    //                     Price: {result.price.toLocaleString('en-US')} $
+    //                 </span>
+    //             </div>
+    //         </Link>
+    //     )
+    // });
 
     const handleSearch = useCallback(
         debounce(async () => {
@@ -103,12 +99,6 @@ const Navbar = () => {
         handleSearch(query);
     }, [query, handleSearch]);
 
-
-    const handleOpenChange = (nextOpen, info) => {
-        if (info.source === 'trigger' || nextOpen) {
-            setOpen(nextOpen);
-        }
-    };
     const onClick = (e) => {
         // console.log("e navbar", e);
         setMenu(e.key);
@@ -129,22 +119,50 @@ const Navbar = () => {
     const closeDrawer = () => {
         setDrawerMenuVisible(false);
     };
-    const handleOpenPopover = () => {
+    const handleOpenPopover = (open) => {
+        setOpenPopover(open);
+    }
+    const handleSetOpenBtn = () => {
         setOpenPopover(true);
+        setOpenIconBtn(true)
+    }
+    const handleSetCloseBtn = () => {
+        setOpenPopover(false);
+        setOpenIconBtn(false)
+    }
+    const handleClosePopover = () => {
+        setOpenPopover(false);
+        setOpenIconBtn(false)
+        clearQuery();
     }
     const popoverSearchContent = () => {
         return (
-            <>
-                <div className='search-item-result'>
+            <div className='search-item-result'>
+                <div className='search-component'>
                     <Search />
-                    {searchResults.length > 0 && (
-                        <Menu items={itemSearchNav} className='menu-search-responsive-item' />
+                </div>
+                <div className='search-results'>
+                    {searchResults.length > 0 ? (
+                        searchResults.map((result) => (
+                            <Link to={`/products/${result._id}`} className="search-item-link" key={result._id} onClick={handleClosePopover}>
+                                <img src={result.image.length > 0 ? result.image[0].url : ''} className='search-item-img' alt={result.name} />
+                                <div className='search-item-details'>
+                                    <span className='search-item-name'>
+                                        {result.name}
+                                    </span>
+                                    <span className='search-item-price'>
+                                        Price: {result.price.toLocaleString('en-US')} $
+                                    </span>
+                                </div>
+                            </Link>
+                        ))
+                    ) : (
+                        <Empty description={false} />
                     )}
                 </div>
-            </>
-        )
+            </div>
+        );
     }
-
     return (
         <div className='navbar'>
 
@@ -184,29 +202,36 @@ const Navbar = () => {
                 items={navItems}
                 className='nav-select-menu'
             />
-            <div className="nav-loginsearch">
-                <Dropdown
-                    menu={{
-                        items: itemSearchNav,
-                    }}
-                    onOpenChange={handleOpenChange}
-                    open={open}
-                >
-                    <a onClick={(e) => e.preventDefault()}>
-                        <Space>
-                            <Search />
-                        </Space>
-                    </a>
-                </Dropdown>
-            </div>
-            <div className='icon-search-responsive'>
+            <div className="input-search-responsive">
                 <Popover
                     content={popoverSearchContent}
                     trigger="click"
                     open={openPopover}
                     onOpenChange={handleOpenPopover}
+                    overlayStyle={{ cursor: 'pointer' }}
                 >
-                    <Button type="primary">Click me</Button>
+                    <div>
+                        <a onClick={(e) => e.preventDefault()}>
+                            <Space>
+                                <Search />
+                            </Space>
+                        </a>
+                    </div>
+                </Popover>
+            </div>
+            <div className='button-search-responsive'>
+                <Popover
+                    content={popoverSearchContent}
+                    trigger="click"
+                    open={openPopover}
+                    onOpenChange={handleSetOpenBtn}
+                >
+                    <Button type="primary" 
+                        onClick={openIconBtn ? handleSetCloseBtn : handleSetOpenBtn}
+                        style={openIconBtn ? {backgroundColor: '#FF4D4F'} : {backgroundColor: '#1677FF'} }
+                    >
+                        {openIconBtn ? <CloseOutlined style={{ fontSize: '22px' }}/> : <SearchOutlined style={{ fontSize: '22px' }}/>}
+                    </Button>
                 </Popover>
             </div>
         </div>

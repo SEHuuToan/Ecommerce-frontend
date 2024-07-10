@@ -5,6 +5,7 @@ const useSearchProductStore = create((set) => ({
   query: '',
   setSearchResults: (results) => set({ searchResults: results }),
   setQuery: (query) => set({query}),
+  clearQuery: () => set({ query: '' }),
 }));
 
 export default useSearchProductStore;

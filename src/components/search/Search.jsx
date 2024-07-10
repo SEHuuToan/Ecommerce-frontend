@@ -4,6 +4,7 @@ import useSearchProductStore from "../../store/searchStore";
 const Search = () => {
     const setQuery = useSearchProductStore((state) => state.setQuery);
     const query = useSearchProductStore((state) => state.query);
+    const clearQuery = useSearchProductStore((state) => state.clearQuery);
     const handleChange = (e) => {
         const value = e.target.value;
         setQuery(value);
