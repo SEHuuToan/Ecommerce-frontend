@@ -9,11 +9,12 @@
 }
 .popular-item{
     max-width: 1240px;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr;
     margin: 40px auto;
     gap: 20px;
+    animation: fadeIn 0.5s;
 }
 .popular h1{
     padding-top: 30px;
@@ -27,6 +28,15 @@
     border-radius: 10px;
     background: #252525;
 }
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+  }
 @media (max-width: 1024px) {
     .popular h1{
         counter-reset: #171717;
@@ -35,9 +45,10 @@
     }
     .popular-item{
         max-width: 430px;
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
         margin: 0 auto;
         gap: 15px;
     }

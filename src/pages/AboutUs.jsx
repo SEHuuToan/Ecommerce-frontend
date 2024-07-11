@@ -1,7 +1,7 @@
-import contact_banner from '../components/assets/other_img/contact_banner.jpg'
+import contact_banner from '../components/assets/other_img/aboutUs.png'
 import './css/About.css'
 import 'animate.css'
-
+import ErrorPage from '../components/404/ErrorPage'
 const About = () => {
     return (
         <div className="about">
@@ -11,7 +11,7 @@ const About = () => {
                 <hr className="animate__animated animate__slideInRight"/>
             </div>
             <div className="about-container">
-                <p>Khong tim thay ket qua</p>
+                    <ErrorPage />
             </div>
         </div>
     );
