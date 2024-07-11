@@ -10,6 +10,7 @@
     gap: 20px;
     padding-left: 180px;
     line-height: 1.1;
+    animation: zoom-in 0.5s;
 }
 .hero-left h2{
     color: #090909;
@@ -53,12 +54,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: zoom-in 0.5s;
 }
 
 .hero-right img{
     width: 842px;
     height: 613px;
 }
+@keyframes zoom-in {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+    
+      50% {
+        opacity: 1;
+      }
+  }
 
 @media (max-width: 1024px) {
     .hero{
@@ -77,7 +90,6 @@
         align-items: center;
         padding-left: 10px;
         line-height: 1.1;
-   
     }
     .hero-left h2{
         color: #090909;

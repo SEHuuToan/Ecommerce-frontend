@@ -27,7 +27,7 @@ const ScrollToTop = () => {
                         fontSize: '16px',
                         color: 'red',
                         cursor: 'pointer',
-                        transition: 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',
+                        animation: 'opacity 1 -webkit-transform: translate3d(0, 0, 0) transform: translate3d(0, 0, 0)',
                     }} onClick={scrollToTopPage} width="48" height="48" src="https://img.icons8.com/ultraviolet/40/circled-chevron-up.png" alt="circled-chevron-up" />
             </div>
         )

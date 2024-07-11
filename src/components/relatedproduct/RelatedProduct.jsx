@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, memo } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import './RelatedProduct.css'
 import ItemRelated from "../item_related/ItemRelated";
 import PaginationComponent from "../pagination/PaginationComponent";
@@ -17,6 +17,7 @@ const RelatedProduct = ({ category, currentProductId }) => {
             const filteredProducts = res.data.filter(item => item._id !== currentProductId);
             setRelatedProduct(filteredProducts);
         } catch (error) {
+            console.log('error at Related Product');
         }
     }, [category, currentProductId]);
     const relatedProductRef = useRef(null);
@@ -67,4 +68,4 @@ RelatedProduct.propTypes = {
     category: PropTypes.string.isRequired,
     currentProductId: PropTypes.string.isRequired,
 }
-export default RelatedProduct
+export default (RelatedProduct)

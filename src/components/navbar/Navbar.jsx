@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css'
 import logo from '../assets/logo/logo.png'
-import { Button, Menu, Drawer, Dropdown, Space, Popover, Empty } from 'antd';
+import { Button, Menu, Drawer, Space, Popover, Empty } from 'antd';
 import { useLocation, Link } from 'react-router-dom';
 import { MenuOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons'
 import Search from '../search/Search';
@@ -12,14 +12,16 @@ import 'animate.css'
 
 const Navbar = () => {
     const location = useLocation();
-    const [menu, setMenu] = useState("shop");
-    const [drawerMenuVisible, setDrawerMenuVisible] = useState(false);
-    const [openPopover, setOpenPopover] = useState(false);
-    const [openIconBtn, setOpenIconBtn] = useState(false);
+    let [menu, setMenu] = useState("shop");
+    let [drawerMenuVisible, setDrawerMenuVisible] = useState(false);
+    let [openPopover, setOpenPopover] = useState(false);
+    let [openPopoverBtn, setOpenPopoverBtn] = useState(false);
+    let [openIconBtn, setOpenIconBtn] = useState(false);
     const query = useSearchProductStore((state) => state.query);
     const setSearchResults = useSearchProductStore((state) => state.setSearchResults);
     const searchResults = useSearchProductStore((state) => state.searchResults);
     const clearQuery = useSearchProductStore(state => state.clearQuery);
+    let [isScreenWide, setIsScreenWide] = useState(window.innerWidth > 1024);
     const navItems = [
         {
             key: '/',
@@ -94,7 +96,16 @@ const Navbar = () => {
         }
         const normalizePath = currentPath.slice(1).split('-').join('')
         setMenu(normalizePath);
-    }, [location.pathname])
+    }, [location.pathname]);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsScreenWide(window.innerWidth > 1024);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     const showDrawer = () => {
         setDrawerMenuVisible(true);
     };
@@ -105,11 +116,11 @@ const Navbar = () => {
         setOpenPopover(open);
     }
     const handleSetOpenBtn = () => {
-        setOpenPopover(true);
+        setOpenPopoverBtn(true);
         setOpenIconBtn(true)
     }
     const handleSetCloseBtn = () => {
-        setOpenPopover(false);
+        setOpenPopoverBtn(false);
         setOpenIconBtn(false)
     }
     const handleClosePopover = () => {
@@ -178,12 +189,15 @@ const Navbar = () => {
                 <img className='imgLogo' src={logo} alt="logo" />
                 <p>Motocycle</p>
             </Link>
-            <Menu onClick={onClick}
-                selectedKeys={[menu]}
-                mode="horizontal"
-                items={navItems}
-                className='nav-select-menu'
-            />
+            {isScreenWide && (
+                <Menu onClick={onClick}
+                    selectedKeys={[menu]}
+                    mode="horizontal"
+                    items={navItems}
+                    className='nav-select-menu'
+                />
+            )}
+
             <div className="input-search-responsive">
                 <Popover
                     content={popoverSearchContent}
@@ -205,14 +219,14 @@ const Navbar = () => {
                 <Popover
                     content={popoverSearchContent}
                     trigger="click"
-                    open={openPopover}
+                    open={openPopoverBtn}
                     onOpenChange={handleSetOpenBtn}
                 >
-                    <Button type="primary" 
+                    <Button type="primary"
                         onClick={openIconBtn ? handleSetCloseBtn : handleSetOpenBtn}
-                        style={openIconBtn ? {backgroundColor: '#FF4D4F'} : {backgroundColor: '#1677FF'} }
+                        style={openIconBtn ? { backgroundColor: '#FF4D4F' } : { backgroundColor: '#1677FF' }}
                     >
-                        {openIconBtn ? <CloseOutlined style={{ fontSize: '22px' }}/> : <SearchOutlined style={{ fontSize: '22px' }}/>}
+                        {openIconBtn ? <CloseOutlined style={{ fontSize: '22px' }} /> : <SearchOutlined style={{ fontSize: '22px' }} />}
                     </Button>
                 </Popover>
             </div>
