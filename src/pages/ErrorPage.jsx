@@ -1,6 +1,6 @@
-import './ErrorPage.css'
+import './css/ErrorPage.css';
 import { Button } from 'antd';
-import ErrorImg from '../assets/other_img/404-web-page.png'
+import ErrorImg from '../components/assets/other_img/404-web-page.png';
 const ErrorPage = () => {
     return(
         <>

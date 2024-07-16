@@ -35,6 +35,28 @@
     justify-content: center;
     padding-top: 30px;
 }
+
+.motor-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+.motor-empty-img1{
+    width: 375px;
+    height: 180px;
+}
+.motor-empty-description{
+    font-size: 24px;
+    font-weight: 500;
+}
+.motor-empty-description-category{
+    font-size: 28px;
+    font-weight: 600;
+    color: #1677FF;
+}
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -62,5 +84,18 @@
         justify-content: center;
         margin: 30px auto;
         gap: 10px;
+    }
+    .motor-empty-img1{
+        width: 220px;
+        height: 100px;
+    }
+    .motor-empty-description{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .motor-empty-description-category{
+        font-size: 20px;
+        font-weight: 600;
+        color: #1677FF;
     }
 }
