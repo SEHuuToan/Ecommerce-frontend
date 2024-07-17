@@ -42,11 +42,12 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 60vh;
     gap: 20px;
 }
 .motor-empty-img1{
-    width: 375px;
-    height: 180px;
+    width: 265px;
+    height: 265px;
 }
 .motor-empty-description{
     font-size: 24px;
@@ -85,9 +86,13 @@
         margin: 30px auto;
         gap: 10px;
     }
+    .motor-empty {
+        width: 100%;
+        height: 30vh;
+    }
     .motor-empty-img1{
-        width: 220px;
-        height: 100px;
+        width: 125px;
+        height: 125px;
     }
     .motor-empty-description{
         font-size: 16px;

@@ -3,7 +3,7 @@ import './css/Motor.css'
 import Item from '../components/Item/Item'
 import PaginationComponent from "../components/pagination/PaginationComponent";
 import useProductStore from "../store/productStore";
-import empty_motor_img from "../components/assets/other_img/empty_img_search_motor.jpg";
+import empty_motor_img from "../components/assets/other_img/out-of-stock.png";
 import 'animate.css'
 const getCategoryDisplayName = (category) => {
   switch (category) {
@@ -67,7 +67,6 @@ const Motor = (props) => {
               <div>
                 <img className="motor-empty-img1" src={empty_motor_img} alt="empty_motor_img" />
               </div>
-              <div className="motor-empty-img2"></div>
               <div className="motor-empty-description">
                 <span>
                   Sorry! No results found for &quot;{<a className="motor-empty-description-category">{displayName}</a>}&quot;

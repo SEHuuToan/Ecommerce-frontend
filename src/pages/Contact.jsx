@@ -115,11 +115,10 @@ const Contact = () => {
         <div className="contact-right">
           <div className="embbeded-map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5381.295071058592!2d106.37830917309374!3d10.989772933136404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1720705290395!5m2!1svi!2s"
-              width="600"
-              height="450"
+              className='iframe-google-map'
               allowfullscreen
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
+              referrerPolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
         </div>
