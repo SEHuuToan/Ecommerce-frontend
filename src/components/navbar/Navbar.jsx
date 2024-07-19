@@ -57,8 +57,8 @@ const Navbar = () => {
             ]
         },
         {
-            label: <Link style={{ textDecoration: 'none' }} to='/about'>About Us</Link>,
-            key: 'about',
+            label: <Link style={{ textDecoration: 'none' }} to='/blog'>Blog</Link>,
+            key: 'blog',
         },
         {
             label: <Link style={{ textDecoration: 'none' }} to='/contact'>Contact</Link>,

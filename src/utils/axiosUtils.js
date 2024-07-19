@@ -11,8 +11,13 @@ const axiosGetWithParams = async (url, params) => {
     const res = axios.get(HOST + url + '?' + p)
     return res;
 }
+const axiosGetBlog = async (url) => {
+    const res = await axios.get(HOST+ 'api/' + url)
+    return res;
+}
 
 export {
     axiosGet,
     axiosGetWithParams,
+    axiosGetBlog
 }

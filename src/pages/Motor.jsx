@@ -37,7 +37,6 @@ const Motor = (props) => {
   }));
   const fillterProducts = props.category === 'motor' ? products : products.filter(item => item.category === props.category);
   const paginatedProducts = fillterProducts.slice(startIndex, endIndex);
-  console.log('paginatedProducts', paginatedProducts)
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);

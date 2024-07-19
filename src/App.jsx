@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import Shop from './pages/Shop';
 import Motor from './pages/Motor';
-import About from './pages/AboutUs';
+import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Product from './pages/ProductDetails';
 import banner_motor from './components/assets/banner/motor_banner.png';
@@ -28,7 +28,7 @@ function App() {
           <Route path='/naked-bike' element={< Motor banner={banner_naked} category="naked-bike"/>} />
           <Route path='/adventure' element={< Motor banner={banner_adventure} category="adventure"/>} />
           <Route path='/classic' element={< Motor banner={banner_classic} category="classic"/>} />
-          <Route path='/about' element={< About/>} />
+          <Route path='/blog' element={< Blog/>} />
           <Route path='/contact' element={< Contact/>} />
           <Route path="/products/:id" element={<Product/>} />  
           <Route path='*' element={<ErrorPage />}/>
@@ -46,7 +46,7 @@ function App() {
                 <Route path='/naked-bike' element={< Motor banner={banner_naked} category="naked-bike" />} />
                 <Route path='/adventure' element={< Motor banner={banner_adventure} category="adventure" />} />
                 <Route path='/classic' element={< Motor banner={banner_classic} category="classic" />} />
-                <Route path='/about' element={< About />} />
+                <Route path='/blog' element={< Blog />} />
                 <Route path='/contact' element={< Contact />} />
                 <Route path="/products/:id" element={<Product />} />
               </Route>
