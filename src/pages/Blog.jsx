@@ -10,17 +10,14 @@ const Blog = () => {
     const [blog, setBlog] = useState([]);
     const motoCategoryProductRef = useRef(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 12;
+    const itemsPerPage = 6;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const paginatedBlog = blog.slice(startIndex, endIndex)
-    console.log("Fail to get list of blog", blog);
     const getAllBlog = async () => {
         try {
             const res = await axiosGetBlog("all-blog");
             setBlog(res.data);
-            console.log("Fail to get list of blog", blog);
-
         } catch (error) {
             console.error("Fail to get list of blog");
         }

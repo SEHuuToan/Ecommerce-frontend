@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import Shop from './pages/Shop';
 import Motor from './pages/Motor';
 import Blog from './pages/Blog';
+import BlogDetails from './pages/BlogDetails';
 import Contact from './pages/Contact';
 import Product from './pages/ProductDetails';
 import banner_motor from './components/assets/banner/motor_banner.png';
@@ -47,6 +48,7 @@ function App() {
                 <Route path='/adventure' element={< Motor banner={banner_adventure} category="adventure" />} />
                 <Route path='/classic' element={< Motor banner={banner_classic} category="classic" />} />
                 <Route path='/blog' element={< Blog />} />
+                <Route path="/blog/:id" element={<BlogDetails />} />
                 <Route path='/contact' element={< Contact />} />
                 <Route path="/products/:id" element={<Product />} />
               </Route>

@@ -1,11 +1,15 @@
 import './Blog.css';
 import { Button } from 'antd';
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Blog = (props) => {
     const { id, title, header, image } = props;
     const imageUrl = image && image.length > 0 ? image[0].url : '';
+    const handleNavigateToDetailBlog = () => {
+        const navigate = useNavigate();
+        navigate(`/blog/${id}`);
+    }
     return (
         <>
             <Link to={`/blog/${id}`} className="blog-card-link">
@@ -15,7 +19,7 @@ const Blog = (props) => {
                         <div className="blog-card-title text-split">{title}</div>
                         <div className='blog-card-header text-split'>{header}</div>
                         <div className="blog-card-btn">
-                            <Button type='primary'>
+                            <Button type='primary' onClick={handleNavigateToDetailBlog}>
                                 Read more
                             </Button>
                         </div>

@@ -58,11 +58,6 @@
     display: flex;
     align-items: center;
 }
-
-.blog-card:hover {
-    transform: scale(1.05);
-    transition: 0.6s;
-}
 .blog-btn {
     display: flex;
     justify-content: center;

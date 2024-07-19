@@ -11,6 +11,8 @@ const Product = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
+   
+
     const getProductById = useCallback( async () => {
         try {
             const res = await axiosGet(`${id}`);
