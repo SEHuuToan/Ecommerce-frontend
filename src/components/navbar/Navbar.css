@@ -1,11 +1,19 @@
 .navbar {
     display: flex;
-    justify-content: space-around;
-    padding: 16px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 0 16px 0;
     box-shadow: 0 1px 3px -2px black;
 }
 
 .nav-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-logo-item {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -17,27 +25,33 @@
     height: 78px;
 }
 
-.nav-logo p {
+.nav-logo-item p {
     color: #171717;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
 }
 
+.nav-menu-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 .nav-select-menu {
     display: flex !important;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
+    width: 100%;
     border: none;
     font-weight: 600;
-    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .input-search-responsive {
+    width: 100%;
     display: flex;
-    align-items: center;
-    gap: 45px;
+    justify-content: center;
 }
 
 .nav-menu-responsive {
@@ -91,11 +105,16 @@
 @media (max-width: 1024px) {
     .navbar {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-around;
     }
 
     .nav-logo {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-logo-item {
         display: flex;
         align-items: center;
     }
@@ -104,20 +123,23 @@
         width: 108px;
         height: 58px;
     }
-
-    .nav-logo p {
+    .nav-logo-item p {
         display: none;
     }
 
     .nav-select-menu {
         display: none;
     }
-
+    .nav-menu-item{
+        display: none;
+    }
     .nav-menu-responsive {
         display: contents;
-        width: 100%;    
+        width: 100%;
     }
-
+    .nav-menu-responsive-drawer{
+        width: 70% !important; 
+    }
     .input-search-responsive {
         display: none;
     }
@@ -151,4 +173,20 @@
         display: flex;
     }
 
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1180px) {
+    .search-input {
+        width: 200px;
+    }
+
+    .nav-logo p {
+        font-size: 20px;
+    }
+
+    .nav-select-menu {
+        font-size: 18px;
+        width: 100%;
+    }
+    
 }

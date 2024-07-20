@@ -163,13 +163,11 @@ const Navbar = () => {
                 <Button
                     size='large'
                     className='menu-button'
-                    icon={<MenuOutlined />}
+                    icon={<MenuOutlined style={{ fontSize: '22px' }}/>}
                     onClick={showDrawer}
                 />
                 <Drawer
-                    style={{
-                        width: 350,
-                    }}
+                    className='nav-menu-responsive-drawer'
                     title="Menu"
                     placement="left"
                     open={drawerMenuVisible}
@@ -184,19 +182,23 @@ const Navbar = () => {
                     />
                 </Drawer>
             </div>
+            <div className='nav-logo'>
+                <Link className='nav-logo-item' to='/'>
+                    <img className='imgLogo' src={logo} alt="logo" />
+                    <p>Motocycle</p>
+                </Link>
+            </div>
+            <div className='nav-menu-item'>
+                {isScreenWide && (
+                    <Menu onClick={onClick}
+                        selectedKeys={[menu]}
+                        mode="horizontal"
+                        items={navItems}
+                        className='nav-select-menu'
+                    />
+                )}
+            </div>
 
-            <Link className='nav-logo' to='/'>
-                <img className='imgLogo' src={logo} alt="logo" />
-                <p>Motocycle</p>
-            </Link>
-            {isScreenWide && (
-                <Menu onClick={onClick}
-                    selectedKeys={[menu]}
-                    mode="horizontal"
-                    items={navItems}
-                    className='nav-select-menu'
-                />
-            )}
 
             <div className="input-search-responsive">
                 <Popover
@@ -223,8 +225,17 @@ const Navbar = () => {
                     onOpenChange={handleSetOpenBtn}
                 >
                     <Button type="primary"
+                        size='large'
                         onClick={openIconBtn ? handleSetCloseBtn : handleSetOpenBtn}
-                        style={openIconBtn ? { backgroundColor: '#FF4D4F' } : { backgroundColor: '#1677FF' }}
+                        style={{
+                            backgroundColor: openIconBtn ? '#FF4D4F' : '#1677FF',
+                            width: '40px',
+                            height: '40px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            padding: 0, // Đảm bảo không có khoảng đệm
+                        }}
                     >
                         {openIconBtn ? <CloseOutlined style={{ fontSize: '22px' }} /> : <SearchOutlined style={{ fontSize: '22px' }} />}
                     </Button>

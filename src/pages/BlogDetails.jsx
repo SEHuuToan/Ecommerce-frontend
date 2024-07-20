@@ -34,10 +34,8 @@ const BlogDetails = () => {
     }
     return (
         <>
-            <div >
-                <BlogDisplay blog={blog} />
-                {/* <BlogRelated /> */}
-            </div>
+            <BlogDisplay blog={blog} />
+            {/* <BlogRelated /> */}
         </>
     );
 }
