@@ -34,8 +34,11 @@ const BlogDetails = () => {
     }
     return (
         <>
-            <BlogDisplay blog={blog} />
-            {/* <BlogRelated /> */}
+            <div className='blog-detail-structure'>
+                <BlogDisplay blog={blog} />
+                {/* <BlogRelated /> */}
+            </div>
+
         </>
     );
 }
