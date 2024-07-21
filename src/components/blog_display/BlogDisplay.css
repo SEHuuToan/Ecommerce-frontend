@@ -1,11 +1,13 @@
-
-.blog-display-container{
+.blog-display-container {
     max-width: 1500px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
-.blog-display-title{
+
+.blog-display-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,14 +15,15 @@
     width: 100%;
 }
 
-.blog-display-title hr{
+.blog-display-title hr {
     width: 20%;
     border: none;
     border-radius: 10px;
     height: 5px;
     background: #FED444;
 }
-.blog-display-content{
+
+.blog-display-content {
     display: flex;
     flex-direction: column;
     max-width: 1250px;
@@ -28,21 +31,85 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     margin-top: 40px;
-    padding: 16px;
+    padding: 30px;
+    gap: 30px;
+}
+
+.blog-display-content img {
+    width: 50%;
+}
+
+.blog-display-header {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.blog-display-body1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    gap: 10px;
+
+}
+
+.blog-display-body2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    gap: 10px;
+
+}
+
+.blog-display-body3 {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    gap: 10px;
+
 }
 
 
 @media (max-width: 1024px) {
-    .blog-display-container{
-       margin-top: 10px;
+    .blog-display-container {
+        margin-top: 10px;
     }
-    .blog-display-title h1{
+
+    .blog-display-title h1 {
         display: flex;
         text-align: center;
         padding: 0 10px 0 10px;
         font-size: 20px;
     }
-    .blog-display-content{
+
+    .blog-display-content {
         margin-top: 20px;
+        width: 80%;
+        padding: 20px;
+
+    }
+    .blog-display-content img {
+        width: 100%;
+    }
+
+    .blog-display-header {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .blog-display-body1 {
+        font-size: 14px;
+    }
+
+    .blog-display-body2 {
+        font-size: 14px;
+    }
+
+    .blog-display-body3 {
+        font-size: 14px;
+    }
+
+    .blog-display-footer {
+        font-size: 14px;
+
     }
 }

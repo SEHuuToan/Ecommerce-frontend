@@ -1,4 +1,4 @@
-.error{
+.error {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,23 +7,32 @@
     height: auto;
     gap: 10px;
 }
-.error-icon{
-    width: max-content;
-    height: max-content;
+
+.error-icon {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
-.error-description{
+
+.error-icon img {
+    width: 380px;
+}
+
+.error-description {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.error-description h1{
+
+.error-description h1 {
     position: relative;
     width: max-content;
     color: #3EB8EA;
-    font-size: 58px;
+    font-size: 48px;
     font-weight: 700;
 }
-.error-description h1::after{
+
+.error-description h1::after {
     content: '';
     background: linear-gradient(to right, red, blue);
     height: 5px;
@@ -32,15 +41,22 @@
     bottom: 0;
     left: 0;
 }
-.description-ng-scope{
+
+.description-ng-scope {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    width: 100%;
     padding-top: 20px;
     font-size: 20px;
 }
-.btn-go-back-home{
-    padding-top: 50px;
+
+.btn-go-back-home {
+    padding-top: 20px;
 }
-.size-btn{
+
+.size-btn {
     width: 226px;
     height: 56px;
     font-size: 26px;
@@ -50,22 +66,40 @@
 }
 
 @media (max-width: 1024px) {
-    .error{
+    .error {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       width: 100%;
+       padding-top: 20px;
+    }
 
-}
+    .error-icon img {
+        width: 280px;
+    }
 
-.error-description{
+    .error-description {}
 
-}
-.error-description h1{
-    font-size: 28px;
-}
-.description-ng-scope{
-    display: flex;
-}
-.btn-go-back-home{
-    width: 206px;
-    height: 46px;
-    font-size: 22px;
-}
+    .error-description h1 {
+        font-size: 26px;
+    }
+
+    .description-ng-scope {
+       font-size: 14px;
+       max-width: 400px;
+    }
+
+    .btn-go-back-home {
+        display: flex;
+       justify-content: center;
+       width: 100%;
+    }
+    .size-btn {
+        width: 206px;
+        height: 50px;
+        font-size: 24px;
+        border-radius: 25px;
+        border-color: #3EB8EA;
+        color: #3EB8EA;
+    }
 }

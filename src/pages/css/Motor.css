@@ -1,3 +1,4 @@
+
 .motocategory-banner {
     display: block;
     width: 100%;
@@ -68,6 +69,11 @@
       }
   }
 @media (max-width: 1024px) {
+    .moto-category{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
     .motocategory-banner {
         display: block;
         width: 100%;
@@ -78,7 +84,7 @@
         font-size: 24px;
     }
     .motorcategory-products{
-        max-width: 430px;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
