@@ -16,7 +16,7 @@
 
 .blog-card img {
     width: 400px;
-    height: 280px;
+    height: 300px;
 }
 
 .blog-card-description {
@@ -76,7 +76,7 @@
 
 @media (max-width: 1024px) {
     .blog-card {
-        width: 200px;
+        width: 195px;
         height: 100%;
         flex: 1;
         display: flex;
@@ -87,7 +87,7 @@
     }
 
     .blog-card img {
-        width: 200px;
+        width: 195px;
         height: 140px;
     }
 

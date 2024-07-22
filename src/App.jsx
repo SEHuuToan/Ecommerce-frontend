@@ -1,4 +1,4 @@
-
+import { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import Shop from './pages/Shop';
@@ -15,8 +15,13 @@ import banner_classic from './components/assets/banner/banner_classic.png';
 import ErrorPage from './pages/ErrorPage';
 import CommonLayout from './layoutElement/CommonLayout';
 import ProtectedRoutes from './utils/ProtectedRoutes';
-function App() {
 
+import useBlogStore from './store/blogStore';
+function App() {
+  const fetchBlogs = useBlogStore((state) => state.fetchBlogs);
+  useEffect(() => {
+      fetchBlogs();
+  }, [fetchBlogs])
   return (
     <>
       <div >

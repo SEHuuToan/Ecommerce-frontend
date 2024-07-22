@@ -6,25 +6,15 @@ import PaginationComponent from '../components/pagination/PaginationComponent';
 import empty_motor_img from "../components/assets/other_img/out-of-stock.png";
 import './css/Blog.css';
 import 'animate.css';
+import useBlogStore from '../store/blogStore';
 const Blog = () => {
-    const [blog, setBlog] = useState([]);
+    const blogs = useBlogStore((state) => state.blogs);
     const motoCategoryProductRef = useRef(null);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const paginatedBlog = blog.slice(startIndex, endIndex)
-    const getAllBlog = async () => {
-        try {
-            const res = await axiosGetBlog("all-blog");
-            setBlog(res.data);
-        } catch (error) {
-            console.error("Fail to get list of blog");
-        }
-    }
-    useEffect(() => {
-        getAllBlog();
-    }, [])
+    const paginatedBlog = blogs.slice(startIndex, endIndex)
     return (
         <div className="blog">
             <img className="blog-banner animate__animated animate__fadeInLeft" src={blog_banner} alt="blog_banner" />
@@ -34,7 +24,7 @@ const Blog = () => {
             </div>
             <div className="blog-content">
                 {paginatedBlog.length > 0 ? (
-                    blog.map((item, i) =>
+                    blogs.map((item, i) =>
                         <BlogCard
                             key={i}
                             id={item._id}
@@ -58,7 +48,7 @@ const Blog = () => {
             </div>
             <div className='blog-pagination'>
                 <PaginationComponent
-                    listItem={blog}
+                    listItem={blogs}
                     refName={motoCategoryProductRef}
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
