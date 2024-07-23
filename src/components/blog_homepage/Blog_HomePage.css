@@ -38,10 +38,11 @@
 }
 
 .blog-homepage-content {
-    max-width: 1240px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% / 3) - 12px);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin: 40px auto;
     overflow: hidden;
     gap: 20px;
@@ -49,6 +50,10 @@
     position: relative;
     padding: 0px 20px 0 20px;
     transition: transform 0.5s ease-in-out;
+}
+.blog-homepage-carosel{
+    display: flex;
+    width: 1240px;
 }
 .blog-homepage-blog-item {
     max-width: 430px;

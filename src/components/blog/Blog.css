@@ -39,6 +39,13 @@
     cursor: pointer;
     color: #FFFFFF;
 }
+.blog-card-title:hover,
+.blog-card-title:focus,
+.blog-card-title:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
 
 .blog-card-header {
     font-size: 16px;
@@ -63,7 +70,13 @@
     justify-content: center;
     align-items: center;
 }
-
+.blog-card-btn:hover,
+.blog-card-btn:focus,
+.blog-card-btn:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
 .text-split {
     overflow: hidden;
     text-overflow: ellipsis;
