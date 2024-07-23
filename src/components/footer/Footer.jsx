@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="footer-links">
         <a href="/">Shop</a>
         <a href="/motor">Motor</a>
-        <a href="/blog">Blog Us</a>
+        <a href="/blog">Blog</a>
         <a href="/contact">Contact</a>
       </div>
       <div className="footer-social-icon">
