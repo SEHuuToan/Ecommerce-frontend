@@ -20,10 +20,11 @@
 }
 
 .relatedproducts-item {
-    max-width: 1200px;
+    max-width: 1240px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     margin: 40px auto;
 }
@@ -42,6 +43,22 @@
 }
 
 @media (max-width: 1024px) {
+    .relatedproducts {
+        margin: 0px auto;
+    }
+
+    .relatedproducts-item {
+        max-width: 1024px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin: 0px auto;
+    }
+
+
+}
+@media (max-width: 768px) {
     .relatedproducts {
         margin: 0px auto;
     }

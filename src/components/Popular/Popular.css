@@ -45,6 +45,22 @@
         font-weight: 600;
     }
     .popular-item{
+        max-width: 1024px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        margin: 0 auto;
+        gap: 15px;
+    }
+}
+@media (max-width: 768px) {
+    .popular h1{
+        counter-reset: #171717;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .popular-item{
         max-width: 430px;
         display: flex;
         flex-wrap: wrap;

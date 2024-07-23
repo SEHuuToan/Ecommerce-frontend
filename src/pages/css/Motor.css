@@ -68,7 +68,29 @@
         opacity: 1;
       }
   }
-@media (max-width: 1024px) {
+
+  @media (max-width: 1024px) {
+
+    .motocategory-banner {
+        display: block;
+        width: 100%;
+        height: 239px;
+    }
+    .motorcategory-products{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        margin: 30px auto;
+        gap: 10px;
+    }
+    .motor-empty {
+        width: 100%;
+        height: 30vh;
+    }
+}
+@media (max-width: 768px) {
     .moto-category{
         width: 100%;
         display: flex;

@@ -13,7 +13,7 @@ const Item = (props) => {
                 <div className="item_description">
                     <div className="item_name">{name}</div>
                     <p>Odo: {odo} Km</p>
-                    <p>Color: {color}</p>
+                    <p className="item_color">Color: {color}</p>
                     <p>Model: {model}</p>
                     <div className="item-price">
                         <div className="item-price-bike">

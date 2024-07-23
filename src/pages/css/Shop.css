@@ -1,6 +1,7 @@
-.shop-blog-homepage{
+.shop-blog-homepage {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }

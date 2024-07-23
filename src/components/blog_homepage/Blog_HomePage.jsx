@@ -1,23 +1,36 @@
 import { useEffect, useState, useRef } from 'react';
 import './Blog_HomePage.css';
-import { Button, Carousel } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import useBlogStore from '../../store/blogStore';
 import BlogCard from '../blog/Blog';
-
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 const Blog_HomePage = () => {
     const blogs = useBlogStore((state) => state.blogs);
-    const carouselRef = useRef(null);
-    const itemToShow = 3;
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (carouselRef.current) {
-                carouselRef.current.next();
+    let settings = {
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
             }
-        }, 3000);
-
-        return () => clearInterval(intervalId); // Dọn dẹp khi component unmount
-    }, [blogs.length]);
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+            }
+          }
+        ]
+      };
 
     return (
         <div className="blog-hompage-container">
@@ -32,20 +45,7 @@ const Blog_HomePage = () => {
                 </div>
             </div>
             <div className="blog-homepage-content">
-                <Button
-                    onClick={() => carouselRef.current?.prev()}
-                    className="blog-homepage-btn-left"
-                    shape="circle"
-                    size='large'
-                    icon={<LeftOutlined style={{ color: 'black' }} />}
-                />
-                <Carousel
-                    ref={carouselRef}
-                    dots={false}
-                    infinite
-                    slidesToShow={itemToShow}
-                    className='blog-homepage-carosel'
-                >
+                <Slider {...settings} className="blog-homepage-slider">
                     {blogs.map((item) => (
                         <div key={item._id} className="blog-homepage-blog-item">
                             <BlogCard
@@ -56,14 +56,7 @@ const Blog_HomePage = () => {
                             />
                         </div>
                     ))}
-                </Carousel>
-                <Button
-                    onClick={() => carouselRef.current?.next()}
-                    className="blog-homepage-btn-right"
-                    shape="circle"
-                    size='large'
-                    icon={<RightOutlined style={{ color: 'black' }} />}
-                />
+                </Slider>
             </div>
         </div>
     );
