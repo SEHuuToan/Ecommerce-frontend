@@ -15,7 +15,8 @@ const HomeContent = () => {
                         <div>Respectfully!</div>
                     </div>
                     <div className="home-content-right">
-                        <img src="https://ducativietnam.com/upload/files/Panigale%20v4/Gallery/Panigale-V4-S-MY20-Red-Ambience-15-Gallery-1920x1080.jpg" alt="" />
+                        <img className="home-content-right-img1" src="https://ducativietnam.com/upload/files/Panigale%20v4/Gallery/Panigale-V4-S-MY20-Red-Ambience-15-Gallery-1920x1080.jpg" alt="" />
+                        <img className="home-content-right-img2" src="https://cms-i.autodaily.vn/du-lieu/2019/07/16/2020-yamaha-r1-exhaust.jpg" alt="" />
                     </div>
                 </div>
                 <div className="home-content-address">

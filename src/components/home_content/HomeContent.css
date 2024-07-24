@@ -18,6 +18,7 @@
     display: flex;
     font-family: 'poppins';
     margin-top: 20px;
+    width: 100%;
     gap: 10px;
 }
 
@@ -51,6 +52,12 @@
     width: 100%;
     height: 100%;
 }
+.home-content-right-img1{
+    display: none;
+}
+.home-content-right-img2{
+    display: block;
+}
 
 .home-content-address {
     margin-top: 20px;
@@ -83,10 +90,11 @@
         max-width: 615px;
         height: auto;
     }
-
-    .home-content-right img {
-        width: 100%;
-        height: 100%;
+    .home-content-right-img1{
+        display: block;
+    }
+    .home-content-right-img2{
+        display: none;
     }
 
     .home-content-address {
