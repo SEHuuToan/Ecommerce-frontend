@@ -1,11 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import blog_banner from '../components/assets/other_img/aboutUs.png';
 import BlogCard from '../components/blog/Blog';
-import { axiosGetBlog } from '../utils/axiosUtils';
 import PaginationComponent from '../components/pagination/PaginationComponent';
 import empty_motor_img from "../components/assets/other_img/out-of-stock.png";
 import './css/Blog.css';
-import 'animate.css';
 import useBlogStore from '../store/blogStore';
 const Blog = () => {
     const blogs = useBlogStore((state) => state.blogs);
@@ -17,7 +15,7 @@ const Blog = () => {
     const paginatedBlog = blogs.slice(startIndex, endIndex)
     return (
         <div className="blog">
-            <img className="blog-banner animate__animated animate__fadeInLeft" src={blog_banner} alt="blog_banner" />
+            <img className="blog-banner" src={blog_banner} alt="blog_banner" />
             <div className="blog-title">
                 <h1 className="animate__animated animate__fadeInLeft">Blog</h1>
                 <hr className="animate__animated animate__slideInRight" />

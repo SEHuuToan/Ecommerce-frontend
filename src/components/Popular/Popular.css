@@ -19,7 +19,7 @@
 }
 .popular h1{
     padding-top: 30px;
-    counter-reset: #171717;
+    color: #383838;
     font-size: 50px;
     font-weight: 600;
 }
@@ -41,7 +41,7 @@
 @media (max-width: 1024px) {
     .popular h1{
         counter-reset: #171717;
-        font-size: 24px;
+        font-size: 36px;
         font-weight: 600;
     }
     .popular-item{

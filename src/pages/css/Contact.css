@@ -4,18 +4,23 @@
     justify-content: center;
     align-items: center;
 }
-
+.contact-title h1{
+    animation: fadeInLeft 1s;
+}
 .contact-title hr {
     width: 20%;
     border: none;
     border-radius: 10px;
     height: 5px;
     background: #FED444;
+    animation: slideInRight 1s;
 }
 
 .contact-banner {
+    display: block;
     width: 100%;
     height: 469px;
+    animation: fadeIn 2s;
 }
 
 .contact-container {
@@ -23,6 +28,7 @@
     display: flex;
     justify-content: center;
     gap: 80px;
+    animation: fadeIn 1.5s;
 }
 
 .contact-left {
@@ -48,7 +54,13 @@
     text-decoration: none;
     color: #3409df;
 }
-
+.contact-submit-btn:hover,
+.contact-submit-btn:focus,
+.contact-submit-btn:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
 .contact-right img {
     width: 700px;
     height: 500px;
@@ -58,6 +70,41 @@
     width: 650px;
     height: 450px;
 }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
 
 @media (max-width: 1024px) {
     .contact-container {

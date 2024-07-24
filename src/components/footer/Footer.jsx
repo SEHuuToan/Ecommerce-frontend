@@ -13,7 +13,7 @@ const Footer = () => {
     <div className="footer">
       <a className="footer-logo" href="/">
         <img src={Footer_logo} alt="footer_logo" />
-        <p>MOTOCYCLE</p>
+        <p>ROYAL MOTOCYCLE</p>
       </a>
       <div className="footer-links">
         <a href="/">Shop</a>

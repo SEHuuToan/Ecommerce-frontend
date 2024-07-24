@@ -8,7 +8,6 @@ import Search from '../search/Search';
 import { axiosGet } from "../../utils/axiosUtils";
 import debounce from 'lodash.debounce';
 import useSearchProductStore from "../../store/searchStore";
-import 'animate.css'
 
 const Navbar = () => {
     const location = useLocation();
@@ -39,7 +38,7 @@ const Navbar = () => {
             onTitleClick: (e) => { setDrawerMenuVisible(false); setMenu(e.key) },
             children: [
                 {
-                    label: <Link style={{ textDecoration: 'none', fontWeight: 600 }} to='/sport-bike' className='animate__animated animate__fadeIn'>Sport Bike</Link>,
+                    label: <Link style={{ textDecoration: 'none', fontWeight: 600 }} to='/sport-bike'>Sport Bike</Link>,
                     key: 'sportbike'
                 },
                 {

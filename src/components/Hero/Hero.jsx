@@ -1,32 +1,26 @@
 import './Hero.css'
-import hand_icon from '../assets/other_img/hand_icon.png'
 import hero_img from '../assets/other_img/hero_image.png'
 import { Button } from "antd";
 const Hero = () => {
- 
-    return(
+
+    return (
         <div className="hero">
             <div className="hero-left">
-                <h2>
-                    NEW USED MOTOCYCLE ARRIVALS ONLY
-                </h2>
-              <div>
-                <div className="hero-hand-icon">
-                    <p>new</p>
-                    <img src={hand_icon} alt="hand_icon" />
+                <div className="hero-left-sologan">
+                    <p>Your journey, our passion</p>
+                    <p>Explore and own it now</p>
                 </div>
-                <p>motocycle collections</p>
-                <p>for everyone</p>
-              </div>
-              <div>
-                <Button type="primary" className="hero-latest-btn" href="/motor" >
-                     Collection
-                </Button>
-              </div>
+                <div>
+                    <Button type="primary" className="hero-latest-btn" href="/motor" >
+                        Collection
+                    </Button>
+                </div>
             </div>
 
             <div className="hero-right">
-                <img src={hero_img} alt="hero" />
+                <div className="hero-right-blur">
+                    <img src={hero_img} alt="hero" />
+                </div>
             </div>
         </div>
     );

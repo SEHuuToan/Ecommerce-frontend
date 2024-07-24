@@ -31,25 +31,25 @@ const Description = ({product}) => {
                  {activeTab === 'policy' && (
                     <div className="descriptionbox-outpolicy">
                         <span>
-                            • Hỗ trợ bảo hành trong suốt quá trình sử dụng xe
+                            • Warranty support throughout the entire vehicle usage period.
                         </span>
                         <span>
-                            • &quot;Giữ hộ&quot; Motor | OTO với lãi suất SIÊU ƯU ĐÃI
+                            • With a &quot;Motor Custody policy&quot; featuring super preferential interest rates.
                         </span>
                         <span>
-                            • Nói không với xe đâm đụng tai nạn
+                            • Say no to accident-damaged vehicles.
                         </span>
                         <span>
-                            • Hỗ trợ vận chuyển xe toàn quốc
+                            • Nationwide vehicle transportation support.
                         </span>
                         <span>
-                            • Bao quay đầu với giá tốt nhất 
+                            • Support in buying back vehicles from customers at the best market prices.
                         </span>
                         <span>
-                            • Tặng kèm Options trên xe
+                            • Free modify options on the vehicle.
                         </span>
                         <span>
-                            • Trao đổi tất cả các loại xe
+                            • Buy, sell, and exchange all types of vehicles.
                         </span>
                     </div>
                 )}

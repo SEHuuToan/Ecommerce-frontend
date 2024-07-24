@@ -1,7 +1,6 @@
 import './css/Contact.css';
 import contact_banner from '../components/assets/other_img/contact_banner.jpeg'
 import { Button, Form, Input } from 'antd'
-import 'animate.css'
 
 const layout = {
   labelCol: {
@@ -26,16 +25,16 @@ const onFinish = (values) => {
 const Contact = () => {
   return (
     <div className="contact-category">
-      <img className="contact-banner animate__animated animate__fadeInRight" src={contact_banner} alt="contact_banner" />
+      <img className="contact-banner" src={contact_banner} alt="contact_banner" />
       <div className="contact-title">
-        <h1 className="animate__animated animate__fadeInLeft">Contact</h1>
+        <h1 >Contact</h1>
         <hr className="animate__animated animate__slideInRight" />
       </div>
       <div className="contact-container">
         <div className="contact-left">
           <div className="contact-content">
             <p>
-              Địa chỉ cửa hàng: 69669, Tân Chánh Hiệp, Phường 6, Quận 12.
+              Address: 123 Truong Chinh, Dong Hung Thuan, District 12, Ho Chi Minh city
             </p>
             <p>
               Hotline: <a href="tel:0369696699">0369696699</a> <a href="https://www.facebook.com/"> (MR. Toan)</a>
@@ -105,7 +104,7 @@ const Contact = () => {
               <Form.Item name={['user', 'content']} label="Content">
                 <Input.TextArea />
               </Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" className="contact-submit-btn">
                 Submit
               </Button>
             </Form>
