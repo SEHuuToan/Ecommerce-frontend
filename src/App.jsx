@@ -25,23 +25,6 @@ function App() {
   return (
     <>
       <div >
-        {/* <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Shop/>} />
-          <Route path='/motor' element={< Motor banner={banner_motor} category="motor"/>} />
-          <Route path='/sport-bike' element={< Motor banner={banner_sport} category="sport-bike"/> } />
-          <Route path='/naked-bike' element={< Motor banner={banner_naked} category="naked-bike"/>} />
-          <Route path='/adventure' element={< Motor banner={banner_adventure} category="adventure"/>} />
-          <Route path='/classic' element={< Motor banner={banner_classic} category="classic"/>} />
-          <Route path='/blog' element={< Blog/>} />
-          <Route path='/contact' element={< Contact/>} />
-          <Route path="/products/:id" element={<Product/>} />  
-          <Route path='*' element={<ErrorPage />}/>
-        </Routes>
-        <ScrollToTop />
-        <Footer />
-        </BrowserRouter> */}
         <BrowserRouter>
           <Routes>
             <Route element={<CommonLayout />}>

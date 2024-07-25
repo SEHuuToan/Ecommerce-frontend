@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import './ScrollToTop'
 const ScrollToTop = () => {
     const scrollToTopPage = () => {
         window.scrollTo({

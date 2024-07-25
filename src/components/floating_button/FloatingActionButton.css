@@ -1,0 +1,97 @@
+.floating-action-button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-icon-zalo, .floating-icon-phone {
+  position: fixed;
+  right: 15px;
+  cursor: pointer;
+  width: 54px;
+  height: 54px; /* Đảm bảo có chiều cao bằng chiều rộng */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Đảm bảo hình tròn */
+  box-sizing: border-box;
+  z-index: 10; /* Đảm bảo các icon nằm trên viền */
+}
+
+.floating-icon-zalo {
+  bottom: 240px;
+  border: 1px solid transparent; /* Viền trong suốt */
+  background-color: white; /* Màu nền của biểu tượng nếu cần */
+}
+
+.floating-icon-phone {
+  bottom: 320px;
+  border: 3px solid transparent; /* Viền trong suốt */
+  background-color: white; /* Màu nền của biểu tượng nếu cần */
+}
+
+/* Tạo viền xung quanh */
+.floating-icon-zalo::before, .floating-icon-phone::before {
+  content: '';
+  position: absolute;
+  top: -7px; /* Điều chỉnh kích thước của viền */
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  border: 5px solid rgba(230, 1, 1, 0.2); /* Viền màu đỏ và độ mờ */
+  border-radius: 50%; /* Đảm bảo viền có hình tròn */
+  box-shadow: 0 0 20px rgba(255, 0, 1, 0.5); /* Tạo hiệu ứng bóng */
+  animation: pulse 1.5s infinite; /* Ánh sáng pulsating */
+  z-index: -1; /* Đảm bảo viền không che khuất nút */
+}
+
+.floating-action-responsive-mobile {
+    display: none; 
+    position: fixed;
+    bottom: 0; 
+    z-index: 1000; /* Đảm bảo phần tử nổi lên trên các phần tử khác */
+  }
+  .floating-action-responsive-mobile-action{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 768px;
+    height: 50px;
+    background-color: whitesmoke;
+    animation: fadeIn 0.5s;
+  }
+  
+  @keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+
+@media (max-width: 768px) {
+    .floating-action-button-container{
+      display: none;
+    }
+    .floating-action-responsive-mobile{
+      display: block;
+      width: 100%;
+    }
+    
+}

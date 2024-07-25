@@ -1,6 +1,7 @@
+import {useState, useRef} from 'react';
 import './css/Contact.css';
 import contact_banner from '../components/assets/other_img/contact_banner.jpeg'
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input, message } from 'antd'
 
 const layout = {
   labelCol: {
@@ -18,11 +19,39 @@ const validateMessages = {
     range: '${label} must be between ${min} and ${max}',
   },
 };
-const onFinish = (values) => {
-  console.log(values);
-  //Logic send message with email and description 
-};
+
 const Contact = () => {
+  const [count, setCount] = useState(0);
+  const [timer, setTimer] = useState(null);
+  const [isCounting, setIsCounting] = useState(false);
+  const intervalRef = useRef(null);
+
+  const onSubmit = () => {
+    setCount((prevCount) => prevCount + 1);
+    if(!isCounting){
+      setIsCounting(true);
+      setTimer(10);
+      intervalRef.current = setInterval(() => {
+        setTimer((prevTimer) => {
+          if (prevTimer <= 1) {
+            clearInterval(intervalRef.current);
+            setIsCounting(false);
+            setCount(0); // Reset the count after 10 seconds
+            return 10;
+          }
+          return prevTimer - 1;
+        });
+      }, 1000);
+      message.success("Your message has successful submit!");
+    }else{
+      message.warning("You have to wait 10s to submit next message!");
+
+    }
+
+  }
+  
+
+
   return (
     <div className="contact-category">
       <img className="contact-banner" src={contact_banner} alt="contact_banner" />
@@ -50,7 +79,7 @@ const Contact = () => {
             <Form
               {...layout}
               name="nest-messages"
-              onFinish={onFinish}
+              onFinish={onSubmit}
               style={{
                 maxWidth: 600,
               }}
@@ -104,7 +133,7 @@ const Contact = () => {
               <Form.Item name={['user', 'content']} label="Content">
                 <Input.TextArea />
               </Form.Item>
-              <Button type="primary" className="contact-submit-btn">
+              <Button type="primary" onClick={onSubmit} className="contact-submit-btn">
                 Submit
               </Button>
             </Form>
