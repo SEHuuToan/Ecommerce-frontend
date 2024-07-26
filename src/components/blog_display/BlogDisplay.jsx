@@ -1,4 +1,5 @@
 
+import {memo} from 'react';
 import './BlogDisplay.css';
 import PropTypes from 'prop-types';
 
@@ -62,4 +63,4 @@ BlogDisplay.propTypes = {
         })).isRequired,
     }).isRequired,
 };
-export default BlogDisplay;
+export default memo(BlogDisplay);
