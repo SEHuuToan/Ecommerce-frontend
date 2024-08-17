@@ -12,9 +12,8 @@
     text-decoration: none;
     color: inherit;
 }
-.item img{
-    width: 400px;
-    height: 300px;
+.ant-image {
+    width: 100%;
 }
 .item_description{
     width: auto;
@@ -61,8 +60,9 @@
     align-items: center;
 }
 .item:hover{
-    transform: scale(1.05);
+    transform: scale(1.01);
     transition: 0.6s;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
 }
 @media (max-width: 1024px) {
     .item{

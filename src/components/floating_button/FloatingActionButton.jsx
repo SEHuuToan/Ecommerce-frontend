@@ -1,12 +1,12 @@
 import React from "react";
 import './FloatingActionButton.css';
 import { Link } from 'react-router-dom';
+import imageZalo from '../assets/other_img/zalo_circle.png';
+import imagePhone from '../assets/other_img/phoneRing.jpg';
+import imagePhoneMobile from '../assets/other_img/phoneRingMobile.png';
+import messenger from '../assets/other_img/messenger.png';
+import chat from '../assets/other_img/iphoneMessenger.png';
 const FloatingActionButton = () => {
-  const imagePhone = 'https://img.icons8.com/nolan/64/1A6DFF/C822FF/apple-phone.png';
-  const imageZalo = 'https://img.icons8.com/color/48/zalo.png';
-  const phoneRinger = 'https://img.icons8.com/nolan/64/1A6DFF/C822FF/ringer-volume.png';
-  const messenger = 'https://img.icons8.com/nolan/64/1A6DFF/C822FF/facebook-messenger.png';
-  const chat = 'https://img.icons8.com/fluency/48/chat--v1.png';
   return (
     <>
       <div className="floating-action-button-container">
@@ -14,7 +14,7 @@ const FloatingActionButton = () => {
           <img src={imageZalo} alt="Zalo" />
         </Link>
         <Link to='tel:0377504378' className="floating-icon-phone">
-          <img src={imagePhone} width="50" alt="Phone" />
+          <img src={imagePhone} alt="Phone" />
         </Link>
       </div>
       <div className="floating-action-responsive-mobile">
@@ -23,7 +23,7 @@ const FloatingActionButton = () => {
             <img src={imageZalo} width="38px" alt="Zalo" />
           </Link>
           <Link to='tel:0377504378'>
-            <img src={phoneRinger} width="36px" alt="Phone" />
+            <img src={imagePhoneMobile} width="36px" alt="Phone" />
           </Link>
           <Link to='https://www.facebook.com/kind.master.73/'>
             <img src={messenger} width="36px" alt="messenger" />
