@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './LoadingPage.css';
-
-const LoadingPage = () => {
+import { Flex, Spin } from 'antd';
+const LoadingPage = ({loading}) => {
     const handleScrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -14,7 +14,9 @@ const LoadingPage = () => {
     return (
         <>
             <div className='body'>
-                <div className='loader'> </div>
+                <Flex align="center" gap="middle">
+                    <Spin  tip="Loading" size="large" spinning={loading}/>
+                </Flex>
             </div>
         </>
     );

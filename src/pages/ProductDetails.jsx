@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
 import Breadcrum from '../components/breadcrums/Breadcrum';
 import ProductDisplay from "../components/product_display/ProductDisplay";
@@ -6,49 +6,42 @@ import DescriptionBox from "../components/description/DescriptionBox";
 import RelatedProduct from "../components/relatedproduct/RelatedProduct";
 import { axiosGet } from "../utils/axiosUtils";
 import LoadingPage from '../components/loading/LoadingPage';
-
+const getProductById = async (id) => {
+    const res = await axiosGet(`${id}`);
+    return res.data;
+};
 const Product = () => {
     const { id } = useParams();
-    const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(true);
-   
 
-    const getProductById = useCallback( async () => {
-        try {
-            const res = await axiosGet(`${id}`);
-            setProduct(res.data);
-            setLoading(false); // Dừng trạng thái loading khi dữ liệu được tải xong
-        } catch (error) {
-            console.error('Error when loading 1 product', error);
-            setLoading(false); // Dừng trạng thái loading khi gặp lỗi
-        }
-    }, [id, setProduct, setLoading]);
-    useEffect(() => {
-        setTimeout(() => {
-            getProductById();
-            setLoading(false); 
-        }, 650)
-    }, [id, getProductById]);
-    if (loading) {
+    // React Query's useQuery hook for fetching product data
+    const { data: product, error, isLoading, isError } = useQuery(['product', id], () => getProductById(id));
+
+    if (isLoading) {
         return <>
-            <LoadingPage />
+            <LoadingPage loading={isLoading}/>
         </>
     }
+
+    // Error state
+    if (isError) {
+        return <div>Error fetching product data: {error.message}</div>;
+    }
+
     if (!product) {
         return;
     }
-    // Kiểm tra nếu product đã có giá trị trước khi truy cập vào thuộc tính category
-    if (!product.category) {
-        return console.log('Can\'t found category of product!')
-    }
+    // Destructure product details for ease of use
+    const { category, name, description } = product;
     return (
         <>
-            <Breadcrum product={product} />
+            <Breadcrum
+                category={category}
+                productName={name}
+            />
             <ProductDisplay product={product} />
-            <DescriptionBox product={product} />
+            <DescriptionBox description={description} />
             <RelatedProduct
-                category={product.category}
-                product={product}
+                category={category}
                 currentProductId={id}
             />
         </>

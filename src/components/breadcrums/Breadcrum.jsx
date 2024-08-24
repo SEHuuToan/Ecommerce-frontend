@@ -17,43 +17,22 @@ const getCategoryDisplayName = (category) => {
             return category; // Trả về giá trị mặc định nếu không khớp với bất kỳ trường hợp nào
     }
 };
-const Breadcrums = ({ product }) => {
-    if (!product) {
-        return null; // Trả về null hoặc một loader nếu product chưa được tải
-    }
-    const displayName = getCategoryDisplayName(product.category);
+const Breadcrums = ({ category, productName }) => {
+    const displayName = getCategoryDisplayName(category);
     return (
         <div className="breadcrum">
             <a href="/">Home</a>
             <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
             <a href="/motor" >Motor</a>
             <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
-            <a href={`/${product.category}`} >{displayName}</a>
+            <a href={`/${category}`} >{displayName}</a>
             <RightOutlined style={{ fontSize: '13px', color: '#515151' }} />
-            <span className="breadcrum-product-name">{product.name}</span>
+            <span className="breadcrum-product-name">{productName}</span>
         </div>
     );
 }
 Breadcrums.propTypes = {
-
-    product: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        odo: PropTypes.string.isRequired,
-        color: PropTypes.string.isRequired,
-        model: PropTypes.string.isRequired,
-        brand: PropTypes.string.isRequired,
-        option: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired,
-        image: PropTypes.arrayOf(
-            PropTypes.shape({
-                public_id: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired
-            })
-        ),
-        price: PropTypes.number.isRequired,
-
-    })
+    productName: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
 }
 export default memo(Breadcrums)

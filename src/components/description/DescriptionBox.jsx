@@ -1,13 +1,10 @@
-import {useState, memo} from "react";
+import { useState, memo } from "react";
 import './DescriptionBox.css'
 import PropTypes from 'prop-types';
 
 
-const Description = ({product}) => {
+const Description = ({ description }) => {
     const [activeTab, setActiveTab] = useState('description');
-    if (!product) {
-        return null; // Trả về null hoặc một loader nếu product chưa được tải
-    }
     return (
         <div className="descriptionbox">
             <div className="descriptionbox-navigator">
@@ -25,10 +22,10 @@ const Description = ({product}) => {
             <div className="descriptionbox-content">
                 {activeTab === 'description' && (
                     <div className="descriptionbox-textarea">
-                        {product.description}
+                        {description}
                     </div>
                 )}
-                 {activeTab === 'policy' && (
+                {activeTab === 'policy' && (
                     <div className="descriptionbox-outpolicy">
                         <span>
                             • Warranty support throughout the entire vehicle usage period.
@@ -58,24 +55,6 @@ const Description = ({product}) => {
     );
 }
 Description.propTypes = {
-    product: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        odo: PropTypes.string.isRequired,
-        color: PropTypes.string.isRequired,
-        model: PropTypes.string.isRequired,
-        brand: PropTypes.string.isRequired,
-        option: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired,
-        image: PropTypes.arrayOf(
-            PropTypes.shape({
-                public_id: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired
-            })
-        ),
-        price: PropTypes.number.isRequired,
-        
-    })
+    description: PropTypes.string.isRequired,
 }
 export default memo(Description)

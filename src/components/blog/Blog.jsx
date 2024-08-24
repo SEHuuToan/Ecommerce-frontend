@@ -11,7 +11,6 @@ const Blog = (props) => {
         navigate(`/blog/${id}`);
     }
     return (
-        <>
             <Link to={`/blog/${id}`} className="blog-card-link">
                 <div className="blog-card" >
                     {imageUrl && <img src={imageUrl} alt='image_blog' />}
@@ -26,7 +25,6 @@ const Blog = (props) => {
                     </div>
                 </div>
             </Link>
-        </>
     );
 }
 Blog.propTypes = {

@@ -1,19 +1,12 @@
 import './Item.css'
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
-import { Image, Card } from 'antd';
-import { useEffect, useState } from 'react';
+import { Image } from 'antd';
 const Item = (props) => {
     const { id, name, image, odo, color, model, price } = props;
     // Extract the URL of the first image in the array
     const imageUrl = image && image.length > 0 ? image[0].url : '';
-    const [random, setRandom] = useState(null)
 
-    useEffect(() => {
-        setTimeout(() => {
-            setRandom(Date.now())
-        }, 3000);
-    }, [])
     return (
         <Link to={`/products/${id}`} className="item-link">
             <div className="item" >

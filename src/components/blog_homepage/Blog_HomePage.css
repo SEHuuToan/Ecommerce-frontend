@@ -42,19 +42,12 @@
     width: 100%;
     margin: 40px auto;
     animation: fadeIn 0.5s;
-    position: relative;;
+    position: relative;
 }
-.blog-homepage-slider{
-    width: 100%;
-    max-width: 1240px;
-    display: flex;
-    justify-content: center;
-}
+
 .blog-homepage-blog-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 7px;
+  width: 800px;
+  padding-top: 20px;
 }
 .blog-homepage-slider .slick-slide {
     max-width: 420px !important;
@@ -77,10 +70,6 @@
     .blog-homepage-title {
         display: flex;
         justify-content: space-around;
-    }
-    .blog-homepage-slider {
-        width: 100%;
-        max-width: 1000px;
     }
 
     .blog-homepage-title h1 {
@@ -106,14 +95,12 @@
         justify-content: center;
     }
     
-
 }
 
 @media (max-width: 768px) {
     .blog-hompage-container {
         width: 100%;
         overflow: hidden;
-
     }
     .blog-homepage-title {
         display: flex;

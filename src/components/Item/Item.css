@@ -11,6 +11,7 @@
 .item-link{
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 .ant-image {
     width: 100%;
