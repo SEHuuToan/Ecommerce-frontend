@@ -4,7 +4,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-items: space-between;
+    justify-content: center;
+    align-items: center;
     color: #FFFFFF;
     background-color: #212529;
     cursor: pointer;
@@ -16,7 +17,7 @@
 }
 
 .blog-card img {
-    width: 100%;
+    width: 400px;
     object-fit: cover;
 }
 
@@ -25,7 +26,7 @@
     flex: 1;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     box-sizing: border-box;
     max-width: 400px;
     gap: 10px;
@@ -34,7 +35,7 @@
 
 .blog-card-title {
     -webkit-font-smoothing: antialiased;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
     text-transform: capitalize;
     font-family: 'Roboto', sans-serif;
