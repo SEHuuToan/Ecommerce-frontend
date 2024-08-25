@@ -15,7 +15,7 @@ const Blog = (props) => {
                 <div className="blog-card" >
                     {imageUrl && <img src={imageUrl} alt='image_blog' />}
                     <div className="blog-card-description">
-                        <div className="blog-card-title text-split">{title}</div>
+                        <div className="blog-card-title text-split text-split2">{title}</div>
                         <div className='blog-card-header text-split'>{header}</div>
                         <div className="blog-card-btn">
                             <Button type='primary' onClick={handleNavigateToDetailBlog}>
