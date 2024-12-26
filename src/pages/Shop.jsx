@@ -1,5 +1,5 @@
-import Hero from '../components/hero/Hero';
-import Popular from "../components/popular/Popular";
+import Hero from '../components/hero/Hero.jsx';
+import Popular from "../components/popular/Popular.jsx";
 import Blog_HomePage from "../components/blog_homepage/Blog_HomePage";
 import HomeContent from '../components/home_content/HomeContent';
 import './css/Shop.css';
