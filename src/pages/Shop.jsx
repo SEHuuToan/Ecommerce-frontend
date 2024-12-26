@@ -1,4 +1,4 @@
-import HeroPart from '../components/hero/HeroPart.jsx';
+import HeroPart from '../components/hero_part/HeroPart.jsx';
 import PopularPart from "../components/popular/PopularPart.jsx";
 import Blog_HomePage from "../components/blog_homepage/Blog_HomePage";
 import HomeContent from '../components/home_content/HomeContent';
@@ -7,7 +7,7 @@ const Shop = () => {
     return (
         <div>
             <HeroPart />
-            <Popular />
+            <PopularPart />
             <div className="shop-blog-home-content">
                 <HomeContent />
             </div>
