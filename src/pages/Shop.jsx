@@ -1,12 +1,12 @@
-import Hero from '../components/hero/HeroPart.jsx';
-import Popular from "../components/popular/Popular.jsx";
+import HeroPart from '../components/hero/HeroPart.jsx';
+import PopularPart from "../components/popular/PopularPart.jsx";
 import Blog_HomePage from "../components/blog_homepage/Blog_HomePage";
 import HomeContent from '../components/home_content/HomeContent';
 import './css/Shop.css';
 const Shop = () => {
     return (
         <div>
-            <Hero />
+            <HeroPart />
             <Popular />
             <div className="shop-blog-home-content">
                 <HomeContent />

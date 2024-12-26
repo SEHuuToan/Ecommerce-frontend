@@ -1,7 +1,7 @@
 import './Hero.css'
 import hero_img from '../assets/other_img/hero_image.png'
 import { Button } from "antd";
-const Hero = () => {
+const HeroPart = () => {
 
     return (
         <div className="hero">
@@ -25,4 +25,4 @@ const Hero = () => {
         </div>
     );
 }
-export default Hero
+export default HeroPart

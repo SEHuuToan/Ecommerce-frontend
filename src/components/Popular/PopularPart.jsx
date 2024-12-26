@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './Popular.css'
 import Item from '../Item/Item'
 import { axiosGet } from "../../utils/axiosUtils";
-const Popular = () => {
+const PopularPart = () => {
     const [latestProduct, setLatestProduct] = useState([]);
     const getLatestProduct = async() => {
         try {
@@ -36,4 +36,4 @@ const Popular = () => {
         </div>
     );
 }
-export default Popular
+export default PopularPart
