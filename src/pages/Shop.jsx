@@ -11,7 +11,7 @@ const Shop = () => {
             <div className="shop-blog-home-content">
                 <HomeContent />
             </div>
-            <div className="shop-blog-homepage">
+            <div className="shop-blog-homepagee">
                 <Blog_HomePage />
             </div>
         </div>
