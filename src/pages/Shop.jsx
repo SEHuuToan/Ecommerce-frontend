@@ -1,4 +1,4 @@
-import Hero from '../components/hero/Hero.jsx';
+import Hero from '../components/hero/HeroPart.jsx';
 import Popular from "../components/popular/Popular.jsx";
 import Blog_HomePage from "../components/blog_homepage/Blog_HomePage";
 import HomeContent from '../components/home_content/HomeContent';
