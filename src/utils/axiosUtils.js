@@ -12,7 +12,7 @@ const axiosGetWithParams = async (url, params) => {
     return res;
 }
 const axiosGetBlog = async (url) => {
-    const res = await axios.get(HOST+ 'api/' + url)
+    const res = await axios.get(HOST+ '/api/' + url)
     return res;
 }
 
