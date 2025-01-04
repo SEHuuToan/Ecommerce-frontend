@@ -1,0 +1,42 @@
+.modal-container .ant-modal-content{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center; 
+    margin: 0 auto; 
+    width: 35vw; 
+    min-width: 550px;
+    height: 80vh;
+}
+.modal-title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+.modal-list-content{
+    overflow-y: auto;
+    max-height: calc(76vh - 32px);
+}
+
+
+@media (max-width: 1024px) {
+    .modal-container .ant-modal-content{
+        width: 60vw;  
+        height: 80vh;
+    }
+    .modal-list-content{
+        overflow-y: auto;
+        max-height: calc(76vh - 32px);
+    }
+}
+@media (max-width: 768px) {
+    .modal-container .ant-modal-content{
+        width: 70vw;  
+        height: 80vh;  
+        min-width: 380px;
+    }
+    .modal-list-content{
+        overflow-y: auto;
+        max-height: calc(76vh - 32px);
+    }
+}
