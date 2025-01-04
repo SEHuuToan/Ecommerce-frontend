@@ -11,6 +11,7 @@ const Item = (props) => {
         <Link to={`/products/${id}`} className="item-link">
             <div className="item" >
                 {imageUrl && <Image 
+                                preview={false}
                                 src={imageUrl} 
                                 alt={`${name} image`} 
                                 placeholder={   
