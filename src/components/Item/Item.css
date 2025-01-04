@@ -13,14 +13,18 @@
     color: inherit;
     cursor: pointer;
 }
-.ant-image {
+.ant-image-img {
     width: 100%;
+    max-height: 266.15px;
+}
+.ant-image-mask {
+    width: 100%;
+    max-height: 266.15px;
 }
 .item_description{
     width: auto;
     height: 100%;
     padding: 18px;
-    flex-grow: 1;
 }
 
 .item-price{
@@ -71,9 +75,13 @@
         color: #FFFFFF;
         background-color: #212529;
     }
-    .item img{
+    .ant-image-img {
+        width: 100%;
+        max-height: 233.19px;
+    }
+    .ant-image-mask{
         width: 350px;
-        height: 250px;
+        height: 233.19px;
     }
     .item:hover{
         transform: none;
@@ -107,9 +115,13 @@
         color: #FFFFFF;
         background-color: #212529;
     }
-    .item img{
+    .ant-image-img {
+        width: 100%;
+        max-height: 146.25px;
+    }
+    .ant-image-mask{
         width: 195px;
-        height: 140px;
+        height: 146.25px;
     }
     .item:hover{
         transform: none;

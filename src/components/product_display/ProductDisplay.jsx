@@ -77,12 +77,12 @@ const ProductDisplay = ({product}) => {
                         <Button onClick={onClickRight} type="text" icon={<RightOutlined style={{ fontSize: '29px' }} />} style={{ height: '89px' }}></Button>
                     </div>
                     <div className="product-display-img">
-                        {currentImage && <Image width={'100%'} height={'100%'} style={{ objectFit: 'cover' }}  src={currentImage} alt="current-view-img" />}
+                        {currentImage && <Image width={'100%'} height={'100%'} style={{ objectFit: 'contain' }}  src={currentImage} alt="current-view-img" />}
                     </div>
                 </div>
                 <div className="product-display-right">
                     <div>
-                        <h1>{product.name}</h1>
+                        <h2>{product.name}</h2>
                     </div>
                     <div className="product-display-right-detail">
                         {/* <span>
