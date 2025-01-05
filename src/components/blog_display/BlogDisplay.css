@@ -15,6 +15,10 @@
     align-items: center;
     width: 100%;
 }
+.blog-display-title h2{
+    margin-left: 90px;
+    margin-right: 90px;
+}
 
 .blog-display-title hr {
     width: 20%;

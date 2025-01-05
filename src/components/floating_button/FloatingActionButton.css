@@ -42,13 +42,13 @@
 .floating-icon-zalo::before, .floating-icon-phone::before {
   content: '';
   position: absolute;
-  top: -7px; /* Điều chỉnh kích thước của viền */
-  left: -7px;
-  right: -7px;
-  bottom: -7px;
+  top: -1px; /* Điều chỉnh kích thước của viền */
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
   border: 5px solid rgba(230, 1, 1, 0.2); /* Viền màu đỏ và độ mờ */
   border-radius: 50%; /* Đảm bảo viền có hình tròn */
-  box-shadow: 0 0 20px rgba(255, 0, 1, 0.5); /* Tạo hiệu ứng bóng */
+  box-shadow: 0 0 30px rgba(255, 0, 1, 0.5); /* Tạo hiệu ứng bóng */
   animation: pulse 1.5s infinite; /* Ánh sáng pulsating */
   z-index: -1; /* Đảm bảo viền không che khuất nút */
 }

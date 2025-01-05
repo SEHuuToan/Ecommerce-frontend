@@ -1,6 +1,6 @@
 import './Blog.css';
-import { Button } from 'antd';
-import PropTypes from 'prop-types';
+import { Button, Image } from 'antd';
+import PropTypes, { object } from 'prop-types';
 import { Link, useNavigate } from "react-router-dom";
 
 const Blog = (props) => {
@@ -13,7 +13,7 @@ const Blog = (props) => {
     return (
             <Link to={`/blog/${id}`} className="blog-card-link">
                 <div className="blog-card" >
-                    {imageUrl && <img src={imageUrl} alt='image_blog' />}
+                    {imageUrl && <Image width={400} className="blog-card-image" preview={false} src={imageUrl} alt='image_blog' />}
                     <div className="blog-card-description">
                         <div className="blog-card-title text-split text-split2">{title}</div>
                         <div className='blog-card-header text-split'>{header}</div>

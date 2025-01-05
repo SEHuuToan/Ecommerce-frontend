@@ -15,7 +15,7 @@ const LoadingPage = ({loading}) => {
         <>
             <div className='body'>
                 <Flex align="center" gap="middle">
-                    <Spin  tip="Loading" size="large" spinning={loading}/>
+                    <Spin fullscreen tip="Please wait..." size="large" spinning={loading}/>
                 </Flex>
             </div>
         </>

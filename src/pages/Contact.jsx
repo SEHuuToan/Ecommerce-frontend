@@ -2,7 +2,7 @@ import {useState, useRef} from 'react';
 import './css/Contact.css';
 import contact_banner from '../components/assets/other_img/contact_banner.jpeg'
 import { Button, Form, Input, message } from 'antd'
-
+import LoadingPage from '../components/loading/LoadingPage';
 const layout = {
   labelCol: {
     span: 4,
@@ -24,36 +24,65 @@ const Contact = () => {
   const [count, setCount] = useState(0);
   const [timer, setTimer] = useState(null);
   const [isCounting, setIsCounting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const intervalRef = useRef(null);
 
+  // const onSubmit = () => {
+  //   setCount((prevCount) => prevCount + 1);
+  //   if(!isCounting){
+  //     setIsCounting(true);
+  //     setTimer(10);
+  //     intervalRef.current = setInterval(() => {
+  //       setTimer((prevTimer) => {
+  //         if (prevTimer <= 1) {
+  //           clearInterval(intervalRef.current);
+  //           setIsCounting(false);
+  //           setCount(0); // Reset the count after 10 seconds
+  //           return 10;
+  //         }
+  //         return prevTimer - 1;
+  //       });
+  //     }, 1000);
+  //     message.success("Your message has successful submit!");
+  //   }else{
+  //     message.warning("You have to wait 10s to submit next message!");
+
+  //   }
+  // }
   const onSubmit = () => {
-    setCount((prevCount) => prevCount + 1);
-    if(!isCounting){
+    if (isCounting) {
+      message.warning('You have to wait 10s to submit the next message!');
+      return;
+    }
+
+    setIsLoading(true); // Bật loading
+    setTimeout(() => {
+      setIsLoading(false); // Tắt loading sau 3 giây
+      message.success('Your message has been successfully submitted!');
+      setCount((prevCount) => prevCount + 1);
       setIsCounting(true);
       setTimer(10);
+
       intervalRef.current = setInterval(() => {
         setTimer((prevTimer) => {
           if (prevTimer <= 1) {
             clearInterval(intervalRef.current);
             setIsCounting(false);
-            setCount(0); // Reset the count after 10 seconds
+            setCount(0); // Reset đếm sau 10 giây
             return 10;
           }
           return prevTimer - 1;
         });
       }, 1000);
-      message.success("Your message has successful submit!");
-    }else{
-      message.warning("You have to wait 10s to submit next message!");
+    }, 3000); // Thời gian chờ loading 3 giây
+  };
 
-    }
-
-  }
   
 
 
   return (
     <div className="contact-category">
+    
       <img className="contact-banner" src={contact_banner} alt="contact_banner" />
       <div className="contact-title">
         <h1 >Contact</h1>
@@ -66,7 +95,7 @@ const Contact = () => {
               Address: 123 Truong Chinh, Dong Hung Thuan, District 12, Ho Chi Minh city
             </p>
             <p>
-              Hotline: <a href="tel:0369696699">0369696699</a> <a href="https://www.facebook.com/"> (MR. Toan)</a>
+              Hotline: <a href="tel:0377405378">0377504378</a> <a href="https://www.facebook.com/kind.master.73/"> (MR. Toan)</a>
             </p>
             <p>
               Fanpage: <a href="https://www.facebook.com/"> Royal Motocycle Viet Nam</a>
@@ -91,6 +120,7 @@ const Contact = () => {
                 rules={[
                   {
                     required: true,
+                    message: 'Please input your Name!',
                   },
                 ]}
               >
@@ -102,6 +132,7 @@ const Contact = () => {
                 rules={[
                   {
                     required: true,
+                    message: 'Please input your Address!',
                   },
                 ]}
               >
@@ -113,6 +144,7 @@ const Contact = () => {
                 rules={[
                   {
                     required: true,
+                    message: 'Please input your Phone Number!',
                   },
                 ]}
               >
@@ -123,19 +155,25 @@ const Contact = () => {
                 label="Email"
                 rules={[
                   {
-                    type: 'email',
                     required: true,
+                    message: 'Please input your Email!',
                   },
                 ]}
               >
                 <Input />
               </Form.Item>
-              <Form.Item name={['user', 'content']} label="Content">
+              <Form.Item name={['user', 'content']} label="Content"  rules={[
+                  {
+                    required: true,
+                    message: 'Please input your Content!',
+                  },
+                ]}>
                 <Input.TextArea />
               </Form.Item>
-              <Button type="primary" onClick={onSubmit} className="contact-submit-btn">
+              <Button type="primary" htmlType={onSubmit} className="contact-submit-btn">
                 Submit
               </Button>
+              {isLoading && <LoadingPage loading={isLoading} />}
             </Form>
           </div>
 

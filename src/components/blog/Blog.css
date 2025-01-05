@@ -16,8 +16,8 @@
     color: inherit;
 }
 
-.blog-card img {
-    width: 400px;
+.blog-card-image {
+    width: 100%;
     object-fit: cover;
 }
 

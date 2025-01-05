@@ -14,9 +14,9 @@ const BlogDisplay = ({ blog }) => {
         <>
             <div className='blog-display-container'>
                 <div className='blog-display-title'>
-                    <h1>
+                    <h2>
                         {title}
-                    </h1>
+                    </h2>
                     <hr className="animate__animated animate__slideInRight" />
                 </div>
                 <div className='blog-display-content'>
