@@ -2,6 +2,7 @@ import { useEffect, memo } from "react";
 import './ItemRelated.css'
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { Image } from "antd";
 
 const ItemRelated = (props) => {
     const { id, name, image, odo, price } = props;
@@ -16,7 +17,7 @@ const ItemRelated = (props) => {
     return (
         <Link to={`/products/${id}`} className="relateditem-link">
             <div className="relateditem" >
-                {imageUrl && <img className="relateditem-img" src={imageUrl} alt="motocycle_image" />}
+                {imageUrl && <Image preview={false} width={400} className="relateditem-img" src={imageUrl} alt="motocycle_image" />}
                 <div className="relateditem_description">
                     <div className="relateditem_name">{name}</div>
                     <div className="relateditem_odo">Odo: {odo} Km</div>

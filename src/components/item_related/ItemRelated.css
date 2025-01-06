@@ -13,9 +13,13 @@
     text-decoration: none;
     color: inherit;
 }
-.relateditem img{
-    width: 400px;
-    height: 300px;
+.ant-image-img {
+    width: 100%;
+    max-height: 266.15px;
+}
+.ant-image-mask {
+    width: 100%;
+    max-height: 266.15px;
 }
 
 .relateditem_description {

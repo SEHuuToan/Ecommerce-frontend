@@ -19,7 +19,7 @@ const Item = (props) => {
                                     preview={false}
                                     src={imageUrl}
                                     width={400}
-                                    style={{opacity: 0.5}}
+                                    alt="motocycle_image"
                                 />}
                             />}
                 <div className="item_description">
